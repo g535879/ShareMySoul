@@ -23,7 +23,7 @@
     self.window.rootViewController = [[LogInViewController alloc] init];
     [self.window makeKeyAndVisible];
     //高德地图key
-    [MAMapServices sharedServices].apiKey = GEO_API;
+    [MAMapServices sharedServices].apiKey = GEO_API_KEY;
     return YES;
 }
 
