@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LogInViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[LogInViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    //高德地图key
+    [MAMapServices sharedServices].apiKey = GEO_API;
     return YES;
 }
 

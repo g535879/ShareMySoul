@@ -1,0 +1,17 @@
+//
+//  ShareMySoul.pch
+//  ShareMySoul
+//
+//  Created by 古玉彬 on 15/11/29.
+//  Copyright © 2015年 gf. All rights reserved.
+//
+
+#ifndef ShareMySoul_pch
+#define ShareMySoul_pch
+#import <MAMapKit/MAMapKit.h>
+
+/**
+ *  高德地图API
+ */
+#define GEO_API @"70a6c2288bfa02ebcf096751cf5cd790"
+#endif /* ShareMySoul_pch */

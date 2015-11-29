@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
+		AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */; };
+		AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0F21C0B3097009E5F60 /* LogInViewController.m */; };
 		ADBA98141C0B1FF00023499E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98131C0B1FF00023499E /* main.m */; };
 		ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98161C0B1FF00023499E /* AppDelegate.m */; };
-		ADBA981A1C0B1FF00023499E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98191C0B1FF00023499E /* ViewController.m */; };
 		ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981B1C0B1FF00023499E /* Main.storyboard */; };
 		ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981E1C0B1FF00023499E /* Assets.xcassets */; };
 		ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA98201C0B1FF00023499E /* LaunchScreen.storyboard */; };
@@ -35,12 +37,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43DC34C5535C61C2AC23BB2A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
+		AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
+		AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
+		AD92F0F11C0B3097009E5F60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		AD92F0F21C0B3097009E5F60 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		ADBA980F1C0B1FEF0023499E /* ShareMySoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMySoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA98131C0B1FF00023499E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADBA98151C0B1FF00023499E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ADBA98161C0B1FF00023499E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ADBA98181C0B1FF00023499E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ADBA98191C0B1FF00023499E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		ADBA981C1C0B1FF00023499E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADBA981E1C0B1FF00023499E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADBA98211C0B1FF00023499E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +87,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4468034516F38940F4F10FE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */,
+				5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD92F0E91C0B2FA8009E5F60 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		AD92F0EA1C0B2FA8009E5F60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD92F0EB1C0B2FA8009E5F60 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD92F0EC1C0B2FA8009E5F60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD92F0ED1C0B2FA8009E5F60 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD92F0F11C0B3097009E5F60 /* LogInViewController.h */,
+				AD92F0F21C0B3097009E5F60 /* LogInViewController.m */,
+				AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */,
+				AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		ADBA98061C0B1FEF0023499E = {
 			isa = PBXGroup;
 			children = (
+				AD92F0E91C0B2FA8009E5F60 /* Library */,
+				AD92F0EA1C0B2FA8009E5F60 /* Model */,
+				AD92F0EB1C0B2FA8009E5F60 /* Resources */,
+				AD92F0EC1C0B2FA8009E5F60 /* View */,
+				AD92F0ED1C0B2FA8009E5F60 /* ViewControllers */,
 				ADBA98111C0B1FEF0023499E /* ShareMySoul */,
 				ADBA982B1C0B1FF00023499E /* ShareMySoulTests */,
 				ADBA98361C0B1FF00023499E /* ShareMySoulUITests */,
 				ADBA98101C0B1FEF0023499E /* Products */,
+				4468034516F38940F4F10FE7 /* Pods */,
+				BFAE867869553D2BC5572004 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,8 +167,6 @@
 			children = (
 				ADBA98151C0B1FF00023499E /* AppDelegate.h */,
 				ADBA98161C0B1FF00023499E /* AppDelegate.m */,
-				ADBA98181C0B1FF00023499E /* ViewController.h */,
-				ADBA98191C0B1FF00023499E /* ViewController.m */,
 				ADBA981B1C0B1FF00023499E /* Main.storyboard */,
 				ADBA981E1C0B1FF00023499E /* Assets.xcassets */,
 				ADBA98201C0B1FF00023499E /* LaunchScreen.storyboard */,
@@ -117,6 +179,7 @@
 		ADBA98121C0B1FEF0023499E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */,
 				ADBA98131C0B1FF00023499E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -140,6 +203,14 @@
 			path = ShareMySoulUITests;
 			sourceTree = "<group>";
 		};
+		BFAE867869553D2BC5572004 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43DC34C5535C61C2AC23BB2A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADBA983C1C0B1FF00023499E /* Build configuration list for PBXNativeTarget "ShareMySoul" */;
 			buildPhases = (
+				94C9533CE52A70888281CADD /* Check Pods Manifest.lock */,
 				ADBA980B1C0B1FEF0023499E /* Sources */,
 				ADBA980C1C0B1FEF0023499E /* Frameworks */,
 				ADBA980D1C0B1FEF0023499E /* Resources */,
+				13BB70940425328747E63C07 /* Embed Pods Frameworks */,
+				6C1F8EA7394D83621B0330CE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,12 +342,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13BB70940425328747E63C07 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C1F8EA7394D83621B0330CE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94C9533CE52A70888281CADD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ADBA980B1C0B1FEF0023499E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBA981A1C0B1FF00023499E /* ViewController.m in Sources */,
+				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
+				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,
 			);
@@ -414,23 +537,31 @@
 		};
 		ADBA983D1C0B1FF00023499E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ShareMySoul.pch";
 				INFOPLIST_FILE = ShareMySoul/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.ShareMySoul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
 		ADBA983E1C0B1FF00023499E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ShareMySoul.pch";
 				INFOPLIST_FILE = ShareMySoul/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.ShareMySoul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};
@@ -501,6 +632,7 @@
 				ADBA983E1C0B1FF00023499E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADBA983F1C0B1FF00023499E /* Build configuration list for PBXNativeTarget "ShareMySoulTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +641,7 @@
 				ADBA98411C0B1FF00023499E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADBA98421C0B1FF00023499E /* Build configuration list for PBXNativeTarget "ShareMySoulUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +650,7 @@
 				ADBA98441C0B1FF00023499E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
