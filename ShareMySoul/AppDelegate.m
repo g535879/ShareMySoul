@@ -24,6 +24,9 @@
     [self.window makeKeyAndVisible];
     //高德地图key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
+    
+    //bmob key
+    [Bmob registerWithAppKey:BMOB_APP_KEY];
     return YES;
 }
 
