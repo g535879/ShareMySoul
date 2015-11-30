@@ -1,35 +1,22 @@
 //
-//  BasicViewController.m
+//  NearbyViewController.m
 //  ShareMySoul
 //
-//  Created by 古玉彬 on 15/11/29.
+//  Created by 古玉彬 on 15/11/30.
 //  Copyright © 2015年 gf. All rights reserved.
 //
 
-#import "BasicViewController.h"
+#import "NearbyViewController.h"
 
-@interface BasicViewController ()
+@interface NearbyViewController ()
 
 @end
 
-@implementation BasicViewController
+@implementation NearbyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //导航栏相关
-    [self setNavigationRefer];
-
-}
-
-#pragma mark - 导航栏相关
--  (void)setNavigationRefer {
-    
-    //隐藏导航栏
-    self.navigationController.navigationBar.hidden = YES;
-    
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

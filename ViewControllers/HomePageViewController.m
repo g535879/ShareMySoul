@@ -7,12 +7,8 @@
 //
 
 #import "HomePageViewController.h"
-#import "DrawerView.h"
 
-@interface HomePageViewController (){
-    
-    DrawerView * _drawView;  //抽屉视图
-}
+@interface HomePageViewController ()
 
 @end
 
@@ -26,9 +22,7 @@
 #pragma mark - 布局
 - (void)createLayout {
     
-    //抽屉视图
-    _drawView = [[DrawerView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_drawView];
+
 }
 
 - (void)didReceiveMemoryWarning {

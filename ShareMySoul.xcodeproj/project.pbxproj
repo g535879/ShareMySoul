@@ -20,6 +20,9 @@
 		ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */; };
 		ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D11C0BE31300CF720B /* DrawerView.m */; };
 		ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */; };
+		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
+		ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */; };
+		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,11 @@
 		ADC9A3D11C0BE31300CF720B /* DrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawerView.m; path = ViewControllers/DrawerView.m; sourceTree = SOURCE_ROOT; };
 		ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
 		ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		ADC9A3D61C0BE90B00CF720B /* 需求 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "需求"; sourceTree = SOURCE_ROOT; };
+		ADC9A3D81C0BE9A700CF720B /* HomePageMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageMainViewController.h; sourceTree = "<group>"; };
+		ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageMainViewController.m; sourceTree = "<group>"; };
+		ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
+		ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 		AD92F0EB1C0B2FA8009E5F60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ADC9A3D61C0BE90B00CF720B /* 需求 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -142,6 +151,10 @@
 				AD92F0F21C0B3097009E5F60 /* LogInViewController.m */,
 				ADC9A3CD1C0BE1F500CF720B /* HomePageViewController.h */,
 				ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */,
+				ADC9A3D81C0BE9A700CF720B /* HomePageMainViewController.h */,
+				ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */,
+				ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */,
+				ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */,
 				ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */,
 				ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */,
 				AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */,
@@ -335,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */,
 				ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */,
 				ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */,
 				ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */,
@@ -411,10 +425,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
+				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
 				ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */,
 				ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */,
 				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
+				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,
 			);
