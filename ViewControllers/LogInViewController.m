@@ -13,12 +13,12 @@
     MAMapView *_mapView;
 }
 @end
-
+//神，的撒的说法，afasfdsfdsa
 @implementation LogInViewController
 
 -(void) viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib
     
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
