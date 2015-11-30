@@ -14,6 +14,8 @@
 }
 @end
 
+
+//看哈放得开撒京东方科技撒开房间开始大家分开的精神
 @implementation LogInViewController
 
 -(void) viewDidLoad {
