@@ -23,7 +23,7 @@
     
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
+    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     
