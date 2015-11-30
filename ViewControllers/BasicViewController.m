@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //的沙发上发呆时发的
+
 }
 
 - (void)didReceiveMemoryWarning {
