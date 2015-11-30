@@ -13,7 +13,8 @@
     MAMapView *_mapView;
 }
 @end
-//神，的撒的说法，afasfdsfdsa
+
+
 @implementation LogInViewController
 
 -(void) viewDidLoad {
