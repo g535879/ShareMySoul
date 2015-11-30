@@ -19,6 +19,9 @@
     
     //导航栏相关
     [self setNavigation];
+    
+    self.view.backgroundColor = [UIColor orangeColor];
+    
 }
 
 #pragma mark -  导航栏相关

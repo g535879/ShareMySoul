@@ -38,7 +38,7 @@
 //首先想到一个比例尺 frame值来做适配
 //首先需要一个基数 以什么屏幕作为参照物
 #define iphone6P 414.0f
-#define iphone4s 320.0f
+#define iphone4S 320.0f
 
 /**
  判断系统版本
@@ -48,6 +48,11 @@
 
 //缩放比例尺
 #define scale_screen (screen_Width / iphone6P)
+
+
+
+
+
 
 
 #endif /* ShareMySoul_pch */
