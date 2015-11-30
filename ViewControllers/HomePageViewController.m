@@ -1,32 +1,34 @@
 //
-//  BasicViewController.m
+//  HomePageViewController.m
 //  ShareMySoul
 //
-//  Created by 古玉彬 on 15/11/29.
+//  Created by 古玉彬 on 15/11/30.
 //  Copyright © 2015年 gf. All rights reserved.
 //
 
-#import "BasicViewController.h"
+#import "HomePageViewController.h"
+#import "DrawerView.h"
 
-@interface BasicViewController ()
+@interface HomePageViewController (){
+    
+    DrawerView * _drawView;  //抽屉视图
+}
 
 @end
 
-@implementation BasicViewController
+@implementation HomePageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //导航栏相关
-    [self setNavigationRefer];
-
+    //布局
+    [self createLayout];
 }
-
-#pragma mark - 导航栏相关
--  (void)setNavigationRefer {
+#pragma mark - 布局
+- (void)createLayout {
     
-    self.navigationController.navigationBar.hidden = YES;
-    
+    //抽屉视图
+    _drawView = [[DrawerView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_drawView];
 }
 
 - (void)didReceiveMemoryWarning {

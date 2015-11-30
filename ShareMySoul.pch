@@ -15,6 +15,39 @@
  */
 #define GEO_API_KEY @"70a6c2288bfa02ebcf096751cf5cd790"
 
-
+/**
+ *  bmbo key
+ */
 #define BMOB_APP_KEY @"1eaded34eb7e83122e3902bd9f789c98"
+
+/**
+ *  屏幕尺寸
+ */
+#define screen_Width [UIScreen mainScreen].bounds.size.width
+#define screen_Height [UIScreen mainScreen].bounds.size.height
+
+
+/**
+ *  图片宏定义
+ */
+#define imageNameRenderStr(str) str.length ? [[UIImage imageNamed:(str)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] : nil
+
+#define imageStar(str) str.length ? [UIImage imageNamed:(str)] : nil
+
+//我们需要做适配
+//首先想到一个比例尺 frame值来做适配
+//首先需要一个基数 以什么屏幕作为参照物
+#define iphone6P 414.0f
+#define iphone4s 320.0f
+
+/**
+ 判断系统版本
+ */
+#define isiOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f
+#define isiOS8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f
+
+//缩放比例尺
+#define scale_screen (screen_Width / iphone6P)
+
+
 #endif /* ShareMySoul_pch */

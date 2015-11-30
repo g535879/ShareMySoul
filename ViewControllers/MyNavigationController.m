@@ -1,32 +1,22 @@
 //
-//  BasicViewController.m
+//  MyNavigationController.m
 //  ShareMySoul
 //
-//  Created by 古玉彬 on 15/11/29.
+//  Created by 古玉彬 on 15/11/30.
 //  Copyright © 2015年 gf. All rights reserved.
 //
 
-#import "BasicViewController.h"
+#import "MyNavigationController.h"
 
-@interface BasicViewController ()
+@interface MyNavigationController ()
 
 @end
 
-@implementation BasicViewController
+@implementation MyNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //导航栏相关
-    [self setNavigationRefer];
-
-}
-
-#pragma mark - 导航栏相关
--  (void)setNavigationRefer {
-    
-    self.navigationController.navigationBar.hidden = YES;
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

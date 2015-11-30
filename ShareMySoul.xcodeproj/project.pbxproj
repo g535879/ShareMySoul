@@ -17,6 +17,9 @@
 		ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA98201C0B1FF00023499E /* LaunchScreen.storyboard */; };
 		ADBA982D1C0B1FF00023499E /* ShareMySoulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA982C1C0B1FF00023499E /* ShareMySoulTests.m */; };
 		ADBA98381C0B1FF00023499E /* ShareMySoulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98371C0B1FF00023499E /* ShareMySoulUITests.m */; };
+		ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */; };
+		ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D11C0BE31300CF720B /* DrawerView.m */; };
+		ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,12 @@
 		ADBA98331C0B1FF00023499E /* ShareMySoulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareMySoulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA98371C0B1FF00023499E /* ShareMySoulUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareMySoulUITests.m; sourceTree = "<group>"; };
 		ADBA98391C0B1FF00023499E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADC9A3CD1C0BE1F500CF720B /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		ADC9A3D01C0BE31300CF720B /* DrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawerView.h; path = ViewControllers/DrawerView.h; sourceTree = SOURCE_ROOT; };
+		ADC9A3D11C0BE31300CF720B /* DrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawerView.m; path = ViewControllers/DrawerView.m; sourceTree = SOURCE_ROOT; };
+		ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
+		ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +129,8 @@
 		AD92F0EC1C0B2FA8009E5F60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADC9A3D01C0BE31300CF720B /* DrawerView.h */,
+				ADC9A3D11C0BE31300CF720B /* DrawerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +140,10 @@
 			children = (
 				AD92F0F11C0B3097009E5F60 /* LogInViewController.h */,
 				AD92F0F21C0B3097009E5F60 /* LogInViewController.m */,
+				ADC9A3CD1C0BE1F500CF720B /* HomePageViewController.h */,
+				ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */,
+				ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */,
+				ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */,
 				AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */,
 				AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */,
 			);
@@ -396,7 +411,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
+				ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */,
+				ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */,
 				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,
+				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,
 			);

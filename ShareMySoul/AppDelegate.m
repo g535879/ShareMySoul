@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MyNavigationController.h"
 #import "LogInViewController.h"
 
 @interface AppDelegate ()
@@ -20,7 +21,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[LogInViewController alloc] init];
+    self.window.rootViewController = [[MyNavigationController alloc] initWithRootViewController:[[LogInViewController alloc] init]];
     [self.window makeKeyAndVisible];
     //高德地图key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
