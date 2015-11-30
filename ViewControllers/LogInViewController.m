@@ -15,7 +15,7 @@
 @end
 
 
-//看哈放得开撒京东方科技撒开房间开始大家分开的精神，的撒的说法，afasf
+//看哈放得开撒京东方科技撒开房间开始大家分开的精神，的撒的说法，afasfdsfdsa
 @implementation LogInViewController
 
 -(void) viewDidLoad {
