@@ -32,7 +32,6 @@
 
 #pragma mark -创建地图视图
 - (void)createMapView{
-    
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
