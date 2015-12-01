@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
 		AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD72A6801C0D42430001058C /* HomePageTitleView.m */; };
+		AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */; };
+		AD8666621C0DDEE7001249CF /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */; };
+		AD8666641C0DE033001249CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666631C0DE033001249CF /* Security.framework */; };
+		AD8666661C0DE059001249CF /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666651C0DE059001249CF /* libiconv.tbd */; };
+		AD8666681C0DE060001249CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666671C0DE060001249CF /* SystemConfiguration.framework */; };
+		AD86666A1C0DE069001249CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666691C0DE069001249CF /* CoreGraphics.framework */; };
+		AD86666C1C0DE072001249CF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666B1C0DE072001249CF /* libsqlite3.tbd */; };
+		AD86666E1C0DE078001249CF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666D1C0DE078001249CF /* CoreTelephony.framework */; };
+		AD8666701C0DE082001249CF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666F1C0DE082001249CF /* libstdc++.tbd */; };
+		AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666711C0DE08B001249CF /* libz.tbd */; };
 		AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */; };
 		AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0F21C0B3097009E5F60 /* LogInViewController.m */; };
 		ADBA98141C0B1FF00023499E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98131C0B1FF00023499E /* main.m */; };
@@ -50,6 +60,17 @@
 		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
 		AD72A67F1C0D42430001058C /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageTitleView.h; path = ViewControllers/HomePageTitleView.h; sourceTree = SOURCE_ROOT; };
 		AD72A6801C0D42430001058C /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageTitleView.m; path = ViewControllers/HomePageTitleView.m; sourceTree = SOURCE_ROOT; };
+		AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = SDK/TencentOpenAPI.framework; sourceTree = "<group>"; };
+		AD8666631C0DE033001249CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AD8666651C0DE059001249CF /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		AD8666671C0DE060001249CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AD8666691C0DE069001249CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AD86666B1C0DE072001249CF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AD86666D1C0DE078001249CF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AD86666F1C0DE082001249CF /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		AD8666711C0DE08B001249CF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AD8666731C0DE165001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		AD92F0F11C0B3097009E5F60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
@@ -86,7 +107,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */,
+				AD8666701C0DE082001249CF /* libstdc++.tbd in Frameworks */,
+				AD86666E1C0DE078001249CF /* CoreTelephony.framework in Frameworks */,
+				AD86666C1C0DE072001249CF /* libsqlite3.tbd in Frameworks */,
+				AD86666A1C0DE069001249CF /* CoreGraphics.framework in Frameworks */,
+				AD8666681C0DE060001249CF /* SystemConfiguration.framework in Frameworks */,
+				AD8666661C0DE059001249CF /* libiconv.tbd in Frameworks */,
+				AD8666641C0DE033001249CF /* Security.framework in Frameworks */,
 				3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */,
+				AD8666621C0DDEE7001249CF /* TencentOpenAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,9 +146,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AD86665E1C0DDED7001249CF /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SDK;
+			sourceTree = SOURCE_ROOT;
+		};
 		AD92F0E91C0B2FA8009E5F60 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AD86665E1C0DDED7001249CF /* SDK */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -239,6 +277,17 @@
 		BFAE867869553D2BC5572004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD8666731C0DE165001249CF /* TencentOpenApi_IOS_Bundle.bundle */,
+				AD8666711C0DE08B001249CF /* libz.tbd */,
+				AD86666F1C0DE082001249CF /* libstdc++.tbd */,
+				AD86666D1C0DE078001249CF /* CoreTelephony.framework */,
+				AD86666B1C0DE072001249CF /* libsqlite3.tbd */,
+				AD8666691C0DE069001249CF /* CoreGraphics.framework */,
+				AD8666671C0DE060001249CF /* SystemConfiguration.framework */,
+				AD8666651C0DE059001249CF /* libiconv.tbd */,
+				AD8666631C0DE033001249CF /* Security.framework */,
+				AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */,
+				AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */,
 				43DC34C5535C61C2AC23BB2A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -353,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */,
 				ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */,
 				ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */,
@@ -580,10 +630,57 @@
 			baseConfigurationReference = 906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShareMySoul.pch";
 				INFOPLIST_FILE = ShareMySoul/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ORDER_FILE = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"z\"",
+					"-l\"z.1.2.5\"",
+					"-framework",
+					"\"AMapSearchKit\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"BmobSDK\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MAMapKit\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.ShareMySoul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -596,10 +693,57 @@
 			baseConfigurationReference = 5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShareMySoul.pch";
 				INFOPLIST_FILE = ShareMySoul/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ORDER_FILE = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"z\"",
+					"-l\"z.1.2.5\"",
+					"-framework",
+					"\"AMapSearchKit\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"BmobSDK\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MAMapKit\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.ShareMySoul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -183,7 +183,7 @@ typedef NS_ENUM(NSInteger,SWIPDIR){
     //文字距离button最左侧的距离
     CGFloat paddingFont = (btn.frame.size.width - fontSize.width ) / 2.0;
     
-    //获取控件运动速度(像素/s)
+    //获取控件运动速度(s/像素)
     CGFloat speend = delay / btn.frame.size.width;
     
     //获取开始运动的时间
