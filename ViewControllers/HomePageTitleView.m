@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger,SWIPDIR){
     self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.leftButton.frame = CGRectMake(1, 1,BACKBTN_WIDTH, BACKBTN_HETGHT - 2);
     [self.leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.leftButton setTitle:@"主页" forState:UIControlStateNormal];
+    [self.leftButton setTitle:@"我是主页" forState:UIControlStateNormal];
     self.leftButton.backgroundColor = [UIColor clearColor];
     [self.leftButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.leftButton.tag = 10;
@@ -216,7 +216,6 @@ typedef NS_ENUM(NSInteger,SWIPDIR){
             }
             [currentStrTitle addAttribute:NSForegroundColorAttributeName value:backColor range:NSMakeRange(fromIdx, currentIdx+1)];
             [btn setAttributedTitle:currentStrTitle forState:UIControlStateNormal];
-            currentStrTitle = nil;
         });
     }
 }
