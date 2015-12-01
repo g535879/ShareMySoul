@@ -9,6 +9,7 @@
 #ifndef ShareMySoul_pch
 #define ShareMySoul_pch
 #import <MAMapKit/MAMapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "Bmob.h"
 /**
  *  高德地图API

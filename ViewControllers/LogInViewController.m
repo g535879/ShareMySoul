@@ -9,10 +9,7 @@
 #import "LogInViewController.h"
 
 
-@interface LogInViewController ()<MAMapViewDelegate>{
-    MAMapView *_mapView;
-}
-@end
+@interface LogInViewController ()@end
 
 
 @implementation LogInViewController
@@ -21,12 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib
     
-    //配置用户 Key
-    [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
-    _mapView.delegate = self;
-    [self.view addSubview:_mapView];
-    
+        
 }
 
 - (void)didReceiveMemoryWarning {
