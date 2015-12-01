@@ -18,6 +18,7 @@
     [super viewDidLoad];
     //布局
     [self createLayout];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 #pragma mark - 布局
 - (void)createLayout {
