@@ -32,12 +32,7 @@
     [self createViewManagement];
 }
 
-#pragma mark -  导航栏相关
-- (void)setNavigation {
-    
-    //显示导航栏
-    self.navigationController.navigationBar.hidden = NO;
-}
+
 
 #pragma mark -创建Navigation中的titleView
 - (void)createTitleView{

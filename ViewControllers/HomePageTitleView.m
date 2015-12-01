@@ -52,7 +52,7 @@
     
     self.frameView = [[UIView alloc] initWithFrame:CGRectMake((_viewWidth - 2*BACKBTN_WIDTH) / 2, 27.0f, BACKBTN_WIDTH*2, BACKBTN_HETGHT)];
     self.frameView .backgroundColor = [UIColor colorWithRed:0.20f green:0.25f blue:0.30f alpha:1.00f];
-    self.frameView .layer.cornerRadius = 15;
+    self.frameView.layer.cornerRadius = 15;
     [backView addSubview:self.frameView];
     
     //创建移动view
@@ -82,7 +82,7 @@
     self.rightButton.tag = 20;
     [self.frameView addSubview:self.rightButton];
     
-   [self addSubview:backView];
+    [self addSubview:backView];
 }
 
 
