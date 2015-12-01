@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger,SWIPDIR){
     
     
     // 延迟
-    CGFloat delay = 0.5f;
+    CGFloat delay = 0.2f;
     
     //同一按钮
     if (self.moveView.frame.origin.x == button.frame.origin.x) {
