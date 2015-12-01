@@ -14,6 +14,20 @@
 #define BACKBTN_WIDTH  100.0f
 #define BACKBTN_HETGHT 30.0f
 
+/**
+ *  运动方向枚举
+ */
+typedef NS_ENUM(NSInteger,SWIPDIR){
+    /**
+     *  向左
+     */
+    SWIPDIRLEFT = 0,
+    /**
+     *  向右
+     */
+    SWIPDIRRIGHT
+};
+
 @interface HomePageTitleView (){
     
     //控件宽度
@@ -65,7 +79,7 @@
     //创建button
     self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.leftButton.frame = CGRectMake(1, 1,BACKBTN_WIDTH, BACKBTN_HETGHT - 2);
-    [self.leftButton setTitleColor:[UIColor colorWithRed:0.95f green:0.78f blue:0.56f alpha:1.00f] forState:UIControlStateNormal];
+    [self.leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.leftButton setTitle:@"主页" forState:UIControlStateNormal];
     self.leftButton.backgroundColor = [UIColor clearColor];
     [self.leftButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -75,8 +89,8 @@
     
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.rightButton.frame = CGRectMake(BACKBTN_WIDTH - 1, 1,BACKBTN_WIDTH, BACKBTN_HETGHT - 2);
-    [self.rightButton setTitleColor:[UIColor colorWithRed:0.95f green:0.78f blue:0.56f alpha:1.00f] forState:UIControlStateNormal];
-    [self.rightButton setTitle:@"我的" forState:UIControlStateNormal];
+    [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rightButton setTitle:@"我我的的" forState:UIControlStateNormal];
     self.rightButton.backgroundColor = [UIColor clearColor];
     [self.rightButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.rightButton.tag = 20;
@@ -90,9 +104,56 @@
 
 - (void)buttonClicked:(UIButton *)button{
     
-    [UIView animateWithDuration:0.5 animations:^{
+    
+    // 延迟
+    CGFloat delay = 4.0f;
+    
+    //同一按钮
+    if (self.moveView.frame.origin.x == button.frame.origin.x) {
+        return;
+    }
+    
+    //滚动方向
+    SWIPDIR dir;
+    //另一个按钮
+    UIButton * anotherBtn;
+    
+    //后面的颜色
+    UIColor * backwardColor = [UIColor blackColor];
+    //前面的颜色
+    UIColor * forwardColor;
+    
+    //另一个button字体后面的颜色
+    UIColor * anoBackWardColor = [UIColor whiteColor];
+    //另一个button字体前面的颜色
+    UIColor * anoForwardColor;
+    
+    //根据延迟和文字判断文字颜色改变时间
+    if (button.tag == 10) { //左侧按钮
+        dir = SWIPDIRLEFT;
+        anotherBtn = [self viewWithTag:20];
+        //特殊处理。需要前景色配合
+
+        forwardColor = [UIColor whiteColor];
+        anoForwardColor = [UIColor blackColor];
+    }
+    else{
+        dir = SWIPDIRRIGHT;
+        anotherBtn = [self viewWithTag:10];
+        
+    }
+    
+    //当前点击按钮变色
+    [self calFontColor:button withDelay:delay withDir:dir withTextBackColor:backwardColor forwardColor:forwardColor];
+
+    //另一个按钮变色
+    [self calFontColor:anotherBtn withDelay:delay withDir:dir withTextBackColor:anoBackWardColor forwardColor:anoForwardColor];
+    
+    //移动滑块
+    [UIView animateWithDuration:delay animations:^{
         
         self.moveView.frame = CGRectMake(button.frame.origin.x, self.moveView.frame.origin.y, self.moveView.frame.size.width, self.moveView.frame.size.height);
+
         
     } completion:^(BOOL finished) {
         
@@ -102,14 +163,62 @@
         }
        
     }];
+
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+//根据延迟和字体属性相关判断调用改变字体颜色
+- (void)calFontColor:(UIButton *)btn withDelay:(CGFloat )delay withDir:(SWIPDIR)dir withTextBackColor:(UIColor *)backColor forwardColor:(UIColor *)forwardColor {
+    
+    //属性字体
+    NSMutableAttributedString * strTitle = [[NSMutableAttributedString alloc] initWithString:btn.currentTitle];
+    
+    NSInteger titleCount = strTitle.length;
+    
+    //字体总大小
+    CGSize  fontSize = [btn.currentTitle sizeWithAttributes:@{NSFontAttributeName:btn.titleLabel.font}];
+    
+    //单个字体宽度
+    CGFloat singleFontSize = fontSize.width / titleCount * 1.0;
+    
+    //文字距离button最左侧的距离
+    CGFloat paddingFont = (btn.frame.size.width - fontSize.width ) / 2.0;
+    
+    //获取控件运动速度(像素/s)
+    CGFloat speend = delay / btn.frame.size.width;
+    
+    //获取开始运动的时间
+    CGFloat startTime = speend * paddingFont;
+    
+    //根据文字多少和大小来判断何时改变颜色
+    
+    for (int i = 0; i < strTitle.length; i++) {
+        
+        
+        //延迟调用
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (startTime + speend * singleFontSize * i) * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            
+            NSInteger currentIdx = i;
+            NSMutableAttributedString * currentStrTitle = [strTitle mutableCopy]; //关键
+
+            
+            NSInteger fromIdx; //从第几个字开始滑动
+            if (dir == SWIPDIRLEFT) { //向左滑动
+             
+                fromIdx = strTitle.length - 1 - i;
+                
+                currentIdx = strTitle.length - fromIdx - 1;
+                
+                //往左滑动修改滑块左侧的颜色
+                [currentStrTitle addAttribute:NSForegroundColorAttributeName value:forwardColor range:NSMakeRange(0, fromIdx)];
+            }
+            else{
+                fromIdx = 0;
+            }
+            [currentStrTitle addAttribute:NSForegroundColorAttributeName value:backColor range:NSMakeRange(fromIdx, currentIdx+1)];
+            [btn setAttributedTitle:currentStrTitle forState:UIControlStateNormal];
+            currentStrTitle = nil;
+        });
+    }
 }
-*/
 
 @end
