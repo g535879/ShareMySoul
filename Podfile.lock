@@ -23,6 +23,7 @@ PODS:
   - AMap2DMap (3.1.0)
   - AMapSearch (3.0.1)
   - BmobSDK (1.6.5)
+  - JSONModel (1.1.2)
   - MBProgressHUD (0.9.1)
   - MJRefresh (3.0.7)
   - SDWebImage (3.7.3):
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - AMap2DMap (~> 3.1.0)
   - AMapSearch (~> 3.0.1)
   - BmobSDK (~> 1.6.5)
+  - JSONModel (~> 1.1.2)
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh (~> 3.0.1)
   - SDWebImage (~> 3.7.3)
@@ -43,6 +45,7 @@ SPEC CHECKSUMS:
   AMap2DMap: a6741139dd16d237713c4fd6cae9a0399ca1fe25
   AMapSearch: 431b082417bd3da0c2fe594c4822b664607891e9
   BmobSDK: 9928a9135a3a7823c6d8bd2bcd9baffeb8e6289a
+  JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: f3e1228ec3d38c7ba5208d58032631a52f39f495
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

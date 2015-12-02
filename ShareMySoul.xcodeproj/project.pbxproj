@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
+		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
 		AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD72A6801C0D42430001058C /* HomePageTitleView.m */; };
 		AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */; };
@@ -59,6 +60,8 @@
 		5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
+		AD31457F1C0F571400F8BAD3 /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicModel.h; path = ShareMySoul/BasicModel.h; sourceTree = SOURCE_ROOT; };
+		AD3145801C0F571400F8BAD3 /* BasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicModel.m; path = ShareMySoul/BasicModel.m; sourceTree = SOURCE_ROOT; };
 		AD36E7B71C0F1BDF006A32E7 /* BmobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmobHelper.h; sourceTree = "<group>"; };
 		AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobHelper.m; sourceTree = "<group>"; };
 		AD72A67F1C0D42430001058C /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageTitleView.h; path = ViewControllers/HomePageTitleView.h; sourceTree = SOURCE_ROOT; };
@@ -176,6 +179,8 @@
 		AD92F0EA1C0B2FA8009E5F60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD31457F1C0F571400F8BAD3 /* BasicModel.h */,
+				AD3145801C0F571400F8BAD3 /* BasicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 			files = (
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
+				AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */,
 				ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */,
 				ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */,
 				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,

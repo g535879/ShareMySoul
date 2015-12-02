@@ -24,12 +24,25 @@ static BmobHelper * _singleton;
 }
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
-    
+
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         _singleton = [super allocWithZone:zone];
     });
     
     return _singleton;
+}
+
++(void)insertDataWithModel:(id)dataModel withName:(NSString *)tableName withBlock:(ResultBlock)callBackBlock {
+
+    BmobObject * bmobObj = [BmobObject objectWithClassName:tableName];
+    [bmobObj saveAllWithDictionary:[dataModel toDictionary]];
+    [bmobObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        //回调相关信息
+        if (callBackBlock) {
+            callBackBlock(isSuccessful,error);
+        }
+    }];
 }
 @end

@@ -15,6 +15,8 @@
 
 #import "BmobHelper.h"
 
+#import "JSONModel.h"
+
 /**
  *  高德地图API
  */
