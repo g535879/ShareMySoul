@@ -49,6 +49,10 @@
     
 }
 
+//没有登录
+- (void)tencentDidNotLogin:(BOOL)cancelled {
+    
+}
 
 #pragma mark - tencntDelegate
 

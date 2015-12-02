@@ -25,8 +25,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
             endingLineNumber = "78"
-            landmarkName = "-getUserInfoResponse:"
-            landmarkType = "5">
+            landmarkName = "@implementation LogInViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
