@@ -24,7 +24,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
-            endingLineNumber = "78">
+            endingLineNumber = "78"
+            landmarkName = "@implementation LogInViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -38,7 +40,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
-            endingLineNumber = "62">
+            endingLineNumber = "62"
+            landmarkName = "-tencentDidLogin"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -52,7 +56,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
-            endingLineNumber = "59">
+            endingLineNumber = "59"
+            landmarkName = "-tencentDidLogin"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
