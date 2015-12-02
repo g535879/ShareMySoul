@@ -22,6 +22,12 @@
 #define BMOB_APP_KEY @"1eaded34eb7e83122e3902bd9f789c98"
 
 /**
+ *  腾讯 appid
+ */
+#define TENCNT_APP_ID @"1104999272"
+
+
+/**
  *  屏幕尺寸
  */
 #define screen_Width [UIScreen mainScreen].bounds.size.width
