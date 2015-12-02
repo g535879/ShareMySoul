@@ -11,6 +11,10 @@
 #import <MAMapKit/MAMapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Bmob.h"
+
+
+#import "BmobHelper.h"
+
 /**
  *  高德地图API
  */
