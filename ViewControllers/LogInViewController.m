@@ -46,7 +46,7 @@
     
     //登陆
     [self.tencntOAuth authorize:self.permissions inSafari:NO];
-    
+    //sdffsdfsd f
 }
 
 //没有登录
