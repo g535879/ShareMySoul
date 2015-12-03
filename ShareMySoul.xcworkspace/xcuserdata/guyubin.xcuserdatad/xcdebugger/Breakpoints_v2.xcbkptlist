@@ -102,7 +102,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
-            endingLineNumber = "57">
+            endingLineNumber = "57"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -116,7 +118,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
-            endingLineNumber = "95">
+            endingLineNumber = "95"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -177,7 +181,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
-            endingLineNumber = "74">
+            endingLineNumber = "74"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -287,7 +293,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
-            endingLineNumber = "65">
+            endingLineNumber = "65"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -301,7 +309,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
-            endingLineNumber = "122">
+            endingLineNumber = "122"
+            landmarkName = "+testDataWithString:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
