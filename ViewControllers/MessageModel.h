@@ -1,5 +1,5 @@
 //
-//  BasicModel.m
+//  MessageModel.h
 //  ShareMySoul
 //
 //  Created by 古玉彬 on 15/12/3.
@@ -8,10 +8,8 @@
 
 #import "BasicModel.h"
 
-@implementation BasicModel
+@interface MessageModel : BasicModel
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
-}
-
+proStr(message);
+proStr(sex);
 @end
