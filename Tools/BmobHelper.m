@@ -51,13 +51,20 @@ static BmobHelper * _singleton;
 }
 
 #pragma mark - query
-+(void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withLimited:(NSInteger)limited withArray:(ResultArray)
++(void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withParam:(NSDictionary<NSString *,NSObject *> *)param withLimited:(NSInteger)limited withArray:(ResultArray)
     responseArray{
     
     NSMutableArray * resultArray = [@[] mutableCopy];
     
     BmobQuery * queryObj = [BmobQuery queryWithClassName:className];
+    //条件
+    if (param) {
+        for (NSString * key in param) {
+//            [queryObj whereKey:<#(NSString *)#> con]
+        }
+    }
     
+    //记录数
     if (limited) {
         
         [queryObj setLimit:limited];

@@ -103,7 +103,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withLimited:withArray:"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -114,12 +114,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470813402.879551"
+            timestampString = "470820942.190801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withLimited:withArray:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -177,12 +177,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470813402.879551"
+            timestampString = "470820942.190801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withLimited:withArray:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -209,11 +209,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewControllers/TestBmobViewController.m"
-            timestampString = "470808476.06125"
+            timestampString = "470820942.190801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -273,11 +273,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewControllers/TestBmobViewController.m"
-            timestampString = "470812898.262483"
+            timestampString = "470820942.190801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -289,12 +289,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470813257.615419"
+            timestampString = "470820942.190801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withLimited:withArray:"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -305,11 +305,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470815624.68303"
+            timestampString = "470820942.190801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "+testDataWithString:"
             landmarkType = "5">
          </BreakpointContent>

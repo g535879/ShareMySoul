@@ -22,7 +22,7 @@
     MessageModel * mModel = [[MessageModel alloc] init];
     mModel.message = @"我是余佳222222";
     mModel.sex = @"女";
-#if 0
+
     [BmobHelper insertDataWithModel:mModel withName:@"UserMessage" withBlock:^(BOOL isSuccess, NSError *error) {
         
         if (error) {
@@ -33,8 +33,9 @@
         }
     }];
     
+    
     //测试获取数据
-    [BmobHelper queryDataWithClassName:@"UserMessage" andWithReturnModelClass:[MessageModel class] withLimited:0 withArray:^(NSArray *responseArray, NSError *error) {
+    [BmobHelper queryDataWithClassName:@"UserMessage" andWithReturnModelClass:[MessageModel class] withParam:(NSDictionary<NSString *,NSObject *> *)nil withLimited:0 withArray:^(NSArray *responseArray, NSError *error) {
         
         if (!error) {
 
@@ -44,9 +45,7 @@
         }
 
     }];
-#endif
     
-    [BmobHelper testDataWithString:@"abc",@"bcd",@"edf",nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -47,9 +47,10 @@ typedef void (^ResultArray)(NSArray *responseArray, NSError * error);
  *  @param className  表名
  *  @param modelClass 容器model
  *  @param responseArray 数据数组
+ *  @param param:条件参数
  *  @param limited 记录数 如果为0 默认10条
  */
-+ (void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withLimited:(NSInteger)limited withArray:(ResultArray) responseArray;
++ (void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withParam:(NSDictionary<NSString *,NSObject *> *)param withLimited:(NSInteger)limited withArray:(ResultArray) responseArray;
 
-+ (void)testDataWithString:(NSString *)str, ...;
+
 @end
