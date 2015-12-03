@@ -98,11 +98,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470812863.463654"
+            timestampString = "470826927.812007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
             landmarkType = "5">
          </BreakpointContent>
@@ -114,13 +114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470820942.190801"
+            timestampString = "470826927.812007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
-            landmarkType = "5">
+            startingLineNumber = "131"
+            endingLineNumber = "131">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -177,12 +175,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470820942.190801"
+            timestampString = "470826927.812007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "+removeSystemInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -208,109 +206,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ViewControllers/TestBmobViewController.m"
-            timestampString = "470820942.190801"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViewControllers/TestBmobViewController.m"
-            timestampString = "470808492.919502"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TestBmobViewController viewDidLoad]"
-                  moduleName = "ShareMySoul"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guyubin/Documents/developer/Project/ShareMySoul/ViewControllers/TestBmobViewController.m"
-                  timestampString = "470812901.319841"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "183">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[TestBmobViewController viewDidLoad]_block_invoke"
-                  moduleName = "ShareMySoul"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guyubin/Documents/developer/Project/ShareMySoul/ViewControllers/TestBmobViewController.m"
-                  timestampString = "470812901.320254"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "47">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ViewControllers/TestBmobViewController.m"
-            timestampString = "470820942.190801"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Tools/BmobHelper.m"
-            timestampString = "470820942.190801"
+            timestampString = "470826927.812007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tools/BmobHelper.m"
-            timestampString = "470820942.190801"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "+testDataWithString:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
