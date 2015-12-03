@@ -16,6 +16,24 @@
 
 #define proMuArr(muArr) @property (nonatomic, strong) NSMutableArray * (muArr)
 
+#define proDate(date) @property (nonatomic, copy) NSDate * (date)
+
 @interface BasicModel : JSONModel
 
+/**
+ *  数据ID
+ */
+proStr(objectId);
+
+/**
+ *  数据建立时间
+ */
+proDate(createdAt);
+
+/**
+ *  更新建立时间
+ */
+proDate(updatedAt);
+
 @end
+

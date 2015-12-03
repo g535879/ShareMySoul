@@ -36,6 +36,8 @@
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
 		ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */; };
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
+		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
+		ADDD951E1C0FE392005A1ECD /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951D1C0FE392005A1ECD /* MessageModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,10 @@
 		ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageMainViewController.m; sourceTree = "<group>"; };
 		ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
+		ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBmobViewController.m; sourceTree = "<group>"; };
+		ADDD951C1C0FE392005A1ECD /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = ViewControllers/MessageModel.h; sourceTree = SOURCE_ROOT; };
+		ADDD951D1C0FE392005A1ECD /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = ViewControllers/MessageModel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +187,8 @@
 		AD92F0EA1C0B2FA8009E5F60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ADDD951C1C0FE392005A1ECD /* MessageModel.h */,
+				ADDD951D1C0FE392005A1ECD /* MessageModel.m */,
 				AD31457F1C0F571400F8BAD3 /* BasicModel.h */,
 				AD3145801C0F571400F8BAD3 /* BasicModel.m */,
 			);
@@ -223,6 +231,8 @@
 				AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */,
 				5000A8C81C0FC078009A3260 /* MapViewController.h */,
 				5000A8C91C0FC078009A3260 /* MapViewController.m */,
+				ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */,
+				ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -504,8 +514,8 @@
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
 				AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */,
+				ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */,
 				ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */,
-				5000A8CA1C0FC078009A3260 /* MapViewController.m in Sources */,
 				ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */,
 				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
@@ -514,6 +524,7 @@
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,
+				ADDD951E1C0FE392005A1ECD /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
