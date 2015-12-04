@@ -16,8 +16,8 @@
 /**
  *  顶部分栏控制器视图
  */
-@property (nonatomic, strong) HomePageTitleView * topTitleView;
 
+@property (nonatomic, strong) HomePageTitleView * topTitleView;
 @property (nonatomic,weak) UIViewController *currentViewController;
 @property (nonatomic,strong) HomePageViewController *homePageVC;
 @property (nonatomic,strong) NearbyViewController *nearByVC;

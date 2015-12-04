@@ -11,6 +11,7 @@
 		5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000A8C91C0FC078009A3260 /* MapViewController.m */; };
 		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
+		AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */; };
 		AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD72A6801C0D42430001058C /* HomePageTitleView.m */; };
 		AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */; };
 		AD8666621C0DDEE7001249CF /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */; };
@@ -24,6 +25,7 @@
 		AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666711C0DE08B001249CF /* libz.tbd */; };
 		AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */; };
 		AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0F21C0B3097009E5F60 /* LogInViewController.m */; };
+		ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA723481C11C1BA009E41E8 /* SlideViewController.m */; };
 		ADBA98141C0B1FF00023499E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98131C0B1FF00023499E /* main.m */; };
 		ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98161C0B1FF00023499E /* AppDelegate.m */; };
 		ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981B1C0B1FF00023499E /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		AD3145801C0F571400F8BAD3 /* BasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicModel.m; path = ShareMySoul/BasicModel.m; sourceTree = SOURCE_ROOT; };
 		AD36E7B71C0F1BDF006A32E7 /* BmobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmobHelper.h; sourceTree = "<group>"; };
 		AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobHelper.m; sourceTree = "<group>"; };
+		AD36FBAC1C11D4C5008839F7 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		AD72A67F1C0D42430001058C /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageTitleView.h; path = ViewControllers/HomePageTitleView.h; sourceTree = SOURCE_ROOT; };
 		AD72A6801C0D42430001058C /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageTitleView.m; path = ViewControllers/HomePageTitleView.m; sourceTree = SOURCE_ROOT; };
 		AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 		AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		AD92F0F11C0B3097009E5F60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		AD92F0F21C0B3097009E5F60 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		ADA723471C11C1BA009E41E8 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
+		ADA723481C11C1BA009E41E8 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		ADBA980F1C0B1FEF0023499E /* ShareMySoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMySoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA98131C0B1FF00023499E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADBA98151C0B1FF00023499E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -224,6 +230,8 @@
 				ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */,
 				ADC9A3D81C0BE9A700CF720B /* HomePageMainViewController.h */,
 				ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */,
+				ADA723471C11C1BA009E41E8 /* SlideViewController.h */,
+				ADA723481C11C1BA009E41E8 /* SlideViewController.m */,
 				ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */,
 				ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */,
 				ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */,
@@ -234,6 +242,8 @@
 				5000A8C91C0FC078009A3260 /* MapViewController.m */,
 				ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */,
 				ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */,
+				AD36FBAC1C11D4C5008839F7 /* UserInfoViewController.h */,
+				AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -511,8 +521,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
+				AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
 				AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */,
 				ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */,
@@ -620,7 +632,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -659,7 +671,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -726,7 +738,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -792,7 +804,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

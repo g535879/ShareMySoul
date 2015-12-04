@@ -18,20 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //添加一条数据
-    MessageModel * mModel = [[MessageModel alloc] init];
-    mModel.message = @"我是余佳222222";
-    mModel.sex = @"女";
-
-    [BmobHelper insertDataWithModel:mModel withName:@"UserMessage" withBlock:^(BOOL isSuccess, NSError *error) {
-        
-        if (error) {
-            NSLog(@"%@",error);
-        }
-        else{
-            NSLog(@"ok");
-        }
-    }];
+    self.view.backgroundColor = [UIColor blackColor];
+//    //添加一条数据
+//    MessageModel * mModel = [[MessageModel alloc] init];
+//    mModel.message = @"我是余佳222222";
+//    mModel.sex = @"女";
+//
+//    [BmobHelper insertDataWithModel:mModel withName:@"UserMessage" withBlock:^(BOOL isSuccess, NSError *error) {
+//        
+//        if (error) {
+//            NSLog(@"%@",error);
+//        }
+//        else{
+//            NSLog(@"ok");
+//        }
+//    }];
     
     
     //测试获取数据
