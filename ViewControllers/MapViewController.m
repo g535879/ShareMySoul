@@ -24,7 +24,7 @@
     //AMapLocationManager使用前需要配置AMapLocationServices Key
     [AMapLocationServices sharedServices].apiKey = GEO_API_KEY;
     
-    [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 64, screen_Width, screen_Height-64)]];
+    [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 0, screen_Width, screen_Height-64)]];
     
     UIButton *trafficButton = [UIButton buttonWithType:UIButtonTypeCustom];
     trafficButton.frame = CGRectMake(screen_Height - 400, screen_Width-120, 120, 120);

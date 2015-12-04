@@ -35,7 +35,6 @@
 		ADBA98381C0B1FF00023499E /* ShareMySoulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98371C0B1FF00023499E /* ShareMySoulUITests.m */; };
 		ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */; };
 		ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D11C0BE31300CF720B /* DrawerView.m */; };
-		ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */; };
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
 		ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */; };
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
@@ -110,8 +109,6 @@
 		ADC9A3CE1C0BE1F500CF720B /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		ADC9A3D01C0BE31300CF720B /* DrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawerView.h; path = ViewControllers/DrawerView.h; sourceTree = SOURCE_ROOT; };
 		ADC9A3D11C0BE31300CF720B /* DrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawerView.m; path = ViewControllers/DrawerView.m; sourceTree = SOURCE_ROOT; };
-		ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
-		ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 		ADC9A3D61C0BE90B00CF720B /* 需求 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "需求"; sourceTree = SOURCE_ROOT; };
 		ADC9A3D81C0BE9A700CF720B /* HomePageMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageMainViewController.h; sourceTree = "<group>"; };
 		ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageMainViewController.m; sourceTree = "<group>"; };
@@ -234,8 +231,6 @@
 				ADA723481C11C1BA009E41E8 /* SlideViewController.m */,
 				ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */,
 				ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */,
-				ADC9A3D31C0BE60700CF720B /* MyNavigationController.h */,
-				ADC9A3D41C0BE60700CF720B /* MyNavigationController.m */,
 				AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */,
 				AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */,
 				5000A8C81C0FC078009A3260 /* MapViewController.h */,
@@ -528,7 +523,6 @@
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
 				AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */,
 				ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */,
-				ADC9A3D51C0BE60700CF720B /* MyNavigationController.m in Sources */,
 				ADC9A3D21C0BE31300CF720B /* DrawerView.m in Sources */,
 				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,

@@ -58,11 +58,11 @@
 - (void)createViewManagement{
 
     _homePageVC = [[HomePageViewController alloc] init];
-    _homePageVC.view.frame = CGRectMake(0, 0, screen_Width, screen_Height);
+    _homePageVC.view.frame = CGRectMake(0, 64, screen_Width, screen_Height);
     [self addChildViewController:_homePageVC];
     
     _nearByVC = [[NearbyViewController alloc] init];
-    _nearByVC.view.frame = CGRectMake(0, 0, screen_Width, screen_Height );
+    _nearByVC.view.frame = CGRectMake(0, 64, screen_Width, screen_Height );
     [self addChildViewController:_nearByVC];
     
     [self.view addSubview:_homePageVC.view];
