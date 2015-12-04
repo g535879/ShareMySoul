@@ -101,22 +101,6 @@
             timestampString = "470826927.812007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tools/BmobHelper.m"
-            timestampString = "470826927.812007"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131">
             <Locations>
@@ -174,22 +158,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Tools/BmobHelper.m"
-            timestampString = "470826927.812007"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "+removeSystemInfo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/JSONModel/JSONModel/JSONModel/JSONModel.m"
             timestampString = "470806430.668555"
             startingColumnNumber = "9223372036854775807"
@@ -197,22 +165,6 @@
             startingLineNumber = "150"
             endingLineNumber = "150"
             landmarkName = "-initWithString:usingEncoding:error:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tools/BmobHelper.m"
-            timestampString = "470826927.812007"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "+queryDataWithClassName:andWithReturnModelClass:withParam:withLimited:withArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

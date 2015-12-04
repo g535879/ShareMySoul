@@ -5,7 +5,7 @@
 //  Created by 古玉彬 on 15/12/2.
 //  Copyright © 2015年 gf. All rights reserved.
 //
-@class BasicModel;
+
 #import <Foundation/Foundation.h>
 /**
  *  操作数据结果回调
@@ -42,7 +42,16 @@ typedef void (^ResultArray)(NSArray *responseArray, NSError * error);
 + (void)insertDataWithModel:(id)dataModel withName:(NSString *)tableName withBlock:(ResultBlock)callBackBlock;
 
 /**
- *  根据表名查询表中所有信息，返回的结果保存到modelClass数组中
+ *  根据id删除一行数据
+ *
+ *  @param className 表名
+ *  @param objectId  id
+ *  @param callBackBlock  回调函数
+ */
++(void)deleteDataWithClassName:(NSString *)className objectId:(NSString *)objectId withBlock:(ResultBlock)callBackBlock;
+
+/**
+ *  根据表名以及条件查询表中所有信息，返回的结果保存到modelClass数组中
  *
  *  @param className  表名
  *  @param modelClass 容器model
@@ -52,5 +61,12 @@ typedef void (^ResultArray)(NSArray *responseArray, NSError * error);
  */
 + (void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withParam:(NSDictionary<NSString *,NSObject *> *)param withLimited:(NSInteger)limited withArray:(ResultArray) responseArray;
 
-
+/**
+ *  更新一个数据
+ *
+ *  @param className 表明
+ *  @param dataModel 要更新的model
+ *  @param callBackBlock  回调函数
+ */
++ (void)updateDataWithClassName:(NSString *)className WithModel:(id)dataModel withBlock:(ResultBlock)callBackBlock;
 @end

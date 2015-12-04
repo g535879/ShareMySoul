@@ -25,7 +25,7 @@ static BmobHelper * _singleton;
 }
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
-
+    
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         _singleton = [super allocWithZone:zone];
@@ -36,9 +36,8 @@ static BmobHelper * _singleton;
 
 #pragma mark - insert
 +(void)insertDataWithModel:(id)dataModel withName:(NSString *)tableName withBlock:(ResultBlock)callBackBlock {
-
-    BmobObject * bmobObj = [BmobObject objectWithClassName:tableName];
     
+    BmobObject * bmobObj = [BmobObject objectWithClassName:tableName];
     [bmobObj saveAllWithDictionary:[self removeSystemInfo:[dataModel toDictionary]]];
     [bmobObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         
@@ -50,19 +49,55 @@ static BmobHelper * _singleton;
     }];
 }
 
+#pragma mark - delete
+
++ (void)deleteDataWithClassName:(NSString *)className objectId:(NSString *)objectId withBlock:(ResultBlock)callBackBlock{
+    
+    BmobObject *bmobObject = [BmobObject objectWithoutDatatWithClassName:className objectId:objectId];
+    [bmobObject deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        if (callBackBlock) {
+            
+            callBackBlock(isSuccessful,error);
+        }
+    }];
+}
+
+#pragma mark - update
+
++ (void)updateDataWithClassName:(NSString *)className WithModel:(id)dataModel withBlock:(ResultBlock)callBackBlock {
+    
+    BmobObject *bmobObject = [BmobObject objectWithoutDatatWithClassName:className  objectId:[dataModel objectId]];
+    
+    [bmobObject saveAllWithDictionary:[self removeSystemInfo:[dataModel toDictionary]]];
+    [bmobObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        if (callBackBlock) {
+            
+            callBackBlock(isSuccessful,error);
+        }
+    }];
+}
+
 #pragma mark - query
 +(void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withParam:(NSDictionary<NSString *,NSObject *> *)param withLimited:(NSInteger)limited withArray:(ResultArray)
-    responseArray{
+responseArray{
     
     NSMutableArray * resultArray = [@[] mutableCopy];
     
     BmobQuery * queryObj = [BmobQuery queryWithClassName:className];
-    //条件
+    
+    //条件参数
     if (param) {
+        
         for (NSString * key in param) {
-//            [queryObj whereKey:<#(NSString *)#> con]
+            
+            [queryObj whereKey:key equalTo:param[key]];
         }
     }
+    
+    //默认按照更新时间降序排列
+    [queryObj orderByDescending:@"updatedAt"];
     
     //记录数
     if (limited) {
@@ -88,7 +123,7 @@ static BmobHelper * _singleton;
                     }
                     [resultArray addObject:model];
                 }
-               
+                
             }
         }
         if (responseArray) {
@@ -102,7 +137,7 @@ static BmobHelper * _singleton;
 #pragma mark - 删除objectId，updatedAt，createdAt这些系统属性
 
 + (NSDictionary *)removeSystemInfo:(NSDictionary *)dic {
-
+    
     NSMutableDictionary * resultDic = [dic mutableCopy];
     
     [resultDic removeObjectForKey:@"objectId"];
@@ -112,16 +147,4 @@ static BmobHelper * _singleton;
     return resultDic;
 }
 
-+ (void)testDataWithString:(NSString *)str, ... {
-    va_list varList;
-    id arg;
-    if (str) {
-        va_start(varList,str);
-        
-        while (arg == va_arg(varList, id)) {
-            NSLog(@"%@",arg);
-        }
-        va_end(varList);
-    }
-}
 @end
