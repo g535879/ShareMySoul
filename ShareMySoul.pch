@@ -20,7 +20,7 @@
 /**
  *  高德地图API
  */
-#define GEO_API_KEY @"70a6c2288bfa02ebcf096751cf5cd790"
+#define GEO_API_KEY @"93c8417f6805970ee30e35de715f8272"
 
 /**
  *  bmbo key
