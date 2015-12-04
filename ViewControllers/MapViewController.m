@@ -20,38 +20,58 @@
     
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
+    
+    //AMapLocationManager使用前需要配置AMapLocationServices Key
+    [AMapLocationServices sharedServices].apiKey = GEO_API_KEY;
+    
     [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 64, screen_Width, screen_Height-64)]];
     
+    UIButton *trafficButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    trafficButton.frame = CGRectMake(screen_Height - 400, screen_Width-120, 120, 120);
+    [trafficButton setTitle:@"交通" forState:UIControlStateNormal];
+    [trafficButton addTarget:self action:@selector(trafficButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:trafficButton];
+    
 }
-
-
 
 #pragma mark -创建地图视图
 - (MAMapView *)createMapViewWithFrame:(CGRect)frame{
     
     
-    MAMapView *mv = [[MAMapView alloc] initWithFrame:frame];
-    mv.delegate = self;
-    mv.showsUserLocation = YES;
-    mv.userTrackingMode = MAUserTrackingModeFollow;
+    _mapView = [[MAMapView alloc] initWithFrame:frame];
+    _mapView.delegate = self;
+    _mapView.showsUserLocation = YES;
     
-
-    _locationManager = [[CLLocationManager alloc] init];
+    //地图类型
+    //mv.mapType = (MAMapTypeSatellite | MAMapTypeStandard);
     
-    [_locationManager requestWhenInUseAuthorization];
+    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    
+    _mapView.showTraffic = NO;
+    
+    _locationManager = [[AMapLocationManager alloc] init];
     _locationManager.delegate = self;
-    //定位精度
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    //定位频率
-    _locationManager.distanceFilter = 100.0;
-    
-    //启动跟踪定位
     [_locationManager startUpdatingLocation];
     
-    return mv;
     
+    return _mapView;
+
 }
 
+- (void)trafficButtonClicked:(UIButton *)button{
+    
+    _mapView.showTraffic = YES;
+
+}
+
+
+#pragma mark -AMapLocationManager代理协议
+- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location{
+
+    NSLog(@"dingweiwancheng");
+    [_locationManager stopUpdatingLocation];
+
+}
 //#pragma mark -创建系统annotation
 //- (void)createSystemAnnotation{
 //
@@ -60,16 +80,6 @@
 //
 //    [_mapView addAnnotation:pointAnnotation];
 //}
-
-#pragma mark -CLLocationManager代理协议
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-    
-    CLLocation *location = [locations firstObject];
-    CLLocationCoordinate2D coordinate = location.coordinate;
-    NSLog(@"经度：%f 纬度：%f 海拔：%f 航向：%f 行走速度：%f",coordinate.longitude,location.altitude,location.altitude,location.course,location.speed);
-    //[_locationManager stopUpdatingLocation];
-    
-}
 
 
 
