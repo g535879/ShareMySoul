@@ -9,7 +9,6 @@
 #import "HomePageViewController.h"
 #import "MapViewController.h"
 @interface HomePageViewController (){
-    MAMapView *_mapView;
 
 }
 
