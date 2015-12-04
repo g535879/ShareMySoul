@@ -8,10 +8,12 @@
 
 #import "AppDelegate.h"
 #import "MyNavigationController.h"
+#import "HomePageViewController.h"
 #import "HomePageMainViewController.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "LogInViewController.h"
 #import "TestBmobViewController.h"
+#import "MapViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +26,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[MyNavigationController alloc] initWithRootViewController:[[TestBmobViewController alloc] init]];
+    self.window.rootViewController = [[MyNavigationController alloc] initWithRootViewController:[[MapViewController alloc] init]];
     [self.window makeKeyAndVisible];
     //高德地图key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;

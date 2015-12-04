@@ -20,19 +20,20 @@
     
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    
-    
+    [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 64, screen_Width, screen_Height-64)]];
     
 }
+
+
 
 #pragma mark -创建地图视图
 - (MAMapView *)createMapViewWithFrame:(CGRect)frame{
     
     
-    _mapView = [[MAMapView alloc] initWithFrame:frame];
-    _mapView.delegate = self;
-    _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    MAMapView *mv = [[MAMapView alloc] initWithFrame:frame];
+    mv.delegate = self;
+    mv.showsUserLocation = YES;
+    mv.userTrackingMode = MAUserTrackingModeFollow;
     
 
     _locationManager = [[CLLocationManager alloc] init];
@@ -47,7 +48,7 @@
     //启动跟踪定位
     [_locationManager startUpdatingLocation];
     
-    return _mapView;
+    return mv;
     
 }
 
