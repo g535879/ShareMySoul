@@ -18,6 +18,9 @@
 
 #import "JSONModel.h"
 
+#import <UINavigationController+FDFullscreenPopGesture.h>
+
+
 /**
  *  高德地图API
  */
