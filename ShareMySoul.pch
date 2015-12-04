@@ -25,7 +25,7 @@
 /**
  *  bmbo key
  */
-#define BMOB_APP_KEY @"1eaded34eb7e83122e3902bd9f789c98"
+#define BMOB_APP_KEY @"f5928fd04f10b3acb656072078a7f51b"
 
 /**
  *  腾讯 appid
