@@ -13,6 +13,7 @@
     MAMapView *_mapView;
     //位置信息
     CLLocationManager *_locationManager;
+    
 }
 
 - (MAMapView *)createMapViewWithFrame:(CGRect)frame;
