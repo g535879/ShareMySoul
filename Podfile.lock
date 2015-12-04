@@ -21,6 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AMap2DMap (3.1.0)
+  - AMapLocation (1.0.1)
   - AMapSearch (3.0.1)
   - BmobSDK (1.6.5)
   - FDFullscreenPopGesture (1.1)
@@ -34,6 +35,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.6.2)
   - AMap2DMap (~> 3.1.0)
+  - AMapLocation (~> 1.0.1)
   - AMapSearch (~> 3.0.1)
   - BmobSDK (~> 1.6.5)
   - FDFullscreenPopGesture (~> 1.1)
@@ -45,6 +47,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AMap2DMap: a6741139dd16d237713c4fd6cae9a0399ca1fe25
+  AMapLocation: d33782bd102563aae1824cb4fae8b4495376f016
   AMapSearch: 431b082417bd3da0c2fe594c4822b664607891e9
   BmobSDK: 9928a9135a3a7823c6d8bd2bcd9baffeb8e6289a
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
