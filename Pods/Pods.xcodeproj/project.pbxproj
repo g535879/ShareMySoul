@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04E0EFD308A39DA6783F9004C5689973 /* JSONValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 11A45FCE7F25561E5390466457429B20 /* JSONValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		09D04A9AB71B5A4FE9175F80496EA5FD /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4616CF42C445FA7A04F7CA40FF52E6C1 /* UIScrollView+MJRefresh.m */; };
+		04E0EFD308A39DA6783F9004C5689973 /* JSONValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 73AF8F3D1B3D1810FAEBAB42E761B31F /* JSONValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06E64BFB3385332E87F397AC0C4357A3 /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB438DE4CFA9D18BCEDB72B77FEE8DE /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		077283919D92BC8E6CFD3514BF7F9434 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 110E05E6ED451100822211B22A701110 /* Foundation.framework */; };
+		09D04A9AB71B5A4FE9175F80496EA5FD /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3256AE05588A0E5174A4933DB862E /* UIScrollView+MJRefresh.m */; };
+		0DF4B5370CA192CB57F282D77FACEEC8 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7F4A0E00D03E61264187C48686DD7 /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0F8217A7033D4B1169408CA2DEBFA592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 110E05E6ED451100822211B22A701110 /* Foundation.framework */; };
 		128993FF267CC0FA8EE6889C6AEC2EC3 /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 840449CBA26E553E20D4A1C901943B6E /* JSONModelArray.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		133B30495D945B737235B107AAE7DAAB /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5333389C36A78B63B0F4B20101E9A6 /* MJRefreshHeader.m */; };
@@ -657,7 +660,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8EA1FD0E95E7B8D092C1052379B9256C /* MJRefresh */ = {
+		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
@@ -808,6 +811,31 @@
 			children = (
 				D9E6E81F09A11958D72BB9057D90BA96 /* AMapSearchKit.framework */,
 			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DC04C0104C681C59F4829F7356A820A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B55C2032C0E1E9F20F8131E0F6AA5FFB /* AFNetworking */,
+				88DDCFA469C0AD70C3D1CBE76BF936B9 /* AMap2DMap */,
+				B02565F9472CD78A13078ED31D40D974 /* AMapLocation */,
+				339A714C73CE12ED188327519BE1FE1B /* AMapSearch */,
+				A8BA025C463BDF45101419E404109545 /* BmobSDK */,
+				43CC0DFC154DA50CD7638C4E49E5AC55 /* FDFullscreenPopGesture */,
+				BF2DE315E11C52B57941D4125A67038E /* JSONModel */,
+				A268E2150284CFCEE9D97663D4DFEEDE /* MBProgressHUD */,
+				8EA1FD0E95E7B8D092C1052379B9256C /* MJRefresh */,
+				4D01B20FE6CBB118A14EBC83C687D18B /* SDWebImage */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF9A7E7E3864E1CE24442A3095532647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D8A264877892B43A9E1D17DEABE4EFF /* AMapSearchKit.framework */,
+			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
@@ -850,6 +878,25 @@
 			isa = PBXGroup;
 			children = (
 				4EE71F2B71EF36478B942CDE9BE62061 /* MAMapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA6E23AB0ECE32218BE39F435BCC3E18 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				910C51B4AF241AC265B96414618C826D /* MBProgressHUD.xcconfig */,
+				2A98DB57B489A72E68402ED279692409 /* MBProgressHUD-dummy.m */,
+				6100EAFFB6E878A4CA5F85FC6C771016 /* MBProgressHUD-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MBProgressHUD";
+			sourceTree = "<group>";
+		};
+		FFC9D4E6EAA3904A68C66D756451ECE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43F770864C01520C97D054F49E9D57CC /* BmobSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1392,7 +1439,7 @@
 		};
 		60EE5BD32EC6E092A0795F2A49A4543D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7562D314DD08EEFB5C5D721081C0A37 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = 4702C8F8ABA9AD32AC1E6FEE0E6818A5 /* SDWebImage.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
@@ -1410,7 +1457,7 @@
 		};
 		883D6A017491FA9C7848B197C9BAA107 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4702C8F8ABA9AD32AC1E6FEE0E6818A5 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = D7562D314DD08EEFB5C5D721081C0A37 /* SDWebImage.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
