@@ -7,5 +7,5 @@ pod 'AMap2DMap', '~> 3.1.0'
 pod 'AMapSearch', '~> 3.0.1'
 pod 'BmobSDK', '~> 1.6.5'
 pod 'JSONModel', '~> 1.1.2'
-pod 'AMapLocation', '~> 1.0.1'
+
 
