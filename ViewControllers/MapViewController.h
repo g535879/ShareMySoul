@@ -8,6 +8,14 @@
 
 #import "BasicViewController.h"
 
-@interface MapViewController : BasicViewController
+@interface MapViewController : BasicViewController<MAMapViewDelegate,CLLocationManagerDelegate>{
+    //地图视图
+    MAMapView *_mapView;
+    //位置信息
+    CLLocationManager *_locationManager;
+}
+
+- (MAMapView *)createMapViewWithFrame:(CGRect)frame;
+
 
 @end

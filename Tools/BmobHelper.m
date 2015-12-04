@@ -118,7 +118,7 @@ static BmobHelper * _singleton;
     if (str) {
         va_start(varList,str);
         
-        while (arg = va_arg(varList, id)) {
+        while (arg == va_arg(varList, id)) {
             NSLog(@"%@",arg);
         }
         va_end(varList);

@@ -7,7 +7,7 @@
 //
 
 #import "BasicViewController.h"
-
-@interface HomePageViewController : BasicViewController
+#import "MapViewController.h"
+@interface HomePageViewController : MapViewController
 
 @end

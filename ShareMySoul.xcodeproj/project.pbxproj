@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
+		5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000A8C91C0FC078009A3260 /* MapViewController.m */; };
 		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
 		AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD72A6801C0D42430001058C /* HomePageTitleView.m */; };
@@ -510,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
 				AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */,
