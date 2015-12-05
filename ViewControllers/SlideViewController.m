@@ -66,7 +66,6 @@
     [self addChildViewController:_mainVC];
     //遮罩view
     clearViews = [[UIView alloc] initWithFrame:_mainVC.view.frame];
-//    [clearViews setBackgroundColor:[UIColor blackColor]];
     [clearViews addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(svcTap:)]];
     clearViews.hidden = YES;
     [_bgScrollView addSubview:clearViews];
