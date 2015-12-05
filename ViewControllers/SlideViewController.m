@@ -7,11 +7,13 @@
 //
 
 #import "SlideViewController.h"
+#import "UserInfoViewController.h"
+#import "MyFeelViewController.h"
 
-@interface SlideViewController ()<UIScrollViewDelegate>{
+@interface SlideViewController ()<UIScrollViewDelegate,SlideViewDelegate>{
     
     UIScrollView * _bgScrollView; //背景滚动视图
-    UIViewController * _leftVC; //左侧视图控制器
+    UserInfoViewController * _leftVC; //左侧视图控制器
     UIViewController * _mainVC; //右侧视图控制器
     UIView * clearViews; //遮罩层
     CGFloat _viewWidth;
@@ -33,7 +35,7 @@
 
     if (self = [super init]) {
         
-        _leftVC = leftVC;
+        _leftVC = (id)leftVC;
         _mainVC = mainVC;
         self.view.frame = frame;
         _viewWidth = frame.size.width;
@@ -59,16 +61,12 @@
     _mainVC.view.frame = rect;
     [_bgScrollView addSubview:_mainVC.view];
     [_bgScrollView addSubview:_leftVC.view];
-    
-    if ([_leftVC isKindOfClass:[UINavigationController class]]) {
-        [self addChildViewController:_leftVC];
-    }
-    if ([_mainVC isKindOfClass:[UINavigationController class]]) {
-        [self addChildViewController:_mainVC];
-    }
-    
+     _leftVC.delegate = self;
+    [self addChildViewController:_leftVC];
+    [self addChildViewController:_mainVC];
     //遮罩view
     clearViews = [[UIView alloc] initWithFrame:_mainVC.view.frame];
+//    [clearViews setBackgroundColor:[UIColor blackColor]];
     [clearViews addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(svcTap:)]];
     clearViews.hidden = YES;
     [_bgScrollView addSubview:clearViews];
@@ -89,7 +87,7 @@
     
     //最大偏移量
     if (offsetX < _viewWidth / 4.0) {
-        scrollView.contentOffset = CGPointMake(_viewWidth / 4.0, 0);
+        _bgScrollView.contentOffset = CGPointMake(_viewWidth / 4.0, 0);
     }
     
     
@@ -100,21 +98,44 @@
 - (void)svcTap:(UITapGestureRecognizer *)gesture {
     
     if (gesture.state == UIGestureRecognizerStateEnded) {
-        [UIView animateWithDuration:0.3 animations:^{
-            _bgScrollView.contentOffset = CGPointMake(_viewWidth, 0);
-        } completion:^(BOOL finished) {
-            clearViews.hidden = YES;
-        }];
+        [self closeSliderWindow];
     }
 }
 
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+#pragma mark -  delegate event
+
+- (void)leftBtnClick:(UIButton *)btn {
     
-    if (scrollView.contentOffset.x == _viewWidth) {
-        clearViews.hidden = YES;
+    switch (btn.tag - 500) {
+        case 1:
+        {
+            if ([_mainVC isKindOfClass:[UINavigationController class]]) {
+                UINavigationController * nc = (UINavigationController *)_mainVC;
+                [nc pushViewController:[[MyFeelViewController alloc] init] animated:NO];
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
+    //关闭抽屉
+    [self closeSliderWindow];
 }
+
+//关闭抽屉
+- (void)closeSliderWindow {
+    
+    _bgScrollView.pagingEnabled = NO;
+    [UIView animateWithDuration:0.4 animations:^{
+        _bgScrollView.contentOffset = CGPointMake(_viewWidth, 0);
+    } completion:^(BOOL finished) {
+        clearViews.hidden = YES;
+        _bgScrollView.pagingEnabled = YES;
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

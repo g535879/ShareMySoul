@@ -30,6 +30,8 @@
     self.navigationController.navigationBar.hidden = YES;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 

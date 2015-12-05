@@ -7,8 +7,12 @@
 //
 
 #import "UserInfoViewController.h"
+#import "MyFeelViewController.h"
 
-@interface UserInfoViewController ()
+@interface UserInfoViewController (){
+    //我的心情按钮
+    UIButton * _myInfoMsg;
+}
 
 @end
 
@@ -17,17 +21,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UILabel * textLabel = [[UILabel alloc] initWithFrame:self.view.bounds];
-    textLabel.text = @"我是用户相关界面";
-    textLabel.font = [UIFont systemFontOfSize:50];
-//    [textLabel sizeToFit];
-    [textLabel setNumberOfLines:7];
-    [textLabel setTextColor:[UIColor whiteColor]];
-    [textLabel setAdjustsFontSizeToFitWidth:YES];
     
-    [self.view addSubview:textLabel];
-    [self.view setBackgroundColor:[UIColor blackColor]];
+    
+    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect rect = self.view.frame;
+    _myInfoMsg.frame = CGRectMake(0, 100, rect.size.width * 3 / 4.0, 40);
+    _myInfoMsg.tag = 500 + 1;
+    _myInfoMsg.backgroundColor = [UIColor orangeColor];
+    [_myInfoMsg setTitle:@"我的心情" forState:UIControlStateNormal];
+    [_myInfoMsg setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [_myInfoMsg setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_myInfoMsg addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_myInfoMsg];
+    
+    [self.view setBackgroundColor:[UIColor grayColor]];
 }
+
+
+#pragma mark - delegate events 
+
+- (void)btnClick:(UIButton *)btn {
+    if ([self.delegate respondsToSelector:@selector(leftBtnClick:)]) {
+        [self.delegate leftBtnClick:btn];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

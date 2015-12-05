@@ -8,6 +8,14 @@
 
 #import "BasicViewController.h"
 
+@protocol SlideViewDelegate <NSObject>
+
+//关闭抽屉
+- (void)leftBtnClick:(UIButton *)btn;
+
+@end
+
 @interface UserInfoViewController : BasicViewController
+@property (nonatomic, weak) id<SlideViewDelegate> delegate;
 
 @end

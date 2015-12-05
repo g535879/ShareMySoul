@@ -9,5 +9,3 @@ pod 'BmobSDK', '~> 1.6.5'
 pod 'JSONModel', '~> 1.1.2'
 pod 'AMapLocation', '~> 1.0.1'
 pod 'FDFullscreenPopGesture', '~> 1.1'
-
-

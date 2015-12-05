@@ -30,6 +30,7 @@
     UserInfoViewController * uVC = [[UserInfoViewController alloc] init];
     
     SlideViewController * svc = [[SlideViewController alloc] initWithFrame:self.window.bounds LeftVC:uVC andMainVC:mainVC];
+
     
     self.window.rootViewController = svc;
     

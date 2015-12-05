@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+
 @interface SlideViewController : UIViewController
 /**
  *  抽屉构造方法
@@ -17,4 +19,6 @@
  *  @return self
  */
 - (instancetype)initWithFrame:(CGRect) frame LeftVC:(UIViewController *)leftVC andMainVC:(UIViewController *)mainVC;
+
+
 @end

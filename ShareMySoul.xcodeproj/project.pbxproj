@@ -38,6 +38,7 @@
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
 		ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */; };
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
+		ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */; };
 		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
 		ADDD951E1C0FE392005A1ECD /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951D1C0FE392005A1ECD /* MessageModel.m */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,8 @@
 		ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageMainViewController.m; sourceTree = "<group>"; };
 		ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeelViewController.h; sourceTree = "<group>"; };
+		ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
 		ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
 		ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBmobViewController.m; sourceTree = "<group>"; };
 		ADDD951C1C0FE392005A1ECD /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = ViewControllers/MessageModel.h; sourceTree = SOURCE_ROOT; };
@@ -229,6 +232,8 @@
 				ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */,
 				ADA723471C11C1BA009E41E8 /* SlideViewController.h */,
 				ADA723481C11C1BA009E41E8 /* SlideViewController.m */,
+				ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */,
+				ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */,
 				ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */,
 				ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */,
 				AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */,
@@ -528,6 +533,7 @@
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
 				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
+				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,

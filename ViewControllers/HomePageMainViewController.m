@@ -32,21 +32,27 @@
     [self createViewManagement];
 }
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 
 #pragma mark -创建Navigation中的titleView
 - (void)createTitleView{
     
+    __weak typeof(self) weakSelf = self;
     self.topTitleView = [[HomePageTitleView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 64) andBlock:^(UIButton *button) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         
         if((self.currentViewController == _homePageVC && button.tag == 10) || (self.currentViewController == _nearByVC && button.tag == 20)){
             return ;
         }else{
             if (button.tag == 10) {
                 
-                [self replaceController:self.currentViewController newController:_homePageVC];
+                [strongSelf replaceController:strongSelf.currentViewController newController:_homePageVC];
             }else{
-                [self replaceController:self.currentViewController newController:_nearByVC];
+                [strongSelf replaceController:strongSelf.currentViewController newController:_nearByVC];
             }
         }
     }];
