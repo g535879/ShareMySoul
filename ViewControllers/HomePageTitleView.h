@@ -13,7 +13,6 @@
  *  button点击回调block
  */
 @property (copy, nonatomic) void (^titleBtnClick)(UIButton * btn);
-
 /**
  *  初始化构造方法
  *

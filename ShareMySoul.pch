@@ -11,6 +11,8 @@
 #import <MAMapKit/MAMapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapSearchKit/AMapSearchAPI.h>
+#import <AMapSearchKit/AMapSearchServices.h>
 #import "Bmob.h"
 
 
