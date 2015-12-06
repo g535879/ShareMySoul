@@ -10,5 +10,4 @@
 
 @implementation RootModel
 
-
 @end
