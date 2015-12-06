@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
 		5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000A8C91C0FC078009A3260 /* MapViewController.m */; };
-		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
 		AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */; };
 		AD6489D11C1492BD008A26F0 /* RootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489D01C1492BD008A26F0 /* RootModel.m */; };
@@ -45,14 +44,12 @@
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
 		ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */; };
 		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
-		ADDD951E1C0FE392005A1ECD /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951D1C0FE392005A1ECD /* MessageModel.m */; };
 		ADE7ADF51C14649400C796B6 /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADEE1C14649400C796B6 /* MyCustomView.m */; };
 		ADE7ADF61C14649400C796B6 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF01C14649400C796B6 /* UIAlertView+Blocks.m */; };
 		ADE7ADF71C14649400C796B6 /* UIColor+tools.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF21C14649400C796B6 /* UIColor+tools.m */; };
 		ADE7ADF81C14649400C796B6 /* UIViewController+AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF41C14649400C796B6 /* UIViewController+AlertView.m */; };
 		ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADFA1C146A1100C796B6 /* CicleView.m */; };
 		ADE7AE031C14739900C796B6 /* bgImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADE7AE021C14739900C796B6 /* bgImage.jpg */; };
-		ADF69C701C131F27000FF57C /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF69C6F1C131F27000FF57C /* UserInfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +76,6 @@
 		5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
-		AD31457F1C0F571400F8BAD3 /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicModel.h; path = ShareMySoul/BasicModel.h; sourceTree = SOURCE_ROOT; };
-		AD3145801C0F571400F8BAD3 /* BasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicModel.m; path = ShareMySoul/BasicModel.m; sourceTree = SOURCE_ROOT; };
 		AD36E7B71C0F1BDF006A32E7 /* BmobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmobHelper.h; sourceTree = "<group>"; };
 		AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobHelper.m; sourceTree = "<group>"; };
 		AD36FBAC1C11D4C5008839F7 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -138,8 +133,6 @@
 		ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
 		ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
 		ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBmobViewController.m; sourceTree = "<group>"; };
-		ADDD951C1C0FE392005A1ECD /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = ViewControllers/MessageModel.h; sourceTree = SOURCE_ROOT; };
-		ADDD951D1C0FE392005A1ECD /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = ViewControllers/MessageModel.m; sourceTree = SOURCE_ROOT; };
 		ADE7ADED1C14649400C796B6 /* MyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomView.h; sourceTree = "<group>"; };
 		ADE7ADEE1C14649400C796B6 /* MyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomView.m; sourceTree = "<group>"; };
 		ADE7ADEF1C14649400C796B6 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
@@ -585,6 +578,8 @@
 			files = (
 				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */,
+				AD6489DF1C1497B9008A26F0 /* BasicModel.m in Sources */,
+				AD6489DA1C149522008A26F0 /* UserInfoModel.m in Sources */,
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
 				AD9883AE1C142B1A00B87FF3 /* RootModel.m in Sources */,
 				ADE7ADF71C14649400C796B6 /* UIColor+tools.m in Sources */,
@@ -594,7 +589,6 @@
 				AD9883AB1C14226400B87FF3 /* RegisterModel.m in Sources */,
 				AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
-				AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */,
 				ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */,
 				ADE7ADF81C14649400C796B6 /* UIViewController+AlertView.m in Sources */,
 				AD9883A61C13FC8100B87FF3 /* NSString+MD5.m in Sources */,
@@ -607,6 +601,7 @@
 				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
+				AD6489E01C1497B9008A26F0 /* MessageModel.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,
 				ADDD951E1C0FE392005A1ECD /* MessageModel.m in Sources */,
