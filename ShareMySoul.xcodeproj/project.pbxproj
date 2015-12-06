@@ -229,6 +229,10 @@
 		AD86665E1C0DDED7001249CF /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				ADE7ADF91C146A1100C796B6 /* CicleView.h */,
+				ADE7ADFA1C146A1100C796B6 /* CicleView.m */,
+				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
+				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
 			);
 			path = SDK;
 			sourceTree = SOURCE_ROOT;
