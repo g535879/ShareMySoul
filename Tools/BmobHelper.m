@@ -7,7 +7,7 @@
 //
 
 #import "BmobHelper.h"
-#import "MessageModel.h"
+#import "UserInfoModel.h"
 
 static BmobHelper * _singleton;
 
@@ -131,6 +131,22 @@ responseArray{
             responseArray(resultArray,error);
         }
         
+    }];
+}
+
++ (void)saveUserWithModel:(UserInfoModel *)userModel withBlock:(ResultBlock)callBackBlock {
+    BmobUser * bUser = [[BmobUser alloc] init];
+    
+    [bUser saveAllWithDictionary:[self removeSystemInfo:[userModel toDictionary]]];
+    [bUser setUsername:userModel.nickname];
+    [bUser setPassword:nil];
+    [bUser saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        //回调相关信息
+        if (callBackBlock) {
+            
+            callBackBlock(isSuccessful,error);
+        }
     }];
 }
 

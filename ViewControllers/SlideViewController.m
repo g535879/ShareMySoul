@@ -5,10 +5,10 @@
 //  Created by 古玉彬 on 15/12/4.
 //  Copyright © 2015年 gf. All rights reserved.
 //
-
 #import "SlideViewController.h"
 #import "UserInfoViewController.h"
 #import "MyFeelViewController.h"
+#import  "LogInViewController.h"
 
 @interface SlideViewController ()<UIScrollViewDelegate,SlideViewDelegate>{
     
@@ -27,6 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSlide:) name:@"openSlideEnable" object:nil];
+    
 
 }
 
@@ -106,19 +110,31 @@
 
 - (void)leftBtnClick:(UIButton *)btn {
     
+    if (![_mainVC isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
+    
+    UINavigationController * nc = (UINavigationController *)_mainVC;
+    
     switch (btn.tag - 500) {
+            //我的心情
         case 1:
         {
-            if ([_mainVC isKindOfClass:[UINavigationController class]]) {
-                UINavigationController * nc = (UINavigationController *)_mainVC;
-                [nc pushViewController:[[MyFeelViewController alloc] init] animated:NO];
-            }
+
+            [nc pushViewController:[[MyFeelViewController alloc] init] animated:NO];
         }
             break;
-            
+        //登陆
+        case 2:
+        {
+            [nc pushViewController:[[LogInViewController alloc] init] animated:YES];
+        }
         default:
             break;
     }
+    
+    //关闭可拖动状态
+    _bgScrollView.scrollEnabled = NO;
     //关闭抽屉
     [self closeSliderWindow];
 }
@@ -135,6 +151,21 @@
     }];
 }
 
+
+#pragma mark - 通知中心监听rightVC
+- (void)openSlide:(NSNotification *)notification {
+    
+    if ([notification.name  isEqualToString: @"openSlide"]) {
+        
+        _bgScrollView.scrollEnabled = YES;
+    }
+}
+
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

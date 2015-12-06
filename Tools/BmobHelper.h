@@ -5,7 +5,7 @@
 //  Created by 古玉彬 on 15/12/2.
 //  Copyright © 2015年 gf. All rights reserved.
 //
-
+@class UserInfoModel;
 #import <Foundation/Foundation.h>
 /**
  *  操作数据结果回调
@@ -69,4 +69,11 @@ typedef void (^ResultArray)(NSArray *responseArray, NSError * error);
  *  @param callBackBlock  回调函数
  */
 + (void)updateDataWithClassName:(NSString *)className WithModel:(id)dataModel withBlock:(ResultBlock)callBackBlock;
+/**
+ *  保存用户
+ *
+ *  @param userModel     用户模型
+ *  @param callBackBlock 回调函数
+ */
++ (void)saveUserWithModel:(UserInfoModel *)userModel withBlock:(ResultBlock)callBackBlock;
 @end

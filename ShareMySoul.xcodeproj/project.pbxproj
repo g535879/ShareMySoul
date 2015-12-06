@@ -41,6 +41,7 @@
 		ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */; };
 		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
 		ADDD951E1C0FE392005A1ECD /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951D1C0FE392005A1ECD /* MessageModel.m */; };
+		ADF69C701C131F27000FF57C /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF69C6F1C131F27000FF57C /* UserInfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBmobViewController.m; sourceTree = "<group>"; };
 		ADDD951C1C0FE392005A1ECD /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = ViewControllers/MessageModel.h; sourceTree = SOURCE_ROOT; };
 		ADDD951D1C0FE392005A1ECD /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = ViewControllers/MessageModel.m; sourceTree = SOURCE_ROOT; };
+		ADF69C6E1C131F27000FF57C /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = SOURCE_ROOT; };
+		ADF69C6F1C131F27000FF57C /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 		AD92F0EA1C0B2FA8009E5F60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ADF69C6E1C131F27000FF57C /* UserInfoModel.h */,
+				ADF69C6F1C131F27000FF57C /* UserInfoModel.m */,
 				ADDD951C1C0FE392005A1ECD /* MessageModel.h */,
 				ADDD951D1C0FE392005A1ECD /* MessageModel.m */,
 				AD31457F1C0F571400F8BAD3 /* BasicModel.h */,
@@ -523,6 +528,7 @@
 			files = (
 				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
+				ADF69C701C131F27000FF57C /* UserInfoModel.m in Sources */,
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
 				AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,

@@ -31,6 +31,7 @@
     [trafficButton setTitle:@"交通" forState:UIControlStateNormal];
     [trafficButton addTarget:self action:@selector(trafficButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:trafficButton];
+
     
 }
 

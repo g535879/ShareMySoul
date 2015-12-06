@@ -25,7 +25,7 @@
     
     _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect rect = self.view.frame;
-    _myInfoMsg.frame = CGRectMake(0, 100, rect.size.width * 3 / 4.0, 40);
+    _myInfoMsg.frame = CGRectMake(rect.size.width / 4.0, 100, rect.size.width * 3 / 4.0, 40);
     _myInfoMsg.tag = 500 + 1;
     _myInfoMsg.backgroundColor = [UIColor orangeColor];
     [_myInfoMsg setTitle:@"我的心情" forState:UIControlStateNormal];
@@ -35,8 +35,21 @@
     [self.view addSubview:_myInfoMsg];
     
     [self.view setBackgroundColor:[UIColor grayColor]];
+    
+    
+    UIButton * logInBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+    logInBtn.frame = CGRectMake(rect.size.width / 4.0, 160, rect.size.width * 3 / 4.0, 40);
+    [logInBtn setTitle:@"登陆" forState:UIControlStateNormal];
+    logInBtn.tag = 500 + 2;
+    [logInBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [logInBtn setBackgroundColor:[UIColor orangeColor]];
+    [self.view addSubview:logInBtn];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"userInfo view appear");
+}
 
 #pragma mark - delegate events 
 
@@ -45,7 +58,6 @@
         [self.delegate leftBtnClick:btn];
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
