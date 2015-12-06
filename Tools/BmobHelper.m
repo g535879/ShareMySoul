@@ -35,7 +35,9 @@ static BmobHelper * _singleton;
 }
 
 #pragma mark - insert
-+(void)insertDataWithModel:(id)dataModel withName:(NSString *)tableName withBlock:(ResultBlock)callBackBlock {
++(void)insertDataWithModel:(id)dataModel
+                  withName:(NSString *)tableName
+                 withBlock:(ResultBlock)callBackBlock {
     
     BmobObject * bmobObj = [BmobObject objectWithClassName:tableName];
     [bmobObj saveAllWithDictionary:[self removeSystemInfo:[dataModel toDictionary]]];
@@ -51,7 +53,9 @@ static BmobHelper * _singleton;
 
 #pragma mark - delete
 
-+ (void)deleteDataWithClassName:(NSString *)className objectId:(NSString *)objectId withBlock:(ResultBlock)callBackBlock{
++ (void)deleteDataWithClassName:(NSString *)className
+                       objectId:(NSString *)objectId
+                      withBlock:(ResultBlock)callBackBlock{
     
     BmobObject *bmobObject = [BmobObject objectWithoutDatatWithClassName:className objectId:objectId];
     [bmobObject deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
@@ -65,7 +69,9 @@ static BmobHelper * _singleton;
 
 #pragma mark - update
 
-+ (void)updateDataWithClassName:(NSString *)className WithModel:(id)dataModel withBlock:(ResultBlock)callBackBlock {
++ (void)updateDataWithClassName:(NSString *)className
+                      WithModel:(id)dataModel
+                      withBlock:(ResultBlock)callBackBlock {
     
     BmobObject *bmobObject = [BmobObject objectWithoutDatatWithClassName:className  objectId:[dataModel objectId]];
     
@@ -80,8 +86,11 @@ static BmobHelper * _singleton;
 }
 
 #pragma mark - query
-+(void)queryDataWithClassName:(NSString *)className andWithReturnModelClass:(Class)modelClass withParam:(NSDictionary<NSString *,NSObject *> *)param withLimited:(NSInteger)limited withArray:(ResultArray)
-responseArray{
++(void)queryDataWithClassName:(NSString *)className
+      andWithReturnModelClass:(Class)modelClass
+                    withParam:(NSDictionary<NSString *,NSObject *> *)param
+                  withLimited:(NSInteger)limited
+                    withArray:(ResultArray) responseArray{
     
     NSMutableArray * resultArray = [@[] mutableCopy];
     
@@ -112,7 +121,7 @@ responseArray{
             for (BmobObject * obj in array) {
                 
                 JSONModel * model = [[modelClass class] new];
-                
+
                 if ([model respondsToSelector:@selector(toDictionary)]) {
                     
                     NSDictionary * modelPropertyTitleDic = [model toDictionary];
@@ -134,21 +143,40 @@ responseArray{
     }];
 }
 
-+ (void)saveUserWithModel:(UserInfoModel *)userModel withBlock:(ResultBlock)callBackBlock {
-    BmobUser * bUser = [[BmobUser alloc] init];
++(void)SelectDataWithClassName:(NSString *)className
+       andWithReturnModelClass:(Class)modelClass
+                     withParam:(NSDictionary<NSString *,NSObject *> *)param
+               withReponseData:(ResultData)responseData {
     
-    [bUser saveAllWithDictionary:[self removeSystemInfo:[userModel toDictionary]]];
-    [bUser setUsername:userModel.nickname];
-    [bUser setPassword:nil];
-    [bUser saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-        
-        //回调相关信息
-        if (callBackBlock) {
-            
-            callBackBlock(isSuccessful,error);
+    [self queryDataWithClassName:className
+         andWithReturnModelClass:modelClass
+                       withParam:param withLimited:1
+                       withArray:^(NSArray *responseArray, NSError *error) {
+                           
+        if (error) {
+            responseData(nil,error);
+        }
+        else{
+            responseData([responseArray firstObject],nil);
         }
     }];
 }
+
+//+ (void)saveUserWithModel:(UserInfoModel *)userModel withBlock:(ResultBlock)callBackBlock {
+//    BmobUser * bUser = [[BmobUser alloc] init];
+//    
+//    [bUser saveAllWithDictionary:[self removeSystemInfo:[userModel toDictionary]]];
+//    [bUser setUsername:userModel.nickname];
+//    [bUser setPassword:nil];
+//    [bUser saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+//        
+//        //回调相关信息
+//        if (callBackBlock) {
+//            
+//            callBackBlock(isSuccessful,error);
+//        }
+//    }];
+//}
 
 #pragma mark - 删除objectId，updatedAt，createdAt这些系统属性
 

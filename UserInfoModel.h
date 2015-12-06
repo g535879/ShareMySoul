@@ -21,7 +21,8 @@ proStr(figureurl_qq_2);
 proStr(nickname);
 
 /**
- *  身份识别码
+ *  性别
  */
-proStr(openid);
+proStr(sex);
+
 @end

@@ -10,4 +10,22 @@
 
 @implementation UserInfoModel
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    
+    NSArray * optionArray = @[@"createdAt",@"updatedAt"];
+    
+    if ([optionArray containsObject:propertyName]) {
+        
+        return YES;
+    }
+    return NO;
+}
+
+- (NSString *)figureurl_qq_2 {
+    
+    if (!_figureurl_qq_2) {
+        return default_head_image;
+    }
+    return _figureurl_qq_2;
+}
 @end

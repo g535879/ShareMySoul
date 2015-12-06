@@ -27,7 +27,10 @@
 -  (void)setNavigationRefer {
     
     //隐藏导航栏
-    self.navigationController.navigationBar.hidden = YES;
+    if (self.navigationController) {
+        
+        self.navigationController.navigationBar.hidden = YES;
+    }
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

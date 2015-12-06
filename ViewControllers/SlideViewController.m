@@ -8,7 +8,8 @@
 #import "SlideViewController.h"
 #import "UserInfoViewController.h"
 #import "MyFeelViewController.h"
-#import  "LogInViewController.h"
+#import  "TestBmobViewController.h"
+#import "LogInViewController.h"
 
 @interface SlideViewController ()<UIScrollViewDelegate,SlideViewDelegate>{
     
@@ -57,17 +58,23 @@
     _bgScrollView.bounces = NO;
     _bgScrollView.delegate = self;
     _bgScrollView.pagingEnabled = YES;
+    _bgScrollView.showsHorizontalScrollIndicator = NO;
     _bgScrollView.contentOffset = CGPointMake(_viewWidth, 0);
     [self.view addSubview:_bgScrollView];
     
     CGRect rect = _mainVC.view.frame;
     rect.origin.x = _viewWidth;
     _mainVC.view.frame = rect;
-    [_bgScrollView addSubview:_mainVC.view];
+    _mainVC.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    _mainVC.view.layer.shadowOpacity = 0.4;
+    _mainVC.view.layer.shadowRadius = 7.0f;
+    _mainVC.view.layer.masksToBounds = NO;
     [_bgScrollView addSubview:_leftVC.view];
+    [_bgScrollView addSubview:_mainVC.view];
      _leftVC.delegate = self;
     [self addChildViewController:_leftVC];
     [self addChildViewController:_mainVC];
+    
     //遮罩view
     clearViews = [[UIView alloc] initWithFrame:_mainVC.view.frame];
     [clearViews addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(svcTap:)]];
@@ -93,6 +100,20 @@
         _bgScrollView.contentOffset = CGPointMake(_viewWidth / 4.0, 0);
     }
     
+    
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        
+    }
+    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    if (scrollView.contentOffset.x == _viewWidth) {
+        clearViews.hidden = YES;
+    }
     
 }
 
@@ -129,6 +150,12 @@
         {
             [nc pushViewController:[[LogInViewController alloc] init] animated:YES];
         }
+            break;
+        //测试 bmob
+        case 3:
+        {
+            [nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
+        }
         default:
             break;
     }
@@ -138,6 +165,7 @@
     //关闭抽屉
     [self closeSliderWindow];
 }
+
 
 //关闭抽屉
 - (void)closeSliderWindow {
@@ -155,7 +183,7 @@
 #pragma mark - 通知中心监听rightVC
 - (void)openSlide:(NSNotification *)notification {
     
-    if ([notification.name  isEqualToString: @"openSlide"]) {
+    if ([notification.name  isEqualToString: @"openSlideEnable"]) {
         
         _bgScrollView.scrollEnabled = YES;
     }

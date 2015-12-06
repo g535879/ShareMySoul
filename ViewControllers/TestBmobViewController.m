@@ -8,8 +8,11 @@
 
 #import "TestBmobViewController.h"
 #import "MessageModel.h"
+#import "UserInfoModel.h"
 
-@interface TestBmobViewController ()
+@interface TestBmobViewController (){
+    MessageModel * mModel;
+}
 
 @end
 
@@ -18,34 +21,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blackColor];
-//    //添加一条数据
-//    MessageModel * mModel = [[MessageModel alloc] init];
-//    mModel.message = @"我是余佳222222";
-//    mModel.sex = @"女";
-//
-//    [BmobHelper insertDataWithModel:mModel withName:@"UserMessage" withBlock:^(BOOL isSuccess, NSError *error) {
-//        
-//        if (error) {
-//            NSLog(@"%@",error);
-//        }
-//        else{
-//            NSLog(@"ok");
-//        }
-//    }];
+    self.title = @"bmob测试";
     
+    //添加一条数据
+    mModel = [[MessageModel alloc] init];
+    mModel.message = @"我是余佳222222";
+    mModel.sex = @"女";
+
+    [self insert];
+}
+
+- (void)insert {
+    
+    UserInfoModel * userInfoModel = [[UserInfoModel alloc] init];
+    userInfoModel.sex = @"男";
+        [BmobHelper insertDataWithModel:userInfoModel withName:USER_DB withBlock:^(BOOL isSuccess, NSError *error) {
+    
+            if (error) {
+                NSLog(@"%@",error);
+            }
+            else{
+                NSLog(@"ok");
+            }
+        }];
+}
+
+- (void)query {
     
     //测试获取数据
-    [BmobHelper queryDataWithClassName:@"UserMessage" andWithReturnModelClass:[MessageModel class] withParam:(NSDictionary<NSString *,NSObject *> *)nil withLimited:0 withArray:^(NSArray *responseArray, NSError *error) {
-        
-        if (!error) {
+        [BmobHelper queryDataWithClassName:@"UserMessage" andWithReturnModelClass:[MessageModel class] withParam:(NSDictionary<NSString *,NSObject *> *)nil withLimited:0 withArray:^(NSArray *responseArray, NSError *error) {
+    
+            if (!error) {
+    
+            }
+            else{
+                NSLog(@"%@",error);
+            }
+    
+        }];
+}
 
-        }
-        else{
-            NSLog(@"%@",error);
-        }
+- (void)delete {
+    
+}
 
-    }];
+- (void)select {
     
 }
 
