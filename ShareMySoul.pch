@@ -15,13 +15,19 @@
 #import <AMapSearchKit/AMapSearchServices.h>
 #import "Bmob.h"
 
-
+//三方库
 #import "BmobHelper.h"
 
 #import "JSONModel.h"
 
+#import "NSString+MD5.h"
+
 #import <UINavigationController+FDFullscreenPopGesture.h>
 
+#import "UIImage+AFNetworking.h"
+//自定义类
+#import "UserInfoModel.h"
+#import "MyCustomView.h"
 
 /**
  *  高德地图API
@@ -53,6 +59,7 @@
 
 #define imageStar(str) str.length ? [UIImage imageNamed:(str)] : nil
 
+#define default_head_image @"default_head_image"
 //我们需要做适配
 //首先想到一个比例尺 frame值来做适配
 //首先需要一个基数 以什么屏幕作为参照物
@@ -69,7 +76,9 @@
 #define scale_screen (screen_Width / iphone6P)
 
 
+//数据库表名
 
+#define USER_DB @"User"
 
 
 
