@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
 		5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000A8C91C0FC078009A3260 /* MapViewController.m */; };
-		50DF97C71C1410E800128D0B /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DF97C61C1410E800128D0B /* CustomCalloutView.m */; };
+		AD10BACC1C148EF600DAC233 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD10BACB1C148EF600DAC233 /* UserInfoModel.m */; };
 		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
 		AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */; };
@@ -74,10 +74,10 @@
 		43DC34C5535C61C2AC23BB2A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5000A8C81C0FC078009A3260 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		5000A8C91C0FC078009A3260 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		50DF97C51C1410E800128D0B /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutView.h; path = "../../../Program/qianfeng/UI素材/图标/CustomCalloutView.h"; sourceTree = "<group>"; };
-		50DF97C61C1410E800128D0B /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCalloutView.m; path = "../../../Program/qianfeng/UI素材/图标/CustomCalloutView.m"; sourceTree = "<group>"; };
 		5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AD10BACA1C148EF600DAC233 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		AD10BACB1C148EF600DAC233 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
 		AD31457F1C0F571400F8BAD3 /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicModel.h; path = ShareMySoul/BasicModel.h; sourceTree = SOURCE_ROOT; };
 		AD3145801C0F571400F8BAD3 /* BasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicModel.m; path = ShareMySoul/BasicModel.m; sourceTree = SOURCE_ROOT; };
@@ -102,11 +102,8 @@
 		AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		AD92F0F11C0B3097009E5F60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		AD92F0F21C0B3097009E5F60 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
-		AD9883A41C13FC8100B87FF3 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		AD9883A51C13FC8100B87FF3 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		AD9883A91C14226400B87FF3 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterModel.h; sourceTree = "<group>"; };
 		AD9883AA1C14226400B87FF3 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterModel.m; sourceTree = "<group>"; };
-		AD9883AC1C142B1A00B87FF3 /* RootModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootModel.h; sourceTree = "<group>"; };
 		AD9883AD1C142B1A00B87FF3 /* RootModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootModel.m; sourceTree = "<group>"; };
 		ADA723471C11C1BA009E41E8 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
 		ADA723481C11C1BA009E41E8 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
@@ -148,7 +145,6 @@
 		ADE7ADF91C146A1100C796B6 /* CicleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CicleView.h; path = ViewControllers/CicleView.h; sourceTree = SOURCE_ROOT; };
 		ADE7ADFA1C146A1100C796B6 /* CicleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CicleView.m; path = ViewControllers/CicleView.m; sourceTree = SOURCE_ROOT; };
 		ADE7AE021C14739900C796B6 /* bgImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImage.jpg; sourceTree = "<group>"; };
-		ADF69C6E1C131F27000FF57C /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = SOURCE_ROOT; };
 		ADF69C6F1C131F27000FF57C /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -199,12 +195,6 @@
 		50DF97C81C1411B400128D0B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
-				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
-				ADC9A3D01C0BE31300CF720B /* DrawerView.h */,
-				ADC9A3D11C0BE31300CF720B /* DrawerView.m */,
-				50DF97C51C1410E800128D0B /* CustomCalloutView.h */,
-				50DF97C61C1410E800128D0B /* CustomCalloutView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +238,8 @@
 		AD92F0EA1C0B2FA8009E5F60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD10BACA1C148EF600DAC233 /* UserInfoModel.h */,
+				AD10BACB1C148EF600DAC233 /* UserInfoModel.m */,
 				ADDD951C1C0FE392005A1ECD /* MessageModel.h */,
 				ADDD951D1C0FE392005A1ECD /* MessageModel.m */,
 				AD31457F1C0F571400F8BAD3 /* BasicModel.h */,
@@ -289,49 +281,6 @@
 				AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		AD9883A21C13FC6700B87FF3 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				AD9883A31C13FC8100B87FF3 /* MD5 */,
-			);
-			path = Lib;
-			sourceTree = "<group>";
-		};
-		AD9883A31C13FC8100B87FF3 /* MD5 */ = {
-			isa = PBXGroup;
-			children = (
-				AD9883A41C13FC8100B87FF3 /* NSString+MD5.h */,
-				AD9883A51C13FC8100B87FF3 /* NSString+MD5.m */,
-			);
-			path = MD5;
-			sourceTree = "<group>";
-		};
-		AD9883A71C14117100B87FF3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AD9883A91C14226400B87FF3 /* RegisterModel.h */,
-				AD9883AA1C14226400B87FF3 /* RegisterModel.m */,
-				ADF69C6E1C131F27000FF57C /* UserInfoModel.h */,
-				ADF69C6F1C131F27000FF57C /* UserInfoModel.m */,
-				ADDD951C1C0FE392005A1ECD /* MessageModel.h */,
-				ADDD951D1C0FE392005A1ECD /* MessageModel.m */,
-				AD31457F1C0F571400F8BAD3 /* BasicModel.h */,
-				AD3145801C0F571400F8BAD3 /* BasicModel.m */,
-				AD9883AC1C142B1A00B87FF3 /* RootModel.h */,
-				AD9883AD1C142B1A00B87FF3 /* RootModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		AD9883A81C14121300B87FF3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				ADE7AE021C14739900C796B6 /* bgImage.jpg */,
-				ADC9A3D61C0BE90B00CF720B /* 需求 */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		ADBA98061C0B1FEF0023499E = {
@@ -610,6 +559,7 @@
 			files = (
 				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */,
+				AD10BACC1C148EF600DAC233 /* UserInfoModel.m in Sources */,
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
 				AD9883AE1C142B1A00B87FF3 /* RootModel.m in Sources */,
 				ADE7ADF71C14649400C796B6 /* UIColor+tools.m in Sources */,
@@ -628,7 +578,6 @@
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
 				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
-				50DF97C71C1410E800128D0B /* CustomCalloutView.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
