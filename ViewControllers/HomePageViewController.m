@@ -8,9 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "MapViewController.h"
-@interface HomePageViewController (){
-
-}
+@interface HomePageViewController ()
 
 @end
 
@@ -19,8 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 0, screen_Width, screen_Height-64)]];
     
     
+    
+    //[self geoCodeWithAddress:@"车站"];
+    
+    [self ReGeocodeWithWithLatitude:43 withLongitude:116];
     
 }
 

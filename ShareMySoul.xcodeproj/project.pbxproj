@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
 		5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000A8C91C0FC078009A3260 /* MapViewController.m */; };
+		50DF97C71C1410E800128D0B /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DF97C61C1410E800128D0B /* CustomCalloutView.m */; };
 		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
 		AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */; };
@@ -64,6 +65,8 @@
 		43DC34C5535C61C2AC23BB2A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5000A8C81C0FC078009A3260 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		5000A8C91C0FC078009A3260 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		50DF97C51C1410E800128D0B /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutView.h; path = "../../../Program/qianfeng/UI素材/图标/CustomCalloutView.h"; sourceTree = "<group>"; };
+		50DF97C61C1410E800128D0B /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCalloutView.m; path = "../../../Program/qianfeng/UI素材/图标/CustomCalloutView.m"; sourceTree = "<group>"; };
 		5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
@@ -167,6 +170,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		50DF97C81C1411B400128D0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
+				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
+				ADC9A3D01C0BE31300CF720B /* DrawerView.h */,
+				ADC9A3D11C0BE31300CF720B /* DrawerView.m */,
+				50DF97C51C1410E800128D0B /* CustomCalloutView.h */,
+				50DF97C61C1410E800128D0B /* CustomCalloutView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AD36E7B61C0F1BB9006A32E7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,17 +226,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		AD92F0EC1C0B2FA8009E5F60 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
-				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
-				ADC9A3D01C0BE31300CF720B /* DrawerView.h */,
-				ADC9A3D11C0BE31300CF720B /* DrawerView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		AD92F0ED1C0B2FA8009E5F60 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,11 +256,11 @@
 		ADBA98061C0B1FEF0023499E = {
 			isa = PBXGroup;
 			children = (
+				50DF97C81C1411B400128D0B /* View */,
 				AD36E7B61C0F1BB9006A32E7 /* Tools */,
 				AD92F0E91C0B2FA8009E5F60 /* Library */,
 				AD92F0EA1C0B2FA8009E5F60 /* Model */,
 				AD92F0EB1C0B2FA8009E5F60 /* Resources */,
-				AD92F0EC1C0B2FA8009E5F60 /* View */,
 				AD92F0ED1C0B2FA8009E5F60 /* ViewControllers */,
 				ADBA98111C0B1FEF0023499E /* ShareMySoul */,
 				ADBA982B1C0B1FF00023499E /* ShareMySoulTests */,
@@ -533,6 +538,7 @@
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
 				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
+				50DF97C71C1410E800128D0B /* CustomCalloutView.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
@@ -632,7 +638,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
+				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -671,7 +677,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
+				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -738,7 +744,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
+				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -804,7 +810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
+				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
