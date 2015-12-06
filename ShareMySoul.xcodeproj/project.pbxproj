@@ -12,6 +12,7 @@
 		AD3145811C0F571400F8BAD3 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3145801C0F571400F8BAD3 /* BasicModel.m */; };
 		AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */; };
 		AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */; };
+		AD6489DA1C149522008A26F0 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489D91C149522008A26F0 /* UserInfoModel.m */; };
 		AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD72A6801C0D42430001058C /* HomePageTitleView.m */; };
 		AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */; };
 		AD8666621C0DDEE7001249CF /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */; };
@@ -49,7 +50,6 @@
 		ADE7ADF81C14649400C796B6 /* UIViewController+AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF41C14649400C796B6 /* UIViewController+AlertView.m */; };
 		ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADFA1C146A1100C796B6 /* CicleView.m */; };
 		ADE7AE031C14739900C796B6 /* bgImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADE7AE021C14739900C796B6 /* bgImage.jpg */; };
-		ADF69C701C131F27000FF57C /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF69C6F1C131F27000FF57C /* UserInfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +82,8 @@
 		AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobHelper.m; sourceTree = "<group>"; };
 		AD36FBAC1C11D4C5008839F7 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		AD6489D81C149522008A26F0 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		AD6489D91C149522008A26F0 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		AD72A67F1C0D42430001058C /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageTitleView.h; path = ViewControllers/HomePageTitleView.h; sourceTree = SOURCE_ROOT; };
 		AD72A6801C0D42430001058C /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageTitleView.m; path = ViewControllers/HomePageTitleView.m; sourceTree = SOURCE_ROOT; };
 		AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
@@ -145,8 +147,6 @@
 		ADE7ADF91C146A1100C796B6 /* CicleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CicleView.h; path = ViewControllers/CicleView.h; sourceTree = SOURCE_ROOT; };
 		ADE7ADFA1C146A1100C796B6 /* CicleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CicleView.m; path = ViewControllers/CicleView.m; sourceTree = SOURCE_ROOT; };
 		ADE7AE021C14739900C796B6 /* bgImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImage.jpg; sourceTree = "<group>"; };
-		ADF69C6E1C131F27000FF57C /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = SOURCE_ROOT; };
-		ADF69C6F1C131F27000FF57C /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,10 +268,10 @@
 		AD9883A71C14117100B87FF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD6489D81C149522008A26F0 /* UserInfoModel.h */,
+				AD6489D91C149522008A26F0 /* UserInfoModel.m */,
 				AD9883A91C14226400B87FF3 /* RegisterModel.h */,
 				AD9883AA1C14226400B87FF3 /* RegisterModel.m */,
-				ADF69C6E1C131F27000FF57C /* UserInfoModel.h */,
-				ADF69C6F1C131F27000FF57C /* UserInfoModel.m */,
 				ADDD951C1C0FE392005A1ECD /* MessageModel.h */,
 				ADDD951D1C0FE392005A1ECD /* MessageModel.m */,
 				AD31457F1C0F571400F8BAD3 /* BasicModel.h */,
@@ -567,10 +567,10 @@
 			files = (
 				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */,
+				AD6489DA1C149522008A26F0 /* UserInfoModel.m in Sources */,
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
 				AD9883AE1C142B1A00B87FF3 /* RootModel.m in Sources */,
 				ADE7ADF71C14649400C796B6 /* UIColor+tools.m in Sources */,
-				ADF69C701C131F27000FF57C /* UserInfoModel.m in Sources */,
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
 				AD9883AB1C14226400B87FF3 /* RegisterModel.m in Sources */,
 				AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */,
