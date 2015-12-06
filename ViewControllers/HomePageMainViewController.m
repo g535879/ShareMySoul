@@ -36,6 +36,14 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //页面出现。发送通知启动父类滚动视图
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openSlideEnable" object:nil];
 }
 
 #pragma mark -创建Navigation中的titleView

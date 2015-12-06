@@ -8,11 +8,17 @@
 
 #import "LogInViewController.h"
 #import <TencentOpenAPI/TencentOAuth.h>
+#import "UserInfoModel.h"
+#import "MessageModel.h"
+#import "RegisterModel.h"
 
 @interface LogInViewController ()<TencentSessionDelegate>{
     
     UILabel *resultLable;
     UILabel *tokenLable;
+
+    RegisterModel * _regModel; //用户注册模型
+    NSString *_uId;//身份识别码
 }
 
 @property (strong, nonatomic) TencentOAuth * tencntOAuth;
@@ -32,8 +38,6 @@
     self.navigationController.navigationBar.hidden = NO;
     
     [self initLogin];
-    
-        
 }
 
 #pragma mark - initLogin
@@ -56,6 +60,7 @@
 
 #pragma mark - tencntDelegate
 
+
 //登陆完成
 - (void)tencentDidLogin {
     
@@ -63,10 +68,15 @@
     if (self.tencntOAuth.accessToken && 0 != [self.tencntOAuth.accessToken length]) {
         
         //记录用户openId ,token,以及过期时间
-        NSLog(@"token:%@",self.tencntOAuth.accessToken);
+//        NSLog(@"token:%@",self.tencntOAuth.accessToken);
+        //身份id
+        _uId = [self.tencntOAuth openId];
+        
         //获取用户个人信息
         [self.tencntOAuth getUserInfo];
     }else{
+
+#warning  提示用户登陆失败
         NSLog(@"登陆不成功,没有获取accessToken");
     }
 }
@@ -79,13 +89,85 @@
 
 //用户信息
 - (void)getUserInfoResponse:(APIResponse *)response {
-    NSLog(@"UserInfo:%@",response.jsonResponse);
+    
+    
+    //注册用户建模
+    _regModel = [[RegisterModel alloc] init];
+    _regModel.nickname = response.jsonResponse[@"nickname"];
+    _regModel.figureurl_qq_2 = response.jsonResponse[@"figureurl_qq_2"];
+    _regModel.sex = response.jsonResponse[@"gender"];
+    _regModel.openid = _uId;
+    
+    //查询是否已经存在
+    [BmobHelper SelectDataWithClassName:USER_DB andWithReturnModelClass:[RegisterModel class] withParam:@{@"openid":_uId} withReponseData:^(id dataModel, NSError *error) {
+        if (!dataModel) {
+
+            //不存在。新建用户
+            [BmobHelper insertDataWithModel:_regModel withName:USER_DB withBlock:^(BOOL isSuccess, NSError *error) {
+                if (isSuccess) {
+                    NSLog(@"添加用户成功");
+                    
+                    //获取最新数据保存到本地
+                    [self getNewUserData];
+                }
+                else{
+                    NSLog(@"添加用户失败");
+                }
+            }];
+        }
+        else{
+            //获取id
+            _regModel.objectId = [dataModel objectId];
+//            更新用户信息
+            [BmobHelper updateDataWithClassName:USER_DB WithModel:_regModel withBlock:^(BOOL isSuccess, NSError *error) {
+                
+                if (isSuccess) {
+                    NSLog(@"更新用户成功");
+                    //获取最新数据并保存
+                    [self getNewUserData];
+                }
+                else{
+                    NSLog(@"更新用户失败:%@",error);
+                }
+            }];
+        }
+    }];
+}
+
+//获取最新数据缓存到本地
+- (void)getNewUserData {
+    
+    // 获取最新数据
+    [BmobHelper SelectDataWithClassName:USER_DB andWithReturnModelClass:[RegisterModel class] withParam:@{@"openid":_uId} withReponseData:^(id dataModel, NSError *error) {
+        
+        if (dataModel) {
+            //保存用户数据到缓存
+            [self saveUserIncacheWithModel:dataModel];
+        }
+    }];
+}
+
+
+//保存用户到缓存
+- (void)saveUserIncacheWithModel:(id)model {
+
+    UserInfoModel * uModel = [[UserInfoModel alloc] initWithDictionary:[model toDictionary] error:nil];
+    [uModel setFigureurl_qq_2:nil];
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:uModel];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"user"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"数据缓存本地成功");
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - touch event
 
 /*
 #pragma mark - Navigation

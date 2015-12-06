@@ -31,6 +31,7 @@
     
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
 
+    
 }
 
 #pragma mark -创建地图视图

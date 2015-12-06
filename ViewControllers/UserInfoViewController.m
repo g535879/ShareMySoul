@@ -8,10 +8,13 @@
 
 #import "UserInfoViewController.h"
 #import "MyFeelViewController.h"
+#import "CicleView.h"
 
 @interface UserInfoViewController (){
     //我的心情按钮
     UIButton * _myInfoMsg;
+    CGFloat  _viewWidth; //控件最大宽度
+    CGFloat  _viewMinX; //控件最小开始
 }
 
 @end
@@ -20,21 +23,77 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    
-    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect rect = self.view.frame;
-    _myInfoMsg.frame = CGRectMake(0, 100, rect.size.width * 3 / 4.0, 40);
-    _myInfoMsg.tag = 500 + 1;
-    _myInfoMsg.backgroundColor = [UIColor orangeColor];
-    [_myInfoMsg setTitle:@"我的心情" forState:UIControlStateNormal];
-    [_myInfoMsg setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [_myInfoMsg setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_myInfoMsg addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_myInfoMsg];
+    _viewWidth = rect.size.width * 3 / 4.0;
+    _viewMinX = rect.size.width / 4.0;
     
-    [self.view setBackgroundColor:[UIColor grayColor]];
+    //初始化布局
+    [self initLayout];
+   
+    
+}
+
+#pragma mark - initLayout
+- (void)initLayout {
+    
+    //背景色
+//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    
+    CGFloat headWidth = _viewWidth / 3.0;
+//    UIButton * btn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) target:self SEL:@selector(btnClick:) tag:500+0 title:nil backgroundColor:[UIColor yellowColor]];
+//    btn.layer.cornerRadius = headWidth/2.0f;
+//    btn.layer.contents = (id)[UIImage imageNamed:default_head_image];
+//    btn.layer.masksToBounds = YES;
+    
+//    [self.view addSubview:btn];
+    CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(0, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
+    [self.view addSubview:headView];
+    
+//    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
+
+
+//    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
+//    _myInfoMsg.tag = 500 + 1;
+//    _myInfoMsg.backgroundColor = [UIColor orangeColor];
+//    [_myInfoMsg setTitle:@"我的心情" forState:UIControlStateNormal];
+//    [_myInfoMsg setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//    [_myInfoMsg setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [_myInfoMsg addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:_myInfoMsg];
+//    
+//    UIButton * logInBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+//    logInBtn.frame = CGRectMake(_viewMinX, 160, _viewWidth, 40);
+//    [logInBtn setTitle:@"登陆" forState:UIControlStateNormal];
+//    logInBtn.tag = 500 + 2;
+//    [logInBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [logInBtn setBackgroundColor:[UIColor orangeColor]];
+//    [self.view addSubview:logInBtn];
+//    
+//    
+//    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+//    bmobBtn.frame = CGRectMake(_viewMinX, 220, _viewWidth, 40);
+//    [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
+//    bmobBtn.tag = 500 + 3;
+//    [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [bmobBtn setBackgroundColor:[UIColor orangeColor]];
+//    [self.view addSubview:bmobBtn];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //检测用户是否登陆
+    NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    if (userData) {
+
+        UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        NSLog(@"%@",model);
+    }
+    else{
+        NSLog(@"用户没有登陆");
+    }
 }
 
 
@@ -45,7 +104,6 @@
         [self.delegate leftBtnClick:btn];
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

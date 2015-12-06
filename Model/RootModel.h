@@ -1,8 +1,8 @@
 //
-//  BasicModel.h
+//  RootModel.h
 //  ShareMySoul
 //
-//  Created by 古玉彬 on 15/12/3.
+//  Created by 古玉彬 on 15/12/6.
 //  Copyright © 2015年 gf. All rights reserved.
 //
 
@@ -18,22 +18,6 @@
 
 #define proDate(date) @property (nonatomic, copy) NSDate * (date)
 
-@interface BasicModel : JSONModel
-
-/**
- *  数据ID
- */
-proStr(objectId);
-
-/**
- *  数据建立时间
- */
-proDate(createdAt);
-
-/**
- *  更新建立时间
- */
-proDate(updatedAt);
+@interface RootModel : JSONModel
 
 @end
-
