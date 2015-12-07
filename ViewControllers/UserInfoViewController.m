@@ -15,6 +15,10 @@
     UIButton * _myInfoMsg;
     CGFloat  _viewWidth; //控件最大宽度
     CGFloat  _viewMinX; //控件最小开始
+    CicleView * _headView;//头像
+    UILabel * _nickNameLabel;//昵称
+    
+    
 }
 
 @end
@@ -41,12 +45,16 @@
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
-    CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
-    headView.tag = 500 + 0;
-    [self.view addSubview:headView];
+    _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
+    _headView.tag = 500 + 0;
+    [self.view addSubview:_headView];
+    [_headView setHeadImage:imageStar(default_head_image)];
     
     //用户昵称
-    UILabel * nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(headView.frame.origin.x, CGRectGetMaxY(headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:[UIFont systemFontOfSize:14.0f] textColor:sys_color(blackColor)];
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_headView.frame.origin.x, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:_nickNameLabel];
+    
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
 //    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
 //    _myInfoMsg.tag = 500 + 1;
@@ -81,10 +89,17 @@
     
     //检测用户是否登陆
     NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    
     if (userData) {
 
         UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
         NSLog(@"%@",model);
+        //加载图片
+      [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:NO block:^(UIImage *image, NSError *error) {
+          [_headView setHeadImage:image];
+      }];
+        //用户昵称
+        _nickNameLabel.text = model.nickname;
     }
     else{
         NSLog(@"用户没有登陆");

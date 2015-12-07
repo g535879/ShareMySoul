@@ -24,4 +24,11 @@
              withShadownColor:(UIColor *)shadowColor
               withBorderColor:(UIColor *)borderColor
                      andImage:(UIImage *)bgImage;
+
+/**
+ *  设置头像
+ *
+ *  @param headImage 头像
+ */
+- (void)setHeadImage:(UIImage *)headImage;
 @end

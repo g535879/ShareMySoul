@@ -30,6 +30,7 @@
 		AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666711C0DE08B001249CF /* libz.tbd */; };
 		AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */; };
 		AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0F21C0B3097009E5F60 /* LogInViewController.m */; };
+		AD9F86E81C1520A400E507A7 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9F86E71C1520A400E507A7 /* NetManager.m */; };
 		ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA723481C11C1BA009E41E8 /* SlideViewController.m */; };
 		ADBA98141C0B1FF00023499E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98131C0B1FF00023499E /* main.m */; };
 		ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98161C0B1FF00023499E /* AppDelegate.m */; };
@@ -109,6 +110,8 @@
 		AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		AD92F0F11C0B3097009E5F60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		AD92F0F21C0B3097009E5F60 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		AD9F86E61C1520A400E507A7 /* NetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetManager.h; sourceTree = "<group>"; };
+		AD9F86E71C1520A400E507A7 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
 		ADA723471C11C1BA009E41E8 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
 		ADA723481C11C1BA009E41E8 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		ADBA980F1C0B1FEF0023499E /* ShareMySoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMySoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +199,8 @@
 		AD36E7B61C0F1BB9006A32E7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				AD9F86E61C1520A400E507A7 /* NetManager.h */,
+				AD9F86E71C1520A400E507A7 /* NetManager.m */,
 				ADE7ADED1C14649400C796B6 /* MyCustomView.h */,
 				ADE7ADEE1C14649400C796B6 /* MyCustomView.m */,
 				ADE7ADEF1C14649400C796B6 /* UIAlertView+Blocks.h */,
@@ -584,6 +589,7 @@
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
 				AD6489EF1C149A0F008A26F0 /* RootModel.m in Sources */,
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
+				AD9F86E81C1520A400E507A7 /* NetManager.m in Sources */,
 				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,

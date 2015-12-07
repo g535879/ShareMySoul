@@ -143,6 +143,9 @@
         if (dataModel) {
             //保存用户数据到缓存
             [self saveUserIncacheWithModel:dataModel];
+            
+            //发送通知更新用户信息
+            [[NSNotificationCenter defaultCenter] postNotificationName:UPDATE_USERINFO object:nil];
         }
     }];
 }

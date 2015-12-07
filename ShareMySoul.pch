@@ -9,15 +9,20 @@
 #ifndef ShareMySoul_pch
 #define ShareMySoul_pch
 
+//三方库
 #import <CoreLocation/CoreLocation.h>
 #import <MAMapKit/MAMapKit.h>
+#import <AFNetworking.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapSearchKit/AMapSearchServices.h>
+
+
+#import "UIImageView+WebCache.h"
 #import "Bmob.h"
 
+#import "NetManager.h"
 
-//三方库
 #import "BmobHelper.h"
 
 #import "JSONModel.h"
@@ -83,6 +88,8 @@
 //缩放比例尺
 #define scale_screen (screen_Width / iphone6P)
 
+//通知中心相关
+#define UPDATE_USERINFO @"updateUserInfo"
 
 //数据库表名
 
