@@ -90,6 +90,9 @@
     
 }
 
+#pragma mark - 加载用户数据
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     

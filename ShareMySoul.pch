@@ -19,6 +19,7 @@
 
 
 #import "UIImageView+WebCache.h"
+
 #import "Bmob.h"
 
 #import "NetManager.h"
@@ -33,9 +34,9 @@
 
 #import "UIImage+AFNetworking.h"
 //自定义类
-#import "UserInfoModel.h"
 #import "MyCustomView.h"
-
+#import "NetManager.h"
+#import "UserManage.h"
 /**
  *  高德地图API
  */
