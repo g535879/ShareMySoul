@@ -43,9 +43,10 @@
 		ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */; };
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
 		ADD1F6591C158620004FDF51 /* WelcomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */; };
-		ADD1F65C1C159D8E004FDF51 /* UserManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F65B1C159D8E004FDF51 /* UserManage.m */; };
 		ADD1F6631C15C10E004FDF51 /* CicleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6601C15C10E004FDF51 /* CicleView.m */; };
 		ADD1F6641C15C10E004FDF51 /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6621C15C10E004FDF51 /* HomePageTitleView.m */; };
+		ADD1F6761C15C81E004FDF51 /* UserManage.h in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6711C15C5D4004FDF51 /* UserManage.h */; };
+		ADD1F6771C15C81E004FDF51 /* UserManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6721C15C5D4004FDF51 /* UserManage.m */; };
 		ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */; };
 		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
 		ADE7ADF51C14649400C796B6 /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADEE1C14649400C796B6 /* MyCustomView.m */; };
@@ -137,11 +138,12 @@
 		ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 		ADD1F6571C158620004FDF51 /* WelcomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomePageViewController.h; sourceTree = "<group>"; };
 		ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
-		ADD1F65B1C159D8E004FDF51 /* UserManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManage.m; sourceTree = "<group>"; };
 		ADD1F65F1C15C10E004FDF51 /* CicleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicleView.h; sourceTree = "<group>"; };
 		ADD1F6601C15C10E004FDF51 /* CicleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CicleView.m; sourceTree = "<group>"; };
 		ADD1F6611C15C10E004FDF51 /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageTitleView.h; sourceTree = "<group>"; };
 		ADD1F6621C15C10E004FDF51 /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageTitleView.m; sourceTree = "<group>"; };
+		ADD1F6711C15C5D4004FDF51 /* UserManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManage.h; sourceTree = "<group>"; };
+		ADD1F6721C15C5D4004FDF51 /* UserManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManage.m; sourceTree = "<group>"; };
 		ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeelViewController.h; sourceTree = "<group>"; };
 		ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
 		ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
@@ -204,6 +206,8 @@
 		AD36E7B61C0F1BB9006A32E7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ADD1F6711C15C5D4004FDF51 /* UserManage.h */,
+				ADD1F6721C15C5D4004FDF51 /* UserManage.m */,
 				ADE7ADED1C14649400C796B6 /* MyCustomView.h */,
 				ADE7ADEE1C14649400C796B6 /* MyCustomView.m */,
 				ADE7ADEF1C14649400C796B6 /* UIAlertView+Blocks.h */,
@@ -577,6 +581,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD1F6761C15C81E004FDF51 /* UserManage.h in Sources */,
+				ADD1F6771C15C81E004FDF51 /* UserManage.m in Sources */,
 				AD6489EE1C149A0F008A26F0 /* RegisterModel.m in Sources */,
 				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				AD6489F21C149A1E008A26F0 /* NSString+MD5.m in Sources */,
@@ -599,7 +605,6 @@
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
 				ADD1F6641C15C10E004FDF51 /* HomePageTitleView.m in Sources */,
-				ADD1F65C1C159D8E004FDF51 /* UserManage.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				AD6489E01C1497B9008A26F0 /* MessageModel.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
