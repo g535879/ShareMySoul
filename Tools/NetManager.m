@@ -64,6 +64,7 @@ static NetManager * singltonManager = nil;
     
     [singleton.manager GET:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //回调获取的数据
+        //
         success(responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
