@@ -95,8 +95,11 @@
         case 1:
             [self initLogin];
             break;
+            //游客登陆
         case 2:
         {
+            //清空缓存
+            [self clearUsercache];
             [self pushHomePage];
 
         }
@@ -128,6 +131,12 @@
     
     
     [self pushHomePage];
+}
+
+#pragma mark - 清空用户
+- (void)clearUsercache {
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user"];
 }
 
 #pragma mark - tencntDelegate
