@@ -24,6 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
+    
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
     
