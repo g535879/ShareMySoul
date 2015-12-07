@@ -44,7 +44,7 @@
     _mapView = [[MAMapView alloc] initWithFrame:frame];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
+    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     _mapView.showTraffic = NO;
     _mapView.zoomLevel = 11.2;
     //是否显示楼块
@@ -88,7 +88,7 @@
     
     if (_mapView.userTrackingMode != MAUserTrackingModeFollow) {
 
-        [_mapView setUserTrackingMode:MAUserTrackingModeFollowWithHeading animated:YES];
+        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
     }
     
     

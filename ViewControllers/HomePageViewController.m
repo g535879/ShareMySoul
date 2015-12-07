@@ -20,7 +20,7 @@
 @end
 
 @implementation HomePageViewController
-   
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
