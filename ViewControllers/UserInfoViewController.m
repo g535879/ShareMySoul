@@ -15,6 +15,10 @@
     UIButton * _myInfoMsg;
     CGFloat  _viewWidth; //控件最大宽度
     CGFloat  _viewMinX; //控件最小开始
+    CicleView * _headView;//头像
+    UILabel * _nickNameLabel;//昵称
+    
+    
 }
 
 @end
@@ -38,17 +42,17 @@
 - (void)initLayout {
     
     //背景色
-//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
-//    UIButton * btn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) target:self SEL:@selector(btnClick:) tag:500+0 title:nil backgroundColor:[UIColor yellowColor]];
-//    btn.layer.cornerRadius = headWidth/2.0f;
-//    btn.layer.contents = (id)[UIImage imageNamed:default_head_image];
-//    btn.layer.masksToBounds = YES;
+    _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
+    _headView.tag = 500 + 0;
+    [self.view addSubview:_headView];
     
-//    [self.view addSubview:btn];
-    CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(0, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
-    [self.view addSubview:headView];
+    //用户昵称
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:_nickNameLabel];
     
     
     //登陆按钮
@@ -56,8 +60,6 @@
     [self.view addSubview:logInBtn];
     
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
-
-
 //    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
 //    _myInfoMsg.tag = 500 + 1;
 //    _myInfoMsg.backgroundColor = [UIColor orangeColor];
@@ -91,10 +93,17 @@
     
     //检测用户是否登陆
     NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    
     if (userData) {
 
         UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
         NSLog(@"%@",model);
+        //加载图片
+      [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:NO block:^(UIImage *image, NSError *error) {
+          [_headView setHeadImage:image];
+      }];
+        //用户昵称
+        _nickNameLabel.text = model.nickname;
     }
     else{
         NSLog(@"用户没有登陆");
