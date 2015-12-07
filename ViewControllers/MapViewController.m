@@ -44,9 +44,20 @@
     _mapView = [[MAMapView alloc] initWithFrame:frame];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     _mapView.showTraffic = NO;
     _mapView.zoomLevel = 11.2;
+    //是否显示楼块
+    _mapView.showsBuildings = NO;
+    //是否显示室内地图
+    _mapView.showsIndoorMap = NO;
+    //是否可以旋转
+    _mapView.rotateEnabled = NO;
+    _mapView.touchPOIEnabled = NO;
+    //天空模式
+    _mapView.skyModelEnable = NO;
+    
+    NSLog(@"%f  %f",_mapView.compassSize.width,_mapView.compassSize.height);
 
     [self createMeButton];
     [self createTrafficButton];
@@ -77,8 +88,9 @@
     
     if (_mapView.userTrackingMode != MAUserTrackingModeFollow) {
 
-        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+        [_mapView setUserTrackingMode:MAUserTrackingModeFollowWithHeading animated:YES];
     }
+    
     
 }
 
@@ -106,11 +118,11 @@
 }
 
 #pragma mark -创建地图大头针标注
-- (void)createMapPointAnnotationWithLatitude:(CLLocationDegrees)latitude withLongitude:(CLLocationDegrees)longitude withTitle:(NSString *)title withSubTitle:(NSString *)subtitle{
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withTitle:(NSString *)title withSubTitle:(NSString *)subtitle{
     
     MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
     
-    annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    annotation.coordinate = coordinate2D;
     
     annotation.title = title;
     
@@ -122,10 +134,13 @@
 
 #pragma mark
 
-#pragma mark -mapview协议方法
+#pragma mark -mapview中结束定位之后的当前位置信息
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
     
-    _userLocation = [userLocation.location copy];
+    if (updatingLocation) {
+        _userLocation = [userLocation.location copy];
+
+    }
 
 }
 
@@ -133,8 +148,9 @@
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
 
 
-    
 }
+
+
 
 #pragma mark -点击annotationview触发的协议方法
 - (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
@@ -154,7 +170,6 @@
 
 
 
-
 #pragma mark -大头针标注
 -(MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
 
@@ -166,10 +181,9 @@
             
             annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
-
+        annotationView.image = imageNameRenderStr(@"mobile-phone22");
         annotationView.canShowCallout = YES;
-        annotationView.draggable = YES;
-        annotationView.pinColor = MAPinAnnotationColorPurple;
+        //annotationView.pinColor = MAPinAnnotationColorPurple;
         annotationView.animatesDrop = YES;
         annotationView.centerOffset = CGPointMake(0, -18);
         
@@ -182,6 +196,7 @@
 
 //取消选中annotation时将该annotation从视图中移除
 - (void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
+
 
 }
 
@@ -228,8 +243,8 @@
         CLLocationDegrees longitude = code.location.longitude;
         CLLocationDegrees latitude = code.location.latitude;
         
-        
-        [self createMapPointAnnotationWithLatitude:latitude withLongitude:longitude withTitle:_addressStr withSubTitle:nil];
+
+        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
     }
 
 }
@@ -246,12 +261,7 @@
     _mapView.userLocation.title = title;
     _mapView.userLocation.subtitle = subtitle;
     
-    [self createMapPointAnnotationWithLatitude:request.location.latitude    withLongitude:request.location.longitude withTitle:title withSubTitle:subtitle];
     
 }
-
-
-
-
 
 @end
