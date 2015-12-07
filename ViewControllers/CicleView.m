@@ -56,7 +56,7 @@
         _headLayer.masksToBounds = YES; //剪切图层。为了正确地显示图层中的图片
         //图层剪贴无法和阴影一起使用。因为masksToBounds 的目的就是剪切外边框，而阴影效果刚好在外边框
         //直接放图片到content
-    
+        [_headLayer setContents:(id)[UIImage imageNamed:default_head_image].CGImage];
         [self.layer addSublayer:_headLayer];
         self.layer.cornerRadius = _viewWidth / 2.0f;
     }
