@@ -8,12 +8,14 @@
 
 #ifndef ShareMySoul_pch
 #define ShareMySoul_pch
-#import <MAMapKit/MAMapKit.h>
+
 #import <CoreLocation/CoreLocation.h>
+#import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapSearchKit/AMapSearchServices.h>
 #import "Bmob.h"
+
 
 //三方库
 #import "BmobHelper.h"
@@ -32,7 +34,7 @@
 /**
  *  高德地图API
  */
-#define GEO_API_KEY @"93c8417f6805970ee30e35de715f8272"
+#define GEO_API_KEY @"45744a68a1e5a85cd1b9c653b67a25ca"
 
 /**
  *  bmbo key

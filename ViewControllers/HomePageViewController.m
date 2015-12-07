@@ -20,7 +20,7 @@
     [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 0, screen_Width, screen_Height-64)]];
     
     
-    
+    NSLog(@"%@",[[NSBundle mainBundle] bundleIdentifier]);
     //[self geoCodeWithAddress:@"车站"];
     
     [self ReGeocodeWithWithLatitude:43 withLongitude:116];
