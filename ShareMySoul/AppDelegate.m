@@ -7,11 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "HomePageMainViewController.h"
-#import "UserInfoViewController.h"
 #import <TencentOpenAPI/TencentOAuth.h>
-#import "TestBmobViewController.h"
-#import "SlideViewController.h"
+#import "WelcomePageViewController.h"
+#import "UserInfoModel.h"
+#import "LogInViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,15 +23,6 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    UINavigationController * mainVC = [[UINavigationController alloc] initWithRootViewController:[[HomePageMainViewController alloc] init]];
-
-
-    UserInfoViewController * uVC = [[UserInfoViewController alloc] init];
-    
-    SlideViewController * svc = [[SlideViewController alloc] initWithFrame:self.window.bounds LeftVC:uVC andMainVC:mainVC];
-
-    
-    self.window.rootViewController = svc;
     
     [self.window makeKeyAndVisible];
     //高德地图key
@@ -41,10 +31,50 @@
     [AMapLocationServices sharedServices].apiKey = GEO_API_KEY;
     //高德地图搜索服务
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
-    
     //bmob key
     [Bmob registerWithAppKey:BMOB_APP_KEY];
+    
+    
+    //判断是否有本地用户数据
+    if ([self initUserInfo]) {
+        
+        //进入欢迎页面
+        UINavigationController * nvc = [[UINavigationController alloc] initWithRootViewController:[[WelcomePageViewController alloc] init]];
+        self.window.rootViewController = nvc;
+        
+    }else {
+        
+        //跳转登陆界面
+        UINavigationController * nvc = [[UINavigationController alloc] initWithRootViewController:[[LogInViewController alloc] init]];
+        
+        self.window.rootViewController = nvc;
+    }
+    
     return YES;
+}
+
+#pragma mark - 加载用户数据
+- (BOOL)initUserInfo {
+    
+    //检测用户是否登陆
+    NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    
+    if (userData) {
+        
+        //用户模型
+        UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        
+        //全局单例对象
+        UserManage * manager = [UserManage defaultUser];
+        manager.currentUser = model;
+        
+        return YES;
+    }
+    
+    else{
+        NSLog(@"用户没有登陆");
+        return NO;
+    }
 }
 
 

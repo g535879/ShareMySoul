@@ -43,6 +43,8 @@
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
 		ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */; };
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
+		ADD1F6591C158620004FDF51 /* WelcomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */; };
+		ADD1F65C1C159D8E004FDF51 /* UserManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F65B1C159D8E004FDF51 /* UserManage.m */; };
 		ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */; };
 		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
 		ADE7ADF51C14649400C796B6 /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADEE1C14649400C796B6 /* MyCustomView.m */; };
@@ -135,6 +137,10 @@
 		ADC9A3D91C0BE9A700CF720B /* HomePageMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageMainViewController.m; sourceTree = "<group>"; };
 		ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		ADD1F6571C158620004FDF51 /* WelcomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomePageViewController.h; sourceTree = "<group>"; };
+		ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
+		ADD1F65A1C159D8E004FDF51 /* UserManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManage.h; sourceTree = "<group>"; };
+		ADD1F65B1C159D8E004FDF51 /* UserManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManage.m; sourceTree = "<group>"; };
 		ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeelViewController.h; sourceTree = "<group>"; };
 		ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
 		ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
@@ -239,6 +245,8 @@
 				ADA723481C11C1BA009E41E8 /* SlideViewController.m */,
 				ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */,
 				ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */,
+				ADD1F6571C158620004FDF51 /* WelcomePageViewController.h */,
+				ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */,
 				ADC9A3DB1C0BE9D300CF720B /* NearbyViewController.h */,
 				ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */,
 				AD92F0EE1C0B2FDA009E5F60 /* BasicViewController.h */,
@@ -273,6 +281,8 @@
 		AD9883A71C14117100B87FF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD6489DD1C1497B9008A26F0 /* MessageModel.h */,
+				AD6489DE1C1497B9008A26F0 /* MessageModel.m */,
 				AD6489EA1C149A0F008A26F0 /* RegisterModel.h */,
 				AD6489EB1C149A0F008A26F0 /* RegisterModel.m */,
 				AD6489D81C149522008A26F0 /* UserInfoModel.h */,
@@ -281,8 +291,6 @@
 				AD6489ED1C149A0F008A26F0 /* RootModel.m */,
 				AD6489DB1C1497B9008A26F0 /* BasicModel.h */,
 				AD6489DC1C1497B9008A26F0 /* BasicModel.m */,
-				AD6489DD1C1497B9008A26F0 /* MessageModel.h */,
-				AD6489DE1C1497B9008A26F0 /* MessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -579,6 +587,7 @@
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
 				ADE7ADF71C14649400C796B6 /* UIColor+tools.m in Sources */,
 				AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */,
+				ADD1F6591C158620004FDF51 /* WelcomePageViewController.m in Sources */,
 				AD36FBAE1C11D4C5008839F7 /* UserInfoViewController.m in Sources */,
 				ADC9A3DA1C0BE9A700CF720B /* HomePageMainViewController.m in Sources */,
 				ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */,
@@ -591,6 +600,7 @@
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
 				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
+				ADD1F65C1C159D8E004FDF51 /* UserManage.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				AD6489E01C1497B9008A26F0 /* MessageModel.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,

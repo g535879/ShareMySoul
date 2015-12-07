@@ -17,6 +17,8 @@
     CGFloat  _viewMinX; //控件最小开始
     CicleView * _headView;//头像
     UILabel * _nickNameLabel;//昵称
+    UIButton * _loginBtn; //登陆按钮
+    UIButton * _myFeelBtn; //我的心情按钮
     
     
 }
@@ -57,8 +59,14 @@
     
     
     //登陆按钮
-    UIButton * logInBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_nickNameLabel.frame) + 30, _viewWidth, _nickNameLabel.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 1 title:@"登陆" backgroundColor:sys_color(orangeColor)];
-    [self.view addSubview:logInBtn];
+   _loginBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_nickNameLabel.frame) + 30, _viewWidth, _nickNameLabel.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 1 title:@"登陆" backgroundColor:sys_color(orangeColor)];
+    [self.view addSubview:_loginBtn];
+    
+    
+    //我的心情按钮
+    
+    _myFeelBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_loginBtn.frame) + 30, _viewWidth, _loginBtn.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 2 title:@"我的心情" backgroundColor:sys_color(orangeColor)];
+    [self.view addSubview:_myFeelBtn];
     
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
 //    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
@@ -69,14 +77,7 @@
 //    [_myInfoMsg setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //    [_myInfoMsg addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:_myInfoMsg];
-//    
-//    UIButton * logInBtn = [UIButton buttonWithType: UIButtonTypeCustom];
-//    logInBtn.frame = CGRectMake(_viewMinX, 160, _viewWidth, 40);
-//    [logInBtn setTitle:@"登陆" forState:UIControlStateNormal];
-//    logInBtn.tag = 500 + 2;
-//    [logInBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [logInBtn setBackgroundColor:[UIColor orangeColor]];
-//    [self.view addSubview:logInBtn];
+//
 //    
 //    
 //    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
@@ -88,6 +89,9 @@
 //    [self.view addSubview:bmobBtn];
     
 }
+
+#pragma mark - 加载用户数据
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -122,8 +126,11 @@
         }];
         //用户昵称
         _nickNameLabel.text = model.nickname;
+        
+        [_loginBtn setTitle:@"切换用户" forState:UIControlStateNormal];
     }
     else{
+        [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
         NSLog(@"用户没有登陆");
     }
 }

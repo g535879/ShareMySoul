@@ -37,10 +37,10 @@
         shadowLayer.bounds = _bounds;
         shadowLayer.position = position;
         shadowLayer.cornerRadius = cornerRadius;
-        shadowLayer.shadowColor = [UIColor blackColor].CGColor;
+        shadowLayer.shadowColor = shadowColor.CGColor;
         shadowLayer.shadowOffset = CGSizeMake(2, 1);
         shadowLayer.shadowOpacity = 1;
-        shadowLayer.borderColor  = [UIColor blueColor].CGColor;
+        shadowLayer.borderColor  = [UIColor clearColor].CGColor;
         shadowLayer.borderWidth = borderWidth;
         [self.layer addSublayer:shadowLayer];
         
@@ -56,7 +56,7 @@
         _headLayer.masksToBounds = YES; //剪切图层。为了正确地显示图层中的图片
         //图层剪贴无法和阴影一起使用。因为masksToBounds 的目的就是剪切外边框，而阴影效果刚好在外边框
         //直接放图片到content
-    
+        [_headLayer setContents:(id)bgImage.CGImage];
         [self.layer addSublayer:_headLayer];
         self.layer.cornerRadius = _viewWidth / 2.0f;
     }
