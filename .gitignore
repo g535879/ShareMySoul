@@ -9,3 +9,4 @@ xcdebugger/
 .DS_Store
 Pods/
 ._.DS_Store
+*.lock
