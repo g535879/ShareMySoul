@@ -139,7 +139,6 @@
 		ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 		ADD1F6571C158620004FDF51 /* WelcomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomePageViewController.h; sourceTree = "<group>"; };
 		ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
-		ADD1F65A1C159D8E004FDF51 /* UserManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManage.h; sourceTree = "<group>"; };
 		ADD1F65B1C159D8E004FDF51 /* UserManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManage.m; sourceTree = "<group>"; };
 		ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeelViewController.h; sourceTree = "<group>"; };
 		ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
@@ -221,17 +220,6 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		AD92F0EC1C0B2FA8009E5F60 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				ADE7ADF91C146A1100C796B6 /* CicleView.h */,
-				ADE7ADFA1C146A1100C796B6 /* CicleView.m */,
-				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
-				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		AD92F0ED1C0B2FA8009E5F60 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,11 +295,11 @@
 		ADBA98061C0B1FEF0023499E = {
 			isa = PBXGroup;
 			children = (
+				ADD1F65D1C15C081004FDF51 /* View */,
 				AD9883A81C14121300B87FF3 /* Resources */,
 				AD9883A71C14117100B87FF3 /* Model */,
 				AD9883A21C13FC6700B87FF3 /* Lib */,
 				AD36E7B61C0F1BB9006A32E7 /* Tools */,
-				AD92F0EC1C0B2FA8009E5F60 /* View */,
 				AD92F0ED1C0B2FA8009E5F60 /* ViewControllers */,
 				ADBA98111C0B1FEF0023499E /* ShareMySoul */,
 				ADBA982B1C0B1FF00023499E /* ShareMySoulTests */,
@@ -371,6 +359,17 @@
 				ADBA98391C0B1FF00023499E /* Info.plist */,
 			);
 			path = ShareMySoulUITests;
+			sourceTree = "<group>";
+		};
+		ADD1F65D1C15C081004FDF51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADE7ADF91C146A1100C796B6 /* CicleView.h */,
+				ADE7ADFA1C146A1100C796B6 /* CicleView.m */,
+				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
+				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BFAE867869553D2BC5572004 /* Frameworks */ = {
