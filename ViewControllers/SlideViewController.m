@@ -66,7 +66,7 @@
     rect.origin.x = _viewWidth;
     _mainVC.view.frame = rect;
     _mainVC.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    _mainVC.view.layer.shadowOpacity = 0.4;
+    _mainVC.view.layer.shadowOpacity = 0;
     _mainVC.view.layer.shadowRadius = 7.0f;
     _mainVC.view.layer.masksToBounds = NO;
     [_bgScrollView addSubview:_leftVC.view];
@@ -92,7 +92,7 @@
     if (clearViews.hidden) {
         
         clearViews.hidden = NO;
-        
+        _mainVC.view.layer.shadowOpacity = 0.4;
     }
     
     //最大偏移量
@@ -137,33 +137,36 @@
     
     UINavigationController * nc = (UINavigationController *)_mainVC;
     
+    //关闭可拖动状态
+    _bgScrollView.scrollEnabled = NO;
+    //关闭阴影
+    _mainVC.view.layer.shadowOpacity = 0;
+    //关闭抽屉
+    [self closeSliderWindow];
+    
     switch (btn.tag - 500) {
-            //我的心情
+            
+            
         case 1:
         {
 
-            [nc pushViewController:[[MyFeelViewController alloc] init] animated:NO];
+            [nc pushViewController:[[LogInViewController alloc] init] animated:NO];
         }
             break;
-        //登陆
+        ////我的心情
         case 2:
         {
-            [nc pushViewController:[[LogInViewController alloc] init] animated:YES];
+            [nc pushViewController:[[MyFeelViewController alloc] init] animated:NO];
         }
             break;
         //测试 bmob
         case 3:
         {
-            [nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
+            //[nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
         }
         default:
             break;
     }
-    
-    //关闭可拖动状态
-    _bgScrollView.scrollEnabled = NO;
-    //关闭抽屉
-    [self closeSliderWindow];
 }
 
 

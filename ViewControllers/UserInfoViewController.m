@@ -15,6 +15,12 @@
     UIButton * _myInfoMsg;
     CGFloat  _viewWidth; //控件最大宽度
     CGFloat  _viewMinX; //控件最小开始
+    CicleView * _headView;//头像
+    UILabel * _nickNameLabel;//昵称
+    UIButton * _loginBtn; //登陆按钮
+    UIButton * _myFeelBtn; //我的心情按钮
+    
+    
 }
 
 @end
@@ -31,28 +37,38 @@
     //初始化布局
     [self initLayout];
    
-    
+    //通知中心监听用户登陆变化
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfoChanged:) name:UPDATE_USERINFO object:nil];
 }
 
 #pragma mark - initLayout
 - (void)initLayout {
     
     //背景色
-//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
-//    UIButton * btn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) target:self SEL:@selector(btnClick:) tag:500+0 title:nil backgroundColor:[UIColor yellowColor]];
-//    btn.layer.cornerRadius = headWidth/2.0f;
-//    btn.layer.contents = (id)[UIImage imageNamed:default_head_image];
-//    btn.layer.masksToBounds = YES;
+    _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
+    _headView.tag = 500 + 0;
+    [self.view addSubview:_headView];
     
-//    [self.view addSubview:btn];
-    CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(0, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
-    [self.view addSubview:headView];
+    //用户昵称
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"游客" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:_nickNameLabel];
+    
+    
+    //登陆按钮
+   _loginBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_nickNameLabel.frame) + 30, _viewWidth, _nickNameLabel.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 1 title:@"登陆" backgroundColor:sys_color(orangeColor)];
+    [self.view addSubview:_loginBtn];
+    
+    
+    //我的心情按钮
+    
+    _myFeelBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_loginBtn.frame) + 30, _viewWidth, _loginBtn.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 2 title:@"我的心情" backgroundColor:sys_color(orangeColor)];
+    [self.view addSubview:_myFeelBtn];
     
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
-
-
 //    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
 //    _myInfoMsg.tag = 500 + 1;
 //    _myInfoMsg.backgroundColor = [UIColor orangeColor];
@@ -61,14 +77,7 @@
 //    [_myInfoMsg setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //    [_myInfoMsg addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:_myInfoMsg];
-//    
-//    UIButton * logInBtn = [UIButton buttonWithType: UIButtonTypeCustom];
-//    logInBtn.frame = CGRectMake(_viewMinX, 160, _viewWidth, 40);
-//    [logInBtn setTitle:@"登陆" forState:UIControlStateNormal];
-//    logInBtn.tag = 500 + 2;
-//    [logInBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [logInBtn setBackgroundColor:[UIColor orangeColor]];
-//    [self.view addSubview:logInBtn];
+//
 //    
 //    
 //    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
@@ -81,19 +90,14 @@
     
 }
 
+#pragma mark - 加载用户数据
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //检测用户是否登陆
-    NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
-    if (userData) {
-
-        UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-        NSLog(@"%@",model);
-    }
-    else{
-        NSLog(@"用户没有登陆");
-    }
+    //显示缓存数据
+    [self updateUserInfoCleanCache:NO];
 }
 
 
@@ -105,11 +109,52 @@
     }
 }
 
+
+#pragma mark - 更新用户数据
+- (void)updateUserInfoCleanCache:(BOOL)cleanCache {
+    
+    //检测用户是否登陆
+    NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    
+    if (userData) {
+        
+        UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        NSLog(@"%@",model);
+        //加载图片
+        [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
+            [_headView setHeadImage:image];
+        }];
+        //用户昵称
+        _nickNameLabel.text = model.nickname;
+        
+        [_loginBtn setTitle:@"切换用户" forState:UIControlStateNormal];
+    }
+    else{
+        [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
+        NSLog(@"用户没有登陆");
+    }
+}
+
+
+#pragma mark - 通知中心事件监听
+- (void)userInfoChanged:(NSNotification *)notification {
+    
+    if ([notification.name isEqualToString:UPDATE_USERINFO]) {
+        [self updateUserInfoCleanCache:YES];
+    }
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 

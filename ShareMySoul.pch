@@ -9,15 +9,21 @@
 #ifndef ShareMySoul_pch
 #define ShareMySoul_pch
 
+//三方库
 #import <CoreLocation/CoreLocation.h>
 #import <MAMapKit/MAMapKit.h>
+#import <AFNetworking.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapSearchKit/AMapSearchServices.h>
+
+
+#import "UIImageView+WebCache.h"
+
 #import "Bmob.h"
 
+#import "NetManager.h"
 
-//三方库
 #import "BmobHelper.h"
 
 #import "JSONModel.h"
@@ -28,9 +34,9 @@
 
 #import "UIImage+AFNetworking.h"
 //自定义类
-#import "UserInfoModel.h"
 #import "MyCustomView.h"
-
+#import "NetManager.h"
+#import "UserManage.h"
 /**
  *  高德地图API
  */
@@ -61,7 +67,13 @@
 
 #define imageStar(str) str.length ? [UIImage imageNamed:(str)] : nil
 
-#define default_head_image @"default_head_image"
+//默认头像
+#define default_head_image @"default_head_image.jpg"
+
+//字体
+#define sys_font(size) [UIFont systemFontOfSize:size]
+
+#define sys_color(color) [UIColor color]
 //我们需要做适配
 //首先想到一个比例尺 frame值来做适配
 //首先需要一个基数 以什么屏幕作为参照物
@@ -77,6 +89,8 @@
 //缩放比例尺
 #define scale_screen (screen_Width / iphone6P)
 
+//通知中心相关
+#define UPDATE_USERINFO @"updateUserInfo"
 
 //数据库表名
 
