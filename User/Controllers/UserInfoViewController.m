@@ -119,7 +119,6 @@
     if (userData) {
         
         UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-        NSLog(@"%@",model);
         //加载图片
         [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
             [_headView setHeadImage:image];
