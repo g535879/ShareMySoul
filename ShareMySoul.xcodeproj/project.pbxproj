@@ -30,6 +30,7 @@
 		AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666711C0DE08B001249CF /* libz.tbd */; };
 		AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */; };
 		AD92F0F31C0B3097009E5F60 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD92F0F21C0B3097009E5F60 /* LogInViewController.m */; };
+		AD9F86E81C1520A400E507A7 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9F86E71C1520A400E507A7 /* NetManager.m */; };
 		ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA723481C11C1BA009E41E8 /* SlideViewController.m */; };
 		ADBA98141C0B1FF00023499E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98131C0B1FF00023499E /* main.m */; };
 		ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98161C0B1FF00023499E /* AppDelegate.m */; };
@@ -80,6 +81,7 @@
 		AD36E7B81C0F1BDF006A32E7 /* BmobHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobHelper.m; sourceTree = "<group>"; };
 		AD36FBAC1C11D4C5008839F7 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		AD36FBAD1C11D4C5008839F7 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		AD5352F41C157861002F4444 /* NetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetManager.h; sourceTree = "<group>"; };
 		AD6489D81C149522008A26F0 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		AD6489D91C149522008A26F0 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		AD6489DB1C1497B9008A26F0 /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicModel.h; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		AD92F0EF1C0B2FDA009E5F60 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		AD92F0F11C0B3097009E5F60 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		AD92F0F21C0B3097009E5F60 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		AD9F86E71C1520A400E507A7 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
 		ADA723471C11C1BA009E41E8 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
 		ADA723481C11C1BA009E41E8 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		ADBA980F1C0B1FEF0023499E /* ShareMySoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMySoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +202,8 @@
 				ADE7ADED1C14649400C796B6 /* MyCustomView.h */,
 				ADE7ADEE1C14649400C796B6 /* MyCustomView.m */,
 				ADE7ADEF1C14649400C796B6 /* UIAlertView+Blocks.h */,
+				AD5352F41C157861002F4444 /* NetManager.h */,
+				AD9F86E71C1520A400E507A7 /* NetManager.m */,
 				ADE7ADF01C14649400C796B6 /* UIAlertView+Blocks.m */,
 				ADE7ADF11C14649400C796B6 /* UIColor+tools.h */,
 				ADE7ADF21C14649400C796B6 /* UIColor+tools.m */,
@@ -589,6 +594,7 @@
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				AD6489E01C1497B9008A26F0 /* MessageModel.m in Sources */,
 				ADBA98171C0B1FF00023499E /* AppDelegate.m in Sources */,
+				AD9F86E81C1520A400E507A7 /* NetManager.m in Sources */,
 				ADBA98141C0B1FF00023499E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,7 +690,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -723,7 +729,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -790,7 +796,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -856,7 +862,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

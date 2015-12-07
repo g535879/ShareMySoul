@@ -13,6 +13,7 @@
     CGRect _bounds;
     CGFloat _viewWidth;
     CGFloat _viewHeight;
+    CALayer *_headLayer;//头像图层
 }
 
 @end
@@ -22,15 +23,14 @@
 - (instancetype)initWithFrame:(CGRect)frame withShadownColor:(UIColor *)shadowColor withBorderColor:(UIColor *)borderColor andImage:(UIImage *)bgImage {
 
     if (self = [super initWithFrame:frame]) {
-//        CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth)
         
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor clearColor];
         _viewWidth = self.bounds.size.width-2;
         _viewHeight = self.bounds.size.height-2;
         _bounds = CGRectMake(0, 0, _viewWidth, _viewHeight);
         CGPoint position = CGPointMake(_viewWidth/2,_viewHeight/2);
         CGFloat cornerRadius = _viewWidth / 2;
-        CGFloat borderWidth = 3;
+        CGFloat borderWidth = 2;
         
         //阴影图层
         CALayer *shadowLayer = [[CALayer alloc] init];
@@ -47,27 +47,32 @@
         //图片图层
         
         //图片图层
-        CALayer *layer = [[CALayer alloc] init];
-        layer.bounds = _bounds;
-        layer.borderWidth = borderWidth;
-        layer.position = position;
-        layer.cornerRadius = cornerRadius;
-        layer.borderColor = borderColor.CGColor;
-        layer.masksToBounds = YES; //剪切图层。为了正确地显示图层中的图片
+        _headLayer = [[CALayer alloc] init];
+        _headLayer.bounds = _bounds;
+        _headLayer.borderWidth = borderWidth;
+        _headLayer.position = position;
+        _headLayer.cornerRadius = cornerRadius;
+        _headLayer.borderColor = borderColor.CGColor;
+        _headLayer.masksToBounds = YES; //剪切图层。为了正确地显示图层中的图片
         //图层剪贴无法和阴影一起使用。因为masksToBounds 的目的就是剪切外边框，而阴影效果刚好在外边框
         //直接放图片到content
-        
-        UIImage *image = [UIImage imageNamed:@"bgImage.jpg"];
-         [layer setContents:(id)image.CGImage];   //放置内容
-        [layer setContents:(id)image];
-        [self.layer addSublayer:layer];
+    
+        [self.layer addSublayer:_headLayer];
         self.layer.cornerRadius = _viewWidth / 2.0f;
     }
     
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
+- (void)setHeadImage:(UIImage *)headImage {
+    
+    if (headImage) {
+        [_headLayer setContents:(id)headImage.CGImage];
+    }
+    else{
+        [_headLayer setContents:(id)[UIImage imageNamed:default_head_image].CGImage];
+    }
     
 }
+
 @end

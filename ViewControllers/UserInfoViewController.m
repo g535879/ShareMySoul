@@ -35,7 +35,8 @@
     //初始化布局
     [self initLayout];
    
-    
+    //通知中心监听用户登陆变化
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfoChanged:) name:UPDATE_USERINFO object:nil];
 }
 
 #pragma mark - initLayout
@@ -50,7 +51,7 @@
     [self.view addSubview:_headView];
     
     //用户昵称
-    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"游客" withFont:20 * scale_screen textColor:sys_color(blackColor)];
     [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_nickNameLabel];
     
@@ -91,23 +92,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //检测用户是否登陆
-    NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
-    
-    if (userData) {
-
-        UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-        NSLog(@"%@",model);
-        //加载图片
-      [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:NO block:^(UIImage *image, NSError *error) {
-          [_headView setHeadImage:image];
-      }];
-        //用户昵称
-        _nickNameLabel.text = model.nickname;
-    }
-    else{
-        NSLog(@"用户没有登陆");
-    }
+    //显示缓存数据
+    [self updateUserInfoCleanCache:NO];
 }
 
 
@@ -119,11 +105,49 @@
     }
 }
 
+
+#pragma mark - 更新用户数据
+- (void)updateUserInfoCleanCache:(BOOL)cleanCache {
+    
+    //检测用户是否登陆
+    NSData * userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    
+    if (userData) {
+        
+        UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        NSLog(@"%@",model);
+        //加载图片
+        [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
+            [_headView setHeadImage:image];
+        }];
+        //用户昵称
+        _nickNameLabel.text = model.nickname;
+    }
+    else{
+        NSLog(@"用户没有登陆");
+    }
+}
+
+
+#pragma mark - 通知中心事件监听
+- (void)userInfoChanged:(NSNotification *)notification {
+    
+    if ([notification.name isEqualToString:UPDATE_USERINFO]) {
+        [self updateUserInfoCleanCache:YES];
+    }
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 

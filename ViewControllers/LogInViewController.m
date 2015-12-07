@@ -30,9 +30,6 @@
 @end
 
 
-
-
-
 @implementation LogInViewController
 
 -(void) viewDidLoad {
@@ -121,18 +118,8 @@
         else{
             //获取id
             _regModel.objectId = [dataModel objectId];
-//            更新用户信息
-            [BmobHelper updateDataWithClassName:USER_DB WithModel:_regModel withBlock:^(BOOL isSuccess, NSError *error) {
-                
-                if (isSuccess) {
-                    NSLog(@"更新用户成功");
-                    //获取最新数据并保存
-                    [self getNewUserData];
-                }
-                else{
-                    NSLog(@"更新用户失败:%@",error);
-                }
-            }];
+            //获取最新数据并保存
+            [self getNewUserData];
         }
     }];
 }
@@ -146,6 +133,9 @@
         if (dataModel) {
             //保存用户数据到缓存
             [self saveUserIncacheWithModel:dataModel];
+            
+            //发送通知更新用户信息
+            [[NSNotificationCenter defaultCenter] postNotificationName:UPDATE_USERINFO object:nil];
         }
     }];
 }
@@ -159,6 +149,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"user"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    //发送通知更新用户界面
+    [[NSNotificationCenter defaultCenter] postNotificationName:UPDATE_USERINFO object:nil];
     NSLog(@"数据缓存本地成功");
     
 }
