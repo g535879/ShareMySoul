@@ -14,4 +14,12 @@
     
 }
 
+- (id)valueForKey:(NSString *)key {
+    
+    id value = [super valueForKey:key];
+    if (value == [NSNull null]) {
+        return nil;
+    }
+    return value;
+}
 @end
