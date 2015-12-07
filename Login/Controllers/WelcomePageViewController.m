@@ -80,14 +80,15 @@
 
     CGPoint headViewCenter = _headView.center;
     _headView.hidden = NO;
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:1.0f animations:^{
         _headView.center = CGPointMake(headViewCenter.x, headViewCenter.y - 40 * scale_screen);
     } completion:^(BOOL finished) {
         _nickNameLabel.hidden = NO;
-        [UIView animateWithDuration:1.0f animations:^{
+        [UIView animateWithDuration:1.5f animations:^{
             _welcomeLabel.alpha = 1;
-        } completion:^(BOOL finished) {
             
+        } completion:^(BOOL finished) {
+            [NSThread sleepForTimeInterval:1.0f];
             UINavigationController * mainVC = [[UINavigationController alloc] initWithRootViewController:[[HomePageMainViewController alloc] init]];
             
             

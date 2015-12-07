@@ -45,7 +45,7 @@
 - (void)initLayout {
     
     //背景色
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
     _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];

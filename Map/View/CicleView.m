@@ -40,8 +40,8 @@
         shadowLayer.shadowColor = shadowColor.CGColor;
         shadowLayer.shadowOffset = CGSizeMake(2, 1);
         shadowLayer.shadowOpacity = 1;
-        shadowLayer.borderColor  = [UIColor clearColor].CGColor;
-        shadowLayer.borderWidth = borderWidth;
+        shadowLayer.borderColor  = borderColor.CGColor;
+        shadowLayer.borderWidth = borderWidth+1;
         [self.layer addSublayer:shadowLayer];
         
         //图片图层
