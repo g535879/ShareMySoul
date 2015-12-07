@@ -7,7 +7,9 @@
 //
 
 #import "HomePageViewController.h"
+
 #import "MapViewController.h"
+
 @interface HomePageViewController ()
 
 @property (nonatomic,copy) NSArray *coordinateArray;
@@ -18,7 +20,7 @@
 @end
 
 @implementation HomePageViewController
-
+   
 - (void)viewDidLoad {
     [super viewDidLoad];
     
