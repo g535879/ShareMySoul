@@ -20,7 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AMap3DMap (3.2.1)
   - AMapLocation (1.0.1)
   - AMapSearch (3.0.1)
   - BmobSDK (1.6.5)
@@ -34,7 +33,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.2)
-  - AMap3DMap (~> 3.2.1)
   - AMapLocation (~> 1.0.1)
   - AMapSearch (~> 3.0.1)
   - BmobSDK (~> 1.6.5)
@@ -46,7 +44,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  AMap3DMap: 1f179c4fc41a60e42243466eb188e3be946aa163
   AMapLocation: d33782bd102563aae1824cb4fae8b4495376f016
   AMapSearch: 431b082417bd3da0c2fe594c4822b664607891e9
   BmobSDK: 9928a9135a3a7823c6d8bd2bcd9baffeb8e6289a
