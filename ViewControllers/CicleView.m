@@ -22,9 +22,8 @@
 - (instancetype)initWithFrame:(CGRect)frame withShadownColor:(UIColor *)shadowColor withBorderColor:(UIColor *)borderColor andImage:(UIImage *)bgImage {
 
     if (self = [super initWithFrame:frame]) {
-//        CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth)
         
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor clearColor];
         _viewWidth = self.bounds.size.width-2;
         _viewHeight = self.bounds.size.height-2;
         _bounds = CGRectMake(0, 0, _viewWidth, _viewHeight);
@@ -57,9 +56,8 @@
         //图层剪贴无法和阴影一起使用。因为masksToBounds 的目的就是剪切外边框，而阴影效果刚好在外边框
         //直接放图片到content
         
-        UIImage *image = [UIImage imageNamed:@"bgImage.jpg"];
+        UIImage *image = imageStar(default_head_image);
          [layer setContents:(id)image.CGImage];   //放置内容
-        [layer setContents:(id)image];
         [self.layer addSublayer:layer];
         self.layer.cornerRadius = _viewWidth / 2.0f;
     }

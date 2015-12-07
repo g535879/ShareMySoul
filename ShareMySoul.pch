@@ -59,7 +59,13 @@
 
 #define imageStar(str) str.length ? [UIImage imageNamed:(str)] : nil
 
-#define default_head_image @"default_head_image"
+//默认头像
+#define default_head_image @"default_head_image.jpg"
+
+//字体
+#define sys_font(size) [UIFont systemFontOfSize:size]
+
+#define sys_color(color) [UIColor color]
 //我们需要做适配
 //首先想到一个比例尺 frame值来做适配
 //首先需要一个基数 以什么屏幕作为参照物

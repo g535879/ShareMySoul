@@ -38,21 +38,16 @@
 - (void)initLayout {
     
     //背景色
-//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
-//    UIButton * btn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) target:self SEL:@selector(btnClick:) tag:500+0 title:nil backgroundColor:[UIColor yellowColor]];
-//    btn.layer.cornerRadius = headWidth/2.0f;
-//    btn.layer.contents = (id)[UIImage imageNamed:default_head_image];
-//    btn.layer.masksToBounds = YES;
-    
-//    [self.view addSubview:btn];
-    CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(0, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
+    CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
+    headView.tag = 500 + 0;
     [self.view addSubview:headView];
     
+    //用户昵称
+    UILabel * nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(headView.frame.origin.x, CGRectGetMaxY(headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:[UIFont systemFontOfSize:14.0f] textColor:sys_color(blackColor)];
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
-
-
 //    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
 //    _myInfoMsg.tag = 500 + 1;
 //    _myInfoMsg.backgroundColor = [UIColor orangeColor];
