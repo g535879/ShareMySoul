@@ -75,7 +75,10 @@
 //定位到当前位置点击事件
 - (void)meButtonclicked{
     
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    if (_mapView.userTrackingMode != MAUserTrackingModeFollow) {
+
+        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+    }
     
 }
 
