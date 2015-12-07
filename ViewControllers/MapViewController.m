@@ -42,6 +42,7 @@
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
     _mapView.showTraffic = NO;
+    _mapView.zoomLevel = 11.2;
 
     [self createMeButton];
     [self createTrafficButton];
@@ -125,7 +126,6 @@
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
 
 
-    [self ReGeocodeWithWithLatitude:coordinate.latitude withLongitude:coordinate.longitude];
     
 }
 
@@ -142,9 +142,6 @@
             [_search AMapReGoecodeSearch:request];
         }
     }
-    
-
-    
     
 }
 
@@ -179,7 +176,6 @@
 //取消选中annotation时将该annotation从视图中移除
 - (void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
 
-    [mapView removeAnnotation:view.annotation];
 }
 
 
