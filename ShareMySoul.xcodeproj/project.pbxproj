@@ -17,7 +17,6 @@
 		AD6489EE1C149A0F008A26F0 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489EB1C149A0F008A26F0 /* RegisterModel.m */; };
 		AD6489EF1C149A0F008A26F0 /* RootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489ED1C149A0F008A26F0 /* RootModel.m */; };
 		AD6489F21C149A1E008A26F0 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489F11C149A1E008A26F0 /* NSString+MD5.m */; };
-		AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD72A6801C0D42430001058C /* HomePageTitleView.m */; };
 		AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */; };
 		AD8666621C0DDEE7001249CF /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */; };
 		AD8666641C0DE033001249CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666631C0DE033001249CF /* Security.framework */; };
@@ -45,13 +44,14 @@
 		ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC9A3DC1C0BE9D300CF720B /* NearbyViewController.m */; };
 		ADD1F6591C158620004FDF51 /* WelcomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */; };
 		ADD1F65C1C159D8E004FDF51 /* UserManage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F65B1C159D8E004FDF51 /* UserManage.m */; };
+		ADD1F6631C15C10E004FDF51 /* CicleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6601C15C10E004FDF51 /* CicleView.m */; };
+		ADD1F6641C15C10E004FDF51 /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD1F6621C15C10E004FDF51 /* HomePageTitleView.m */; };
 		ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */; };
 		ADDD951B1C0FDBE6005A1ECD /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDD951A1C0FDBE6005A1ECD /* TestBmobViewController.m */; };
 		ADE7ADF51C14649400C796B6 /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADEE1C14649400C796B6 /* MyCustomView.m */; };
 		ADE7ADF61C14649400C796B6 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF01C14649400C796B6 /* UIAlertView+Blocks.m */; };
 		ADE7ADF71C14649400C796B6 /* UIColor+tools.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF21C14649400C796B6 /* UIColor+tools.m */; };
 		ADE7ADF81C14649400C796B6 /* UIViewController+AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADF41C14649400C796B6 /* UIViewController+AlertView.m */; };
-		ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE7ADFA1C146A1100C796B6 /* CicleView.m */; };
 		ADE7AE031C14739900C796B6 /* bgImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADE7AE021C14739900C796B6 /* bgImage.jpg */; };
 /* End PBXBuildFile section */
 
@@ -96,8 +96,6 @@
 		AD6489ED1C149A0F008A26F0 /* RootModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootModel.m; sourceTree = "<group>"; };
 		AD6489F01C149A1E008A26F0 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		AD6489F11C149A1E008A26F0 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		AD72A67F1C0D42430001058C /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageTitleView.h; path = ViewControllers/HomePageTitleView.h; sourceTree = SOURCE_ROOT; };
-		AD72A6801C0D42430001058C /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageTitleView.m; path = ViewControllers/HomePageTitleView.m; sourceTree = SOURCE_ROOT; };
 		AD86665F1C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		AD8666601C0DDEE7001249CF /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = SDK/TencentOpenAPI.framework; sourceTree = "<group>"; };
 		AD8666631C0DE033001249CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -140,6 +138,10 @@
 		ADD1F6571C158620004FDF51 /* WelcomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomePageViewController.h; sourceTree = "<group>"; };
 		ADD1F6581C158620004FDF51 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
 		ADD1F65B1C159D8E004FDF51 /* UserManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManage.m; sourceTree = "<group>"; };
+		ADD1F65F1C15C10E004FDF51 /* CicleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicleView.h; sourceTree = "<group>"; };
+		ADD1F6601C15C10E004FDF51 /* CicleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CicleView.m; sourceTree = "<group>"; };
+		ADD1F6611C15C10E004FDF51 /* HomePageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageTitleView.h; sourceTree = "<group>"; };
+		ADD1F6621C15C10E004FDF51 /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageTitleView.m; sourceTree = "<group>"; };
 		ADD3674A1C12C3DD0003FEC7 /* MyFeelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeelViewController.h; sourceTree = "<group>"; };
 		ADD3674B1C12C3DD0003FEC7 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
 		ADDD95191C0FDBE6005A1ECD /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
@@ -152,8 +154,6 @@
 		ADE7ADF21C14649400C796B6 /* UIColor+tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+tools.m"; sourceTree = "<group>"; };
 		ADE7ADF31C14649400C796B6 /* UIViewController+AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertView.h"; sourceTree = "<group>"; };
 		ADE7ADF41C14649400C796B6 /* UIViewController+AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertView.m"; sourceTree = "<group>"; };
-		ADE7ADF91C146A1100C796B6 /* CicleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CicleView.h; path = ViewControllers/CicleView.h; sourceTree = SOURCE_ROOT; };
-		ADE7ADFA1C146A1100C796B6 /* CicleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CicleView.m; path = ViewControllers/CicleView.m; sourceTree = SOURCE_ROOT; };
 		ADE7AE021C14739900C796B6 /* bgImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImage.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,10 +364,10 @@
 		ADD1F65D1C15C081004FDF51 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ADE7ADF91C146A1100C796B6 /* CicleView.h */,
-				ADE7ADFA1C146A1100C796B6 /* CicleView.m */,
-				AD72A67F1C0D42430001058C /* HomePageTitleView.h */,
-				AD72A6801C0D42430001058C /* HomePageTitleView.m */,
+				ADD1F65F1C15C10E004FDF51 /* CicleView.h */,
+				ADD1F6601C15C10E004FDF51 /* CicleView.m */,
+				ADD1F6611C15C10E004FDF51 /* HomePageTitleView.h */,
+				ADD1F6621C15C10E004FDF51 /* HomePageTitleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,7 +580,6 @@
 				AD6489EE1C149A0F008A26F0 /* RegisterModel.m in Sources */,
 				ADA723491C11C1BA009E41E8 /* SlideViewController.m in Sources */,
 				AD6489F21C149A1E008A26F0 /* NSString+MD5.m in Sources */,
-				ADE7ADFB1C146A1100C796B6 /* CicleView.m in Sources */,
 				AD6489DF1C1497B9008A26F0 /* BasicModel.m in Sources */,
 				AD6489DA1C149522008A26F0 /* UserInfoModel.m in Sources */,
 				5059D67C1C107D96006FDE59 /* MapViewController.m in Sources */,
@@ -593,12 +592,13 @@
 				ADE7ADF81C14649400C796B6 /* UIViewController+AlertView.m in Sources */,
 				ADE7ADF51C14649400C796B6 /* MyCustomView.m in Sources */,
 				AD92F0F01C0B2FDA009E5F60 /* BasicViewController.m in Sources */,
+				ADD1F6631C15C10E004FDF51 /* CicleView.m in Sources */,
 				ADE7ADF61C14649400C796B6 /* UIAlertView+Blocks.m in Sources */,
 				ADC9A3CF1C0BE1F500CF720B /* HomePageViewController.m in Sources */,
 				AD6489EF1C149A0F008A26F0 /* RootModel.m in Sources */,
 				ADC9A3DD1C0BE9D300CF720B /* NearbyViewController.m in Sources */,
-				AD72A6811C0D42430001058C /* HomePageTitleView.m in Sources */,
 				ADD3674C1C12C3DD0003FEC7 /* MyFeelViewController.m in Sources */,
+				ADD1F6641C15C10E004FDF51 /* HomePageTitleView.m in Sources */,
 				ADD1F65C1C159D8E004FDF51 /* UserManage.m in Sources */,
 				AD36E7B91C0F1BDF006A32E7 /* BmobHelper.m in Sources */,
 				AD6489E01C1497B9008A26F0 /* MessageModel.m in Sources */,
