@@ -66,7 +66,13 @@
 
 - (void)setHeadImage:(UIImage *)headImage {
     
-    [_headLayer setContents:(id)headImage.CGImage];
+    if (headImage) {
+        [_headLayer setContents:(id)headImage.CGImage];
+    }
+    else{
+        [_headLayer setContents:(id)[UIImage imageNamed:default_head_image].CGImage];
+    }
+    
 }
 
 @end
