@@ -68,15 +68,16 @@
  */
 - (void)ReGeocodeWithWithLatitude:(CLLocationDegrees)latitude withLongitude:(CLLocationDegrees)longitude;
 
+
 /**
  *  创建大头针标注
  *
- *  @param latitude  latitude description
- *  @param longitude longitude description
- *  @param title     title
- *  @param subtitle  subtitle
+ *  @param coordinate2D coordinate2D description
+ *  @param title        title description
+ *  @param subtitle     subtitle description
  */
-- (void)createMapPointAnnotationWithLatitude:(CLLocationDegrees)latitude withLongitude:(CLLocationDegrees)longitude withTitle:(NSString *)title withSubTitle:(NSString *)subtitle;
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withTitle:(NSString *)title withSubTitle:(NSString *)subtitle;
+
 
 
 @end
