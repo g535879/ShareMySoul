@@ -155,7 +155,6 @@
 - (void)saveUserIncacheWithModel:(id)model {
 
     UserInfoModel * uModel = [[UserInfoModel alloc] initWithDictionary:[model toDictionary] error:nil];
-    [uModel setFigureurl_qq_2:nil];
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:uModel];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"user"];
     [[NSUserDefaults standardUserDefaults] synchronize];

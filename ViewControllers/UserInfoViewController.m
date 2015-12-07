@@ -48,12 +48,16 @@
     _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
     _headView.tag = 500 + 0;
     [self.view addSubview:_headView];
-    [_headView setHeadImage:imageStar(default_head_image)];
     
     //用户昵称
-    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_headView.frame.origin.x, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"gugugu" withFont:20 * scale_screen textColor:sys_color(blackColor)];
     [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_nickNameLabel];
+    
+    
+    //登陆按钮
+    UIButton * logInBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_nickNameLabel.frame) + 30, _viewWidth, _nickNameLabel.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 1 title:@"登陆" backgroundColor:sys_color(orangeColor)];
+    [self.view addSubview:logInBtn];
     
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
 //    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
