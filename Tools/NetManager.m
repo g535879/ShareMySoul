@@ -86,7 +86,7 @@ static NetManager * singltonManager = nil;
     //清除缓存
     if (clearCache) {
         
-        [[singleton.sdManager imageCache] cleanDisk];
+        [[singleton.sdManager imageCache] clearDisk];
     }
     
     [singleton.sdManager cachedImageExistsForURL:url completion:^(BOOL isInCache) {

@@ -30,7 +30,7 @@
         _bounds = CGRectMake(0, 0, _viewWidth, _viewHeight);
         CGPoint position = CGPointMake(_viewWidth/2,_viewHeight/2);
         CGFloat cornerRadius = _viewWidth / 2;
-        CGFloat borderWidth = 3;
+        CGFloat borderWidth = 2;
         
         //阴影图层
         CALayer *shadowLayer = [[CALayer alloc] init];
