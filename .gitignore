@@ -8,4 +8,4 @@ UserInterface.xcuserstate
 xcdebugger/
 .DS_Store
 Pods/
-
+*.lock
