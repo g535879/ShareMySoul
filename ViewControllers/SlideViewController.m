@@ -142,19 +142,19 @@
         case 1:
         {
 
-            [nc pushViewController:[[MyFeelViewController alloc] init] animated:NO];
+            [nc pushViewController:[[LogInViewController alloc] init] animated:NO];
         }
             break;
         //登陆
         case 2:
         {
-            [nc pushViewController:[[LogInViewController alloc] init] animated:YES];
+           // [nc pushViewController:[[LogInViewController alloc] init] animated:YES];
         }
             break;
         //测试 bmob
         case 3:
         {
-            [nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
+            //[nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
         }
         default:
             break;

@@ -270,14 +270,14 @@
 			children = (
 				AD6489EA1C149A0F008A26F0 /* RegisterModel.h */,
 				AD6489EB1C149A0F008A26F0 /* RegisterModel.m */,
+				AD6489D81C149522008A26F0 /* UserInfoModel.h */,
+				AD6489D91C149522008A26F0 /* UserInfoModel.m */,
 				AD6489EC1C149A0F008A26F0 /* RootModel.h */,
 				AD6489ED1C149A0F008A26F0 /* RootModel.m */,
 				AD6489DB1C1497B9008A26F0 /* BasicModel.h */,
 				AD6489DC1C1497B9008A26F0 /* BasicModel.m */,
 				AD6489DD1C1497B9008A26F0 /* MessageModel.h */,
 				AD6489DE1C1497B9008A26F0 /* MessageModel.m */,
-				AD6489D81C149522008A26F0 /* UserInfoModel.h */,
-				AD6489D91C149522008A26F0 /* UserInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";

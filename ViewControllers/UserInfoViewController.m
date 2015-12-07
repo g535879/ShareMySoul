@@ -50,6 +50,11 @@
     CicleView * headView = [[CicleView alloc] initWithFrame:CGRectMake(0, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
     [self.view addSubview:headView];
     
+    
+    //登陆按钮
+    UIButton * logInBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_nickNameLabel.frame) + 30, _viewWidth, _nickNameLabel.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 1 title:@"登陆" backgroundColor:sys_color(orangeColor)];
+    [self.view addSubview:logInBtn];
+    
 //    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
 
 
