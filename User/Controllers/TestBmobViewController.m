@@ -25,10 +25,9 @@
     
     //添加一条数据
     mModel = [[MessageModel alloc] init];
-//    mModel.message = @"我是余佳222222";
-//    mModel.sex = @"女";
 
-    [self insert];
+//    [self insert];
+//    [self upload];
 }
 
 - (void)insert {
@@ -67,6 +66,22 @@
 
 - (void)select {
     
+}
+
+- (void)upload {
+    
+//    NSString * filePath = [[NSBundle mainBundle] pathForResource:default_head_image ofType:nil];
+//    
+//    [BmobHelper uploadDataWithPath:filePath block:^(id dataModel, NSError *error) {
+//        
+//        NSLog(@"%@",dataModel);
+//    }];
+    UIImage * image = [UIImage imageNamed:default_head_image];
+    [BmobHelper uploadFileWithFileData:image block:^(id dataModel, NSError *error) {
+        if (!error) {
+            NSLog(@"%@",dataModel);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

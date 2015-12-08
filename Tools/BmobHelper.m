@@ -281,21 +281,34 @@ static BmobHelper * _singleton;
     }];
 }
 
-//+ (void)saveUserWithModel:(UserInfoModel *)userModel withBlock:(ResultBlock)callBackBlock {
-//    BmobUser * bUser = [[BmobUser alloc] init];
-//    
-//    [bUser saveAllWithDictionary:[self removeSystemInfo:[userModel toDictionary]]];
-//    [bUser setUsername:userModel.nickname];
-//    [bUser setPassword:nil];
-//    [bUser saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//        
-//        //回调相关信息
-//        if (callBackBlock) {
-//            
-//            callBackBlock(isSuccessful,error);
-//        }
-//    }];
-//}
+#pragma mark - 上传单个文件
+
++ (void)uploadDataWithPath:(NSString *)filePath block:(ResultImageUrl)response {
+    
+    BmobFile * uploadFile = [[BmobFile alloc] initWithFilePath:filePath];
+    [uploadFile saveInBackground:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            response(uploadFile.url,nil);
+        }else{
+            
+            response(nil,error);
+        }
+    }];
+}
+
++ (void)uploadFileWithFileData:(UIImage *)image block:(ResultImageUrl)response {
+    NSData * fileData = UIImageJPEGRepresentation(image, 0.7);
+    NSString * fileName = [NSString stringWithFormat:@"%@.jpg",[Bmob getServerTimestamp]];
+    BmobFile * uploadFile = [[BmobFile alloc] initWithFileName:fileName withFileData:fileData];
+    [uploadFile saveInBackground:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            response(uploadFile.url,nil);
+        }else{
+            
+            response(nil,error);
+        }
+    }];
+}
 
 #pragma mark - 删除objectId，updatedAt，createdAt这些系统属性
 
