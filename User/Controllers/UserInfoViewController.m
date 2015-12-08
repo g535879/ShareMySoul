@@ -53,7 +53,7 @@
     [self.view addSubview:_headView];
     
     //用户昵称
-    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"游客" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"游客" withFont:30 * scale_screen textColor:sys_color(blackColor)];
     [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_nickNameLabel];
     
@@ -120,7 +120,7 @@
         
         UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
         //加载图片
-        [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
+        [NetManager loadImageWithUrl:[NSURL URLWithString:model.head_image] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
             [_headView setHeadImage:image];
         }];
         //用户昵称

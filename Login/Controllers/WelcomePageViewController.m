@@ -65,7 +65,7 @@
     
     //加载图片
     __weak typeof(self) weakSelf = self;
-    [NetManager loadImageWithUrl:[NSURL URLWithString:manager.currentUser.figureurl_qq_2] clearCache:NO block:^(UIImage *image, NSError *error) {
+    [NetManager loadImageWithUrl:[NSURL URLWithString:manager.currentUser.head_image] clearCache:NO block:^(UIImage *image, NSError *error) {
 
         [_headView setHeadImage:image];
         

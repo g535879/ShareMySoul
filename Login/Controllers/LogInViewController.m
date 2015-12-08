@@ -179,7 +179,7 @@
     //注册用户建模
     _regModel = [[RegisterModel alloc] init];
     _regModel.nickname = response.jsonResponse[@"nickname"];
-    _regModel.figureurl_qq_2 = response.jsonResponse[@"figureurl_qq_2"];
+    _regModel.head_image = response.jsonResponse[@"figureurl_qq_2"];
     _regModel.sex = response.jsonResponse[@"gender"];
     _regModel.openid = _uId;
     

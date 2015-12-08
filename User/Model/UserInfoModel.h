@@ -13,7 +13,7 @@
 /**
  *  头像
  */
-proStr(figureurl_qq_2);
+proStr(head_image);
 
 /**
  *  昵称
