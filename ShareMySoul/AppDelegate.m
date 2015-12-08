@@ -25,12 +25,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self.window makeKeyAndVisible];
-    //高德地图key
-    [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    //高德地图定位
-    [AMapLocationServices sharedServices].apiKey = GEO_API_KEY;
-    //高德地图搜索服务
-    [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
+//    //高德地图key
+//    [MAMapServices sharedServices].apiKey = GEO_API_KEY;
+//    //高德地图定位
+//    [AMapLocationServices sharedServices].apiKey = GEO_API_KEY;
+//    //高德地图搜索服务
+//    [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
     //bmob key
     [Bmob registerWithAppKey:BMOB_APP_KEY];
     
