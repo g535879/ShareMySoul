@@ -80,13 +80,13 @@
 //
 //    
 //    
-//    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
-//    bmobBtn.frame = CGRectMake(_viewMinX, 220, _viewWidth, 40);
-//    [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
-//    bmobBtn.tag = 500 + 3;
-//    [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [bmobBtn setBackgroundColor:[UIColor orangeColor]];
-//    [self.view addSubview:bmobBtn];
+    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+    bmobBtn.frame = CGRectMake(_viewMinX, 220, _viewWidth, 40);
+    [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
+    bmobBtn.tag = 500 + 3;
+    [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [bmobBtn setBackgroundColor:[UIColor orangeColor]];
+    [self.view addSubview:bmobBtn];
     
 }
 

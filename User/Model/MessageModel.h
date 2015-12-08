@@ -19,7 +19,7 @@
 /**
  *  评论
  */
-@property (nonatomic, strong) CommentModel * comment;
+@property (nonatomic, copy) NSArray<CommentModel *> * comments;
 /**
  *  坐标
  */

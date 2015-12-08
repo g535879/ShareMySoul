@@ -21,7 +21,6 @@
 		AD83494F1C15DD1D00457D92 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349321C15DC4E00457D92 /* NearbyViewController.m */; };
 		AD8349501C15DD1D00457D92 /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349341C15DC4E00457D92 /* TestBmobViewController.m */; };
 		AD8349511C15DD1D00457D92 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349361C15DC4E00457D92 /* UserInfoViewController.m */; };
-		AD8349521C15DD1D00457D92 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493C1C15DC5A00457D92 /* MessageModel.m */; };
 		AD8349531C15DD1D00457D92 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493E1C15DC5A00457D92 /* RegisterModel.m */; };
 		AD8349541C15DD1D00457D92 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349401C15DC5A00457D92 /* UserInfoModel.m */; };
 		AD8349551C15DD1D00457D92 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489F11C149A1E008A26F0 /* NSString+MD5.m */; };
@@ -53,6 +52,7 @@
 		ADBA98381C0B1FF00023499E /* ShareMySoulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98371C0B1FF00023499E /* ShareMySoulUITests.m */; };
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
 		ADF2FC761C16835300A14749 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF2FC751C16835300A14749 /* CommentModel.m */; };
+		ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493C1C15DC5A00457D92 /* MessageModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -717,6 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */,
 				AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */,
 				AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */,
 				AD8349461C15DD1D00457D92 /* BasicModel.m in Sources */,
@@ -732,7 +733,6 @@
 				AD8349501C15DD1D00457D92 /* TestBmobViewController.m in Sources */,
 				AD8349731C15E32400457D92 /* CicleView.m in Sources */,
 				AD8349511C15DD1D00457D92 /* UserInfoViewController.m in Sources */,
-				AD8349521C15DD1D00457D92 /* MessageModel.m in Sources */,
 				AD8349531C15DD1D00457D92 /* RegisterModel.m in Sources */,
 				AD8349541C15DD1D00457D92 /* UserInfoModel.m in Sources */,
 				AD8349551C15DD1D00457D92 /* NSString+MD5.m in Sources */,

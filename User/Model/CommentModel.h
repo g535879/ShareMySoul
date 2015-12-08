@@ -7,7 +7,6 @@
 //
 
 #import "BasicModel.h"
-#import "MessageModel.h"
 #import "UserInfoModel.h"
 
 @interface CommentModel : BasicModel
@@ -15,10 +14,11 @@
  *  评论人
  */
 @property (nonatomic, strong) UserInfoModel * author;
+
 /**
- *  评论的消息对象
+ *  评论的消息对象Id
  */
-@property (nonatomic, strong) MessageModel * message;
+proStr(messageId);
 
 /**
  *  评论的消息内容
