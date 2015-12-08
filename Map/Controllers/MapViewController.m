@@ -31,7 +31,6 @@
     
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
     
-    [AMapLocationServices sharedServices].apiKey = GEO_API_KEY;
     
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
 
@@ -46,7 +45,6 @@
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
     _mapView.showTraffic = NO;
-    _mapView.zoomLevel = 11.2;
     //是否显示楼块
     _mapView.showsBuildings = NO;
     //是否显示室内地图
@@ -57,17 +55,15 @@
     //天空模式
     _mapView.skyModelEnable = NO;
     
-    NSLog(@"%f  %f",_mapView.compassSize.width,_mapView.compassSize.height);
 
     [self createMeButton];
-    [self createTrafficButton];
+    //[self createTrafficButton];
     
     _search = [[AMapSearchAPI alloc] init];
     _search.delegate = self;
 
     return _mapView;
 }
-
 
 
 #pragma mark -创建定位到当前的位置按钮
