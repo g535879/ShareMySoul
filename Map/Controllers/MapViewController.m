@@ -171,7 +171,9 @@
             NSLog(@"%@",error);
         }
         else{
-            NSLog(@"%@",responseArray);
+            //messageModel数据
+            NSLog(@"获取数据完成");
+//            NSLog(@"%@",responseArray);
         }
     }];
     
