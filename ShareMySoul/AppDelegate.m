@@ -34,21 +34,22 @@
     //bmob key
     [Bmob registerWithAppKey:BMOB_APP_KEY];
     
-    
+    UINavigationController * nvc;
     //判断是否有本地用户数据
     if ([self initUserInfo]) {
         
         //进入欢迎页面
-        UINavigationController * nvc = [[UINavigationController alloc] initWithRootViewController:[[WelcomePageViewController alloc] init]];
-        self.window.rootViewController = nvc;
+        nvc = [[UINavigationController alloc] initWithRootViewController:[[WelcomePageViewController alloc] init]];
+        
         
     }else {
         
         //跳转登陆界面
-        UINavigationController * nvc = [[UINavigationController alloc] initWithRootViewController:[[LogInViewController alloc] init]];
+        nvc = [[UINavigationController alloc] initWithRootViewController:[[LogInViewController alloc] init]];
         
-        self.window.rootViewController = nvc;
     }
+    
+    self.window.rootViewController = nvc;
     
     return YES;
 }

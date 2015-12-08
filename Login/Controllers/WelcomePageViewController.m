@@ -29,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    [self pushHomePage];
+    return;
     //布局
     [self initLayout];
     //加载用户数据
@@ -65,7 +68,7 @@
     
     //加载图片
     __weak typeof(self) weakSelf = self;
-    [NetManager loadImageWithUrl:[NSURL URLWithString:manager.currentUser.figureurl_qq_2] clearCache:NO block:^(UIImage *image, NSError *error) {
+    [NetManager loadImageWithUrl:[NSURL URLWithString:manager.currentUser.head_image] clearCache:NO block:^(UIImage *image, NSError *error) {
 
         [_headView setHeadImage:image];
         
@@ -89,18 +92,25 @@
             
         } completion:^(BOOL finished) {
             [NSThread sleepForTimeInterval:1.0f];
-            UINavigationController * mainVC = [[UINavigationController alloc] initWithRootViewController:[[HomePageMainViewController alloc] init]];
             
-            
-            UserInfoViewController * uVC = [[UserInfoViewController alloc] init];
-            
-            SlideViewController * svc = [[SlideViewController alloc] initWithFrame:self.view.bounds LeftVC:uVC andMainVC:mainVC];
-            
-            //跳转到主界面
-            UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
-            window.rootViewController = svc;
-        }];
+            //跳转登陆
+            [self pushHomePage];
+            }];
     }];
+}
+
+- (void)pushHomePage {
+    UINavigationController * mainVC = [[UINavigationController alloc] initWithRootViewController:[[HomePageMainViewController alloc] init]];
+    
+    
+    UserInfoViewController * uVC = [[UserInfoViewController alloc] init];
+    
+    SlideViewController * svc = [[SlideViewController alloc] initWithFrame:self.view.bounds LeftVC:uVC andMainVC:mainVC];
+    
+    //跳转到主界面
+    UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
+    window.rootViewController = svc;
+
 }
 
 - (void)didReceiveMemoryWarning {

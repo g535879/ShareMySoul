@@ -162,7 +162,7 @@
         //测试 bmob
         case 3:
         {
-            //[nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
+            [nc pushViewController:[[TestBmobViewController alloc] init] animated:YES];
         }
         default:
             break;

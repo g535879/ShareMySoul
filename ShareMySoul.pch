@@ -94,7 +94,12 @@
 
 //数据库表名
 
+//用户表
 #define USER_DB @"User"
+//消息表
+#define MSG_DB @"Message"
+//评论表
+#define COMMENT @"Comment"
 
 
 

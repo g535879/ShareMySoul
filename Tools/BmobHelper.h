@@ -7,6 +7,8 @@
 //
 @class UserInfoModel;
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import "MessageModel.h"
 /**
  *  操作数据结果回调
  *
@@ -52,6 +54,25 @@ typedef void (^ResultData)(id  dataModel, NSError * error );
                   withBlock:(ResultBlock)callBackBlock;
 
 /**
+ *  发送状态
+ *
+ *  @param msgModel      数据模型
+ *  @param callBackBlock 回调block
+ */
++ (void)sendMessageWithMessageModel:(MessageModel *)msgModel withBlock:(ResultBlock )callBackBlock;
+
+
+/**
+ *  更根据用户当前坐标获取周围的状态信息
+ *
+ *  @param location     用户location
+ *  @param resonseArray 结果
+ *  @maxDistance 半径(公里)
+ */
++ (void)messageWithCurrentLocation:(CLLocationCoordinate2D)location
+                       maxDistance:(double)distance
+                         withBlock:(ResultArray)resonseArray;
+/**
  *  根据id删除一行数据
  *
  *  @param className 表名
@@ -61,6 +82,19 @@ typedef void (^ResultData)(id  dataModel, NSError * error );
 +(void)deleteDataWithClassName:(NSString *)className
                       objectId:(NSString *)objectId
                      withBlock:(ResultBlock)callBackBlock;
+
+/**
+ *  根据id获取一条记录
+ *
+ *  @param dbName   表名
+ *  @param objId    id
+ *  @param modelClass 容器model
+ *  @param response obj
+ */
++(void)getObjectFromDBName:(NSString *)dbName
+                objectedId:(NSString *)objId
+          returnModelClass:(Class)modelClass
+                     block:(ResultData)response;
 
 /**
  *  根据表名以及条件查询表中所有信息，返回的结果保存到modelClass数组中

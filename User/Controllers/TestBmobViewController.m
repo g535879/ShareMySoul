@@ -25,8 +25,8 @@
     
     //添加一条数据
     mModel = [[MessageModel alloc] init];
-    mModel.message = @"我是余佳222222";
-    mModel.sex = @"女";
+//    mModel.message = @"我是余佳222222";
+//    mModel.sex = @"女";
 
     [self insert];
 }

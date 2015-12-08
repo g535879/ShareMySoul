@@ -18,4 +18,8 @@
  */
 @property (nonatomic, strong) UserInfoModel * currentUser;
 
+/**
+ *  设备信息
+ */
+@property (nonatomic, copy) NSString * deviceModel;
 @end

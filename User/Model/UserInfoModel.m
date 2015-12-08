@@ -21,11 +21,22 @@
     return NO;
 }
 
-- (NSString *)figureurl_qq_2 {
+- (NSString *)head_image {
     
-    if (!_figureurl_qq_2) {
+    if (!_head_image) {
+        
         return default_head_image;
     }
-    return _figureurl_qq_2;
+    return _head_image;
 }
+
+- (NSString *)nickname {
+    
+    if (!_nickname) {
+        
+        _nickname = @"游客";
+    }
+    return _nickname;
+}
+
 @end

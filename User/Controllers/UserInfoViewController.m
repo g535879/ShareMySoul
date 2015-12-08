@@ -45,7 +45,7 @@
 - (void)initLayout {
     
     //背景色
-//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
     _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
@@ -53,7 +53,7 @@
     [self.view addSubview:_headView];
     
     //用户昵称
-    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"游客" withFont:20 * scale_screen textColor:sys_color(blackColor)];
+    _nickNameLabel = [MyCustomView createLabelWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_headView.frame)+10, _viewWidth, 40 * scale_screen) textString:@"游客" withFont:30 * scale_screen textColor:sys_color(blackColor)];
     [_nickNameLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_nickNameLabel];
     
@@ -80,13 +80,13 @@
 //
 //    
 //    
-//    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
-//    bmobBtn.frame = CGRectMake(_viewMinX, 220, _viewWidth, 40);
-//    [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
-//    bmobBtn.tag = 500 + 3;
-//    [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [bmobBtn setBackgroundColor:[UIColor orangeColor]];
-//    [self.view addSubview:bmobBtn];
+    UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+    bmobBtn.frame = CGRectMake(_viewMinX, CGRectGetMaxY(_myFeelBtn.frame) + 30, _viewWidth, 40);
+    [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
+    bmobBtn.tag = 500 + 3;
+    [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [bmobBtn setBackgroundColor:[UIColor orangeColor]];
+    [self.view addSubview:bmobBtn];
     
 }
 
@@ -120,7 +120,7 @@
         
         UserInfoModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
         //加载图片
-        [NetManager loadImageWithUrl:[NSURL URLWithString:model.figureurl_qq_2] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
+        [NetManager loadImageWithUrl:[NSURL URLWithString:model.head_image] clearCache:cleanCache block:^(UIImage *image, NSError *error) {
             [_headView setHeadImage:image];
         }];
         //用户昵称

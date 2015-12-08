@@ -42,5 +42,11 @@ static UserManage * _manage = nil;
     return _manage;
 }
 
-
+- (NSString *)deviceModel {
+    
+    if (!_deviceModel) {
+        _deviceModel = [UIDevice currentDevice].model;
+    }
+    return _deviceModel;
+}
 @end

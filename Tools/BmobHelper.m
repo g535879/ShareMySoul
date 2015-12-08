@@ -9,6 +9,7 @@
 #import "BmobHelper.h"
 #import "UserInfoModel.h"
 
+
 static BmobHelper * _singleton;
 
 @implementation BmobHelper
@@ -49,6 +50,136 @@ static BmobHelper * _singleton;
             callBackBlock(isSuccessful,error);
         }
     }];
+}
+
+#pragma mark - 发送状态心情
+
++ (void)sendMessageWithMessageModel:(MessageModel *)msgModel withBlock:(ResultBlock )callBackBlock {
+    
+    BmobObject * msg = [BmobObject objectWithClassName:MSG_DB];
+    [msg saveAllWithDictionary:[self removeSystemInfo:[msgModel toDictionary]]];
+    [msg setObject:msgModel.location forKey:@"location"];
+    
+    //关联作者
+    BmobObject * author = [BmobObject objectWithoutDatatWithClassName:USER_DB objectId:msgModel.author.objectId];
+    
+    [msg setObject:author forKey:@"author"];
+    //保存
+    [msg saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        if (callBackBlock) {
+            
+                callBackBlock(isSuccessful,error);
+        }
+    }];
+
+}
+#pragma mark - 根据id获取一条数据
+
++ (void)getObjectFromDBName:(NSString *)dbName
+                 objectedId:(NSString *)objId
+           returnModelClass:(Class)modelClass
+                      block:(ResultData)response {
+    
+    
+    BmobQuery * bqery = [BmobQuery queryWithClassName:dbName];
+    [bqery getObjectInBackgroundWithId:objId block:^(BmobObject *object, NSError *error) {
+        
+        if (error) {
+            
+            response(object,error);
+            
+        }else{
+            
+            response([self objectsWithModelClass:modelClass fromBmobObjtArray:@[object]],nil);
+        }
+        
+    }];
+}
+
+#pragma mark - 获取指定范围内的心情数据
++ (void)messageWithCurrentLocation:(CLLocationCoordinate2D)location maxDistance:(double)distance withBlock:(ResultArray)resonseArray {
+    
+    BmobGeoPoint * point = [[BmobGeoPoint alloc] initWithLongitude:location.longitude WithLatitude:location.latitude];
+    BmobQuery * bquery = [BmobQuery queryWithClassName:MSG_DB];
+    [bquery whereKey:@"location" nearGeoPoint:point withinKilometers:distance];
+    
+    //查询作者
+//    [bquery includeKey:@"author"];
+//    查询评论的人
+//    [bquery includeKey:@"comment"];
+    
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        if (error) {
+            
+            resonseArray(nil,error);
+        }
+        else{
+            
+            NSMutableArray *resultArray = [@[] mutableCopy];
+            
+            //创建gcd group 控制顺序执行
+            dispatch_group_t group  = dispatch_group_create();
+            
+            dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                for (BmobObject * obj in array) {
+                    
+                    dispatch_group_enter(group);
+                    MessageModel * model = [[MessageModel alloc] init];
+                    
+                    if ([model respondsToSelector:@selector(toDictionary)]) {
+                        
+                        NSDictionary * modelPropertyTitleDic = [model toDictionary];
+                        
+                        for (NSString * key in modelPropertyTitleDic.allKeys) {
+                            id value = [obj objectForKey:key];
+                            [model setValue:value forKey:key];
+                        }
+                        //消息坐标
+                        model.location = [obj objectForKey:@"location"];
+                        
+                        NSString * authorId = [[obj objectForKey:@"author"] objectId];
+                        
+                        if (authorId) {
+                            
+                            //获取作者
+                            [self getObjectFromDBName:USER_DB objectedId:authorId returnModelClass:[UserInfoModel class] block:^(id dataModel, NSError *error) {
+                                if (error) {
+                                    NSLog(@"%@",error);
+                                }
+                                else {
+                                    
+                                    model.author = dataModel;
+                                    [resultArray addObject:model];
+                                    
+                                }
+                                    dispatch_group_leave(group);
+                                
+                            }];
+#warning 获取评论
+                        }else{
+                            dispatch_group_leave(group);
+                        }
+                        
+                    }
+                    
+                }
+            });
+            
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                //回调
+                resonseArray(resultArray,nil);
+            });
+       
+            
+        }
+    
+        
+        
+    }];
+    
 }
 
 #pragma mark - delete
@@ -118,22 +249,10 @@ static BmobHelper * _singleton;
         
         if (!error) {
             
-            for (BmobObject * obj in array) {
-                
-                JSONModel * model = [[modelClass class] new];
-
-                if ([model respondsToSelector:@selector(toDictionary)]) {
-                    
-                    NSDictionary * modelPropertyTitleDic = [model toDictionary];
-                    
-                    for (NSString * key in modelPropertyTitleDic.allKeys) {
-                        id value = [obj objectForKey:key];
-                        [model setValue:value forKey:key];
-                    }
-                    [resultArray addObject:model];
-                }
-                
-            }
+            //转化为自定义模型
+            NSArray * resultArray = [self objectsWithModelClass:modelClass fromBmobObjtArray:array];
+            
+            responseArray(resultArray,nil);
         }
         if (responseArray) {
             
@@ -191,4 +310,28 @@ static BmobHelper * _singleton;
     return resultDic;
 }
 
+
+//根据类名和bmobObjet返回model
++ (NSArray *)objectsWithModelClass:(Class)modelClass fromBmobObjtArray:(NSArray *)bmobArr {
+    
+    NSMutableArray * resultArray = [@[] mutableCopy];
+    
+    for (BmobObject * obj in bmobArr) {
+        
+        JSONModel * model = [[modelClass class] new];
+        
+        if ([model respondsToSelector:@selector(toDictionary)]) {
+            
+            NSDictionary * modelPropertyTitleDic = [model toDictionary];
+            
+            for (NSString * key in modelPropertyTitleDic.allKeys) {
+                id value = [obj objectForKey:key];
+                [model setValue:value forKey:key];
+            }
+            [resultArray addObject:model];
+        }
+        
+    }
+    return resultArray;
+}
 @end

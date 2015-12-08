@@ -23,7 +23,6 @@
 		AD83494F1C15DD1D00457D92 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349321C15DC4E00457D92 /* NearbyViewController.m */; };
 		AD8349501C15DD1D00457D92 /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349341C15DC4E00457D92 /* TestBmobViewController.m */; };
 		AD8349511C15DD1D00457D92 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349361C15DC4E00457D92 /* UserInfoViewController.m */; };
-		AD8349521C15DD1D00457D92 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493C1C15DC5A00457D92 /* MessageModel.m */; };
 		AD8349531C15DD1D00457D92 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493E1C15DC5A00457D92 /* RegisterModel.m */; };
 		AD8349541C15DD1D00457D92 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349401C15DC5A00457D92 /* UserInfoModel.m */; };
 		AD8349551C15DD1D00457D92 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6489F11C149A1E008A26F0 /* NSString+MD5.m */; };
@@ -54,6 +53,8 @@
 		ADBA982D1C0B1FF00023499E /* ShareMySoulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA982C1C0B1FF00023499E /* ShareMySoulTests.m */; };
 		ADBA98381C0B1FF00023499E /* ShareMySoulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98371C0B1FF00023499E /* ShareMySoulUITests.m */; };
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
+		ADF2FC761C16835300A14749 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF2FC751C16835300A14749 /* CommentModel.m */; };
+		ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493C1C15DC5A00457D92 /* MessageModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,8 @@
 		ADE7ADF21C14649400C796B6 /* UIColor+tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+tools.m"; sourceTree = "<group>"; };
 		ADE7ADF31C14649400C796B6 /* UIViewController+AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertView.h"; sourceTree = "<group>"; };
 		ADE7ADF41C14649400C796B6 /* UIViewController+AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertView.m"; sourceTree = "<group>"; };
+		ADF2FC741C16835300A14749 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		ADF2FC751C16835300A14749 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +369,8 @@
 		AD8349081C15D93D00457D92 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ADF2FC741C16835300A14749 /* CommentModel.h */,
+				ADF2FC751C16835300A14749 /* CommentModel.m */,
 				AD83493B1C15DC5A00457D92 /* MessageModel.h */,
 				AD83493C1C15DC5A00457D92 /* MessageModel.m */,
 				AD83493D1C15DC5A00457D92 /* RegisterModel.h */,
@@ -738,7 +743,6 @@
 				AD8349501C15DD1D00457D92 /* TestBmobViewController.m in Sources */,
 				AD8349731C15E32400457D92 /* CicleView.m in Sources */,
 				AD8349511C15DD1D00457D92 /* UserInfoViewController.m in Sources */,
-				AD8349521C15DD1D00457D92 /* MessageModel.m in Sources */,
 				AD8349531C15DD1D00457D92 /* RegisterModel.m in Sources */,
 				AD8349541C15DD1D00457D92 /* UserInfoModel.m in Sources */,
 				AD8349551C15DD1D00457D92 /* NSString+MD5.m in Sources */,
@@ -748,6 +752,7 @@
 				AD8349581C15DD1D00457D92 /* NetManager.m in Sources */,
 				AD8349591C15DD1D00457D92 /* UIAlertView+Blocks.m in Sources */,
 				AD83495A1C15DD1D00457D92 /* UIColor+tools.m in Sources */,
+				ADF2FC761C16835300A14749 /* CommentModel.m in Sources */,
 				AD83495B1C15DD1D00457D92 /* UIViewController+AlertView.m in Sources */,
 				AD83495C1C15DD1D00457D92 /* BmobHelper.m in Sources */,
 				AD8349681C15DD1D00457D92 /* AppDelegate.m in Sources */,
@@ -952,7 +957,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -1018,7 +1023,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

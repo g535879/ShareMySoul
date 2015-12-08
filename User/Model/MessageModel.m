@@ -10,4 +10,25 @@
 
 @implementation MessageModel
 
+
+- (void)setGeoPoint:(CLLocationCoordinate2D )geoLocation {
+    
+    if (!self.location) {
+        self.location = [[BmobGeoPoint alloc] init];
+    }
+    
+    self.location.latitude = geoLocation.latitude;
+    self.location.longitude = geoLocation.longitude;
+}
+
++ (BOOL)propertyIsIgnored:(NSString *)propertyName {
+    
+    NSArray * optionArray = @[@"author",@"location",@"comments"];
+    
+    if ([optionArray containsObject:propertyName]) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

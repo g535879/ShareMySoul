@@ -7,7 +7,9 @@
 //
 
 #import "BasicModel.h"
-
+#import "UserInfoModel.h"
+#import "CommentModel.h"
+#import <CoreLocation/CLAvailability.h>
 @interface MessageModel : BasicModel
 
 proStr(message);
