@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "MessageModel.h"
 
 @interface MapViewController ()
 
@@ -142,8 +143,38 @@
 
 #pragma mark -mapview中点击触发的方法
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
+    
+//    MessageModel * message = [[MessageModel alloc] init];
+//    message.author = [UserManage defaultUser].currentUser;
+//    message.device = [UserManage defaultUser].deviceModel;
+//    message.content = @"测试心情发送！～～～～～～～～～～～～～～";
+//    message.pics = [@[@"abc",@"def"] mutableCopy];
+//    [message setGeoPoint:coordinate];  //地理位置
+//    
+////    保存导数据
+//    [BmobHelper sendMessageWithMessageModel:message withBlock:^(BOOL isSuccess, NSError *error) {
+//        
+//        if (isSuccess) {
+//            
+//            NSLog(@"状态发送成功");
+//        }
+//        else{
+//            NSLog(@"%@",error);
+//        }
+//    }];
 
-
+    
+//    //获取数%@据
+    [BmobHelper messageWithCurrentLocation:coordinate maxDistance:1.0f withBlock:^(NSArray *responseArray, NSError *error) {
+        
+        if (error) {
+            NSLog(@"%@",error);
+        }
+        else{
+            NSLog(@"%@",responseArray);
+        }
+    }];
+    
 }
 
 

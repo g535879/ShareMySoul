@@ -45,7 +45,7 @@
 - (void)initLayout {
     
     //背景色
-//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     CGFloat headWidth = _viewWidth / 3.0;
     _headView = [[CicleView alloc] initWithFrame:CGRectMake(_viewMinX +  _viewWidth/2.0f - headWidth/2.0f, _viewWidth/2.0f - headWidth/2.0f, headWidth, headWidth) withShadownColor:[UIColor blackColor] withBorderColor:[UIColor blackColor] andImage:imageNameRenderStr(default_head_image)];
@@ -81,7 +81,7 @@
 //    
 //    
     UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
-    bmobBtn.frame = CGRectMake(_viewMinX, 220, _viewWidth, 40);
+    bmobBtn.frame = CGRectMake(_viewMinX, CGRectGetMaxY(_myFeelBtn.frame) + 30, _viewWidth, 40);
     [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
     bmobBtn.tag = 500 + 3;
     [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];

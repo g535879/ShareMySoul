@@ -9,7 +9,7 @@
 #import "BasicModel.h"
 #import "UserInfoModel.h"
 #import "CommentModel.h"
-
+#import <CoreLocation/CLAvailability.h>
 @interface MessageModel : BasicModel
 
 /**
@@ -23,8 +23,9 @@
 /**
  *  坐标
  */
-@property (nonatomic, strong) BmobGeoPoint * point;
+@property (nonatomic, strong) BmobGeoPoint * location;
 
+- (void)setGeoPoint:(CLLocationCoordinate2D)geoLocation;
 /**
  *  消息内容
  */
