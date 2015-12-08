@@ -34,11 +34,6 @@
 //选中时将数据传递给calloutView
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
 
-    [super setSelected:self animated:animated];
-
-    if (self.selected == selected) {
-        return;
-    }
 
     if (selected) {
         
@@ -54,7 +49,8 @@
         [self addSubview:self.calloutView];
         
     }else{
-                [self.calloutView removeFromSuperview];
+        
+        [self.calloutView removeFromSuperview];
     }
 
 }

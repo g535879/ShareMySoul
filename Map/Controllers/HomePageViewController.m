@@ -26,25 +26,24 @@
     
     [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 0, screen_Width, screen_Height-64)]];
     
-    CLLocationCoordinate2D coor1 = CLLocationCoordinate2DMake(43, 116);
-    CLLocationCoordinate2D coor2 = CLLocationCoordinate2DMake(46, 118);
-    CLLocationCoordinate2D coor3 = CLLocationCoordinate2DMake(49, 120);
-    
-    
-    UserInfoModel *model = [[UserInfoModel alloc] init];
-    model.figureurl_qq_2 = @"download.jpg";
-    model.nickname = @"nihao";
-    model.sex = @"男";
-    
-    
-
-    _titleArray = [NSArray arrayWithObjects:@"one",@"two",@"three", nil];
-    _subtitleArray = [NSArray arrayWithObjects:@"buzhidao",@"yebuzhidao",@"haibuzhidao", nil];
-
-    
-    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor1 withUserModel:model];
-    
-    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor2 withUserModel:model];
+//    CLLocationCoordinate2D coor1 = CLLocationCoordinate2DMake(43, 116);
+//    CLLocationCoordinate2D coor2 = CLLocationCoordinate2DMake(46, 118);
+//    CLLocationCoordinate2D coor3 = CLLocationCoordinate2DMake(49, 120);
+//    
+//    
+//    UserInfoModel *model = [[UserInfoModel alloc] init];
+//    model.head_image = @"download.jpg";
+//    model.nickname = @"nihao";
+//    model.sex = @"男";
+//    
+//
+//    _titleArray = [NSArray arrayWithObjects:@"one",@"two",@"three", nil];
+//    _subtitleArray = [NSArray arrayWithObjects:@"buzhidao",@"yebuzhidao",@"haibuzhidao", nil];
+//
+//    
+//    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor1 withUserModel:model];
+//    
+//    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor2 withUserModel:model];
     
 }
 

@@ -77,6 +77,12 @@
     if (_mapView.userTrackingMode != MAUserTrackingModeFollow) {
 
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+        
+        [BmobHelper messageWithCurrentLocation:_userLocation.coordinate maxDistance:1.0f withBlock:^(NSArray *responseArray, NSError *error) {
+            
+            NSLog(@"%@",responseArray);
+            
+        }];
     }
     
 }
@@ -102,9 +108,11 @@
 #pragma mark
 
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+    
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
         NSLog(@"当前位置：纬度：%f  经度：%f",_userLocation.coordinate.latitude,_userLocation.coordinate.longitude);
+        _mapView.userTrackingMode = MAUserTrackingModeNone;
     }
 }
 
@@ -118,13 +126,8 @@
 
 -(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
 
-    if ([view isKindOfClass:[MapAnnotationView class]]) {
-        
-        [_mapView removeAnnotation:view.annotation];
-        
-    }
+    view.selected = NO;
     
-
 }
 
 
@@ -143,6 +146,8 @@
     }
     
     if ([view.annotation isKindOfClass:[MAPointAnnotation class]]) {
+        
+        view.selected = YES;
         
     }
     
@@ -202,13 +207,7 @@
 - (void)onGeocodeSearchDone:(AMapGeocodeSearchRequest *)request response:(AMapGeocodeSearchResponse *)response{
     
 
-    for (AMapGeocode *code in response.geocodes) {
-        
-        CLLocationDegrees longitude = code.location.longitude;
-        CLLocationDegrees latitude = code.location.latitude;
-        
-
-    }
+    
 
 }
 

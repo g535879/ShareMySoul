@@ -12,7 +12,32 @@
 #import <CoreLocation/CLAvailability.h>
 @interface MessageModel : BasicModel
 
-proStr(message);
-proStr(sex);
+/**
+ *  消息作者
+ */
+@property (nonatomic, strong) UserInfoModel * author;
+/**
+ *  评论
+ */
+@property (nonatomic, copy) NSArray<CommentModel *> * comments;
+/**
+ *  坐标
+ */
+@property (nonatomic, strong) BmobGeoPoint * location;
 
+- (void)setGeoPoint:(CLLocationCoordinate2D)geoLocation;
+/**
+ *  消息内容
+ */
+proStr(content);
+
+/**
+ *  消息图片
+ */
+proMuArr(pics);
+
+/**
+ *  设备
+ */
+proStr(device);
 @end
