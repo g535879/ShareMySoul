@@ -7,7 +7,7 @@
 //
 
 #import "HomePageViewController.h"
-
+#import "UserInfoModel.h"
 #import "MapViewController.h"
 
 @interface HomePageViewController ()
@@ -31,14 +31,20 @@
     CLLocationCoordinate2D coor3 = CLLocationCoordinate2DMake(49, 120);
     
     
+    UserInfoModel *model = [[UserInfoModel alloc] init];
+    model.figureurl_qq_2 = @"download.jpg";
+    model.nickname = @"nihao";
+    model.sex = @"男";
+    
+    
+
     _titleArray = [NSArray arrayWithObjects:@"one",@"two",@"three", nil];
     _subtitleArray = [NSArray arrayWithObjects:@"buzhidao",@"yebuzhidao",@"haibuzhidao", nil];
+
     
-    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor1 withTitle:_titleArray[0] withSubTitle:_subtitleArray[0]];
+    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor1 withUserModel:model];
     
-    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor2 withTitle:_titleArray[1] withSubTitle:_subtitleArray[1]];
-    
-    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor3 withTitle:_titleArray[2] withSubTitle:_subtitleArray[2]];
+    [self createMapPointAnnotationWithCLLocationCoordinate2D:coor2 withUserModel:model];
     
 }
 

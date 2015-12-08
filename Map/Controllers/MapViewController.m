@@ -7,14 +7,10 @@
 //
 
 #import "MapViewController.h"
-
 @interface MapViewController ()
 
-
 @property (nonatomic,copy) NSString *addressStr;
-
-
-@property (nonatomic,copy) AMapLocationManager *locationManager;
+@property (nonatomic,copy) CLLocationManager *locationManger;
 
 @end
 
@@ -24,17 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
-    
     //配置用户 Key
-    
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    
     
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
 
-    
 }
 
 #pragma mark -创建地图视图
@@ -44,7 +34,6 @@
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
-    _mapView.showTraffic = NO;
     //是否显示楼块
     _mapView.showsBuildings = NO;
     //是否显示室内地图
@@ -52,16 +41,19 @@
     //是否可以旋转
     _mapView.rotateEnabled = NO;
     _mapView.touchPOIEnabled = NO;
+    _mapView.rotateCameraEnabled = NO;
     //天空模式
     _mapView.skyModelEnable = NO;
+    //缩放级别
+    [_mapView setZoomLevel:17.5 animated:YES];
     
 
     [self createMeButton];
-    //[self createTrafficButton];
     
     _search = [[AMapSearchAPI alloc] init];
     _search.delegate = self;
-
+    
+    
     return _mapView;
 }
 
@@ -87,42 +79,21 @@
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
     }
     
-    
 }
 
 
-#pragma mark -创建交通状况按钮
-- (void)createTrafficButton{
-    
-    _trafficButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _trafficButton.frame = CGRectMake(_mapView.compassOrigin.x, _mapView.compassOrigin.y + _mapView.compassSize.width + 10, _mapView.compassSize.width, _mapView.compassSize.height);
-    _trafficButton.backgroundColor = [UIColor colorWithRed:0.90f green:0.90f blue:0.90f alpha:1.00f];
-    _trafficButton.layer.cornerRadius = 5;
-    [_trafficButton setBackgroundImage:imageNameRenderStr(@"traffic") forState:UIControlStateNormal];
-    [_trafficButton setBackgroundImage:imageNameRenderStr(@"trafficselect") forState:UIControlStateSelected];
-    [_trafficButton addTarget:self action:@selector(trafficButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_mapView addSubview:_trafficButton];
-}
-
-//交通状况点击事件
-- (void)trafficButtonClicked:(UIButton *)button{
-    
-    button.selected = !button.selected;
-    _mapView.showTraffic = !_mapView.showTraffic;
-    
-}
 
 #pragma mark -创建地图大头针标注
-- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withTitle:(NSString *)title withSubTitle:(NSString *)subtitle{
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(UserInfoModel *)model{
     
     MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
     
     annotation.coordinate = coordinate2D;
     
-    annotation.title = title;
+
+    //annotation.title = [NSString ];
     
-    annotation.subtitle = subtitle;
+    //annotation.subtitle = model.sex;
     
     [_mapView addAnnotation:annotation];
     
@@ -130,22 +101,31 @@
 
 #pragma mark
 
-#pragma mark -mapview中结束定位之后的当前位置信息
--(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
-    
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
-
+        NSLog(@"当前位置：纬度：%f  经度：%f",_userLocation.coordinate.latitude,_userLocation.coordinate.longitude);
     }
-
 }
 
 #pragma mark -mapview中点击触发的方法
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
+    
 
-
+    
 }
 
+
+-(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
+
+    if ([view isKindOfClass:[MapAnnotationView class]]) {
+        
+        [_mapView removeAnnotation:view.annotation];
+        
+    }
+    
+
+}
 
 
 #pragma mark -点击annotationview触发的协议方法
@@ -162,41 +142,35 @@
         }
     }
     
+    if ([view.annotation isKindOfClass:[MAPointAnnotation class]]) {
+        
+    }
+    
+    
 }
-
 
 
 #pragma mark -大头针标注
 -(MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
 
     if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+        
         static NSString *userLocationID = @"locationID";
-        MAPinAnnotationView *annotationView = (MAPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:userLocationID];
+        MapAnnotationView *annotationView = (MapAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:userLocationID];
         
         if (!annotationView) {
             
-            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
+            annotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
         annotationView.image = imageNameRenderStr(@"mobile-phone22");
-        annotationView.canShowCallout = YES;
-        //annotationView.pinColor = MAPinAnnotationColorPurple;
-        annotationView.animatesDrop = YES;
+
         annotationView.centerOffset = CGPointMake(0, -18);
-        
+
         return  annotationView;
     }
-    
+
     return nil;
 }
-
-
-//取消选中annotation时将该annotation从视图中移除
-- (void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
-
-
-}
-
-
 
 
 #pragma mark
@@ -227,20 +201,13 @@
 #pragma mark -地理编码调用的协议方法
 - (void)onGeocodeSearchDone:(AMapGeocodeSearchRequest *)request response:(AMapGeocodeSearchResponse *)response{
     
-    if (response.geocodes.count == 0) {
-        
-#warning 添加弹窗
-        
-        return;
-    }
-    
+
     for (AMapGeocode *code in response.geocodes) {
         
         CLLocationDegrees longitude = code.location.longitude;
         CLLocationDegrees latitude = code.location.latitude;
         
 
-        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
     }
 
 }
@@ -256,7 +223,6 @@
     }
     _mapView.userLocation.title = title;
     _mapView.userLocation.subtitle = subtitle;
-    
     
 }
 
