@@ -33,6 +33,14 @@ typedef void (^ResultArray)(NSArray *responseArray, NSError * error);
  */
 typedef void (^ResultData)(id  dataModel, NSError * error );
 
+/**
+ *  返回图片地址
+ *
+ *  @param url   url
+ *  @param error error
+ */
+typedef void (^ResultImageUrl)(NSString * url, NSError * error );
+
 @interface BmobHelper : NSObject
 
 /**
@@ -132,12 +140,18 @@ typedef void (^ResultData)(id  dataModel, NSError * error );
 + (void)updateDataWithClassName:(NSString *)className
                       WithModel:(id)dataModel
                       withBlock:(ResultBlock)callBackBlock;
-///**
-// *  保存用户
-// *
-// *  @param userModel     用户模型
-// *  @param callBackBlock 回调函数
-// */
-//+ (void)saveUserWithModel:(UserInfoModel *)userModel
-//                withBlock:(ResultBlock)callBackBlock;
+/**
+ *   上传单个数据
+ *
+ *  @param filePath 文件名
+ *  @param response 结果回调
+ */
++ (void)uploadDataWithPath:(NSString *)filePath block:(ResultImageUrl)response;
+/**
+ *  上传单个图片
+ *
+ *  @param image 图片
+ *  @param response url结果
+ */
++ (void)uploadFileWithFileData:(UIImage *)image block:(ResultImageUrl)response;
 @end
