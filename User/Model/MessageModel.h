@@ -24,8 +24,19 @@
  *  坐标
  */
 @property (nonatomic, strong) BmobGeoPoint * location;
+/**
+ *  地址
+ */
+@property (nonatomic,copy) NSString * currentAddress;
 
+/**
+ *  转化坐标点为bmob坐标
+ *
+ *  @param geoLocation 高德坐标
+ */
 - (void)setGeoPoint:(CLLocationCoordinate2D)geoLocation;
+
+
 /**
  *  消息内容
  */
