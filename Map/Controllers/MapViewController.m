@@ -203,9 +203,9 @@
             
             annotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
-        
-        
-        annotationView.image = [UIImage imageNamed:@"mobile-phone22"];
+        annotationView.image = imageNameRenderStr(@"mobile-phone22");
+        annotationView.msgModel = [self modelBylocation:annotation.coordinate];
+        annotationView.centerOffset = CGPointMake(0, -18);
 
         return  annotationView;
     }

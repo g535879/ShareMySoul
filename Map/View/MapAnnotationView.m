@@ -45,27 +45,42 @@
             self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
         }
         
-        CLLocationCoordinate2D location = self.annotation.coordinate;
-                
-        [BmobHelper messageWithCurrentLocation:location maxDistance:1 withBlock:^(NSArray *responseArray, NSError *error) {
+        if (self.msgModel) {
             
-            for (MessageModel *model in responseArray) {
-                
-                if (model.location.latitude == location.latitude && model.location.longitude == location.   longitude) {
-                    
-                    UserInfoModel *userModel = model.author;
-                    
-                    self.calloutView.imageurl = [NSURL URLWithString:userModel.head_image];
-                    self.calloutView.title = userModel.nickname;
-                    self.calloutView.subtitle = model.content;
-                    //self.layer.cornerRadius = 10;
-                    //self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:userModel.head_image]]];
-                }
-                
-            }
-            
-        }];
-        self.image = [UIImage imageNamed:@"mobile-phone22"];
+            self.calloutView.title = self.msgModel.author.nickname;
+            self.calloutView.subtitle = self.msgModel.content;
+        }
+        
+        
+//        CLLocationCoordinate2D location = self.annotation.coordinate;
+//        
+//        NSLog(@"annotationview:%f  %f",location.latitude,location.longitude);
+//        
+//        [BmobHelper messageWithCurrentLocation:location maxDistance:1 withBlock:^(NSArray *responseArray, NSError *error) {
+//            
+//            for (MessageModel *model in responseArray) {
+//                
+//                if (model.location.latitude == location.latitude && model.location.longitude == location.   longitude) {
+//                    
+//                    UserInfoModel *userModel = model.author;
+//
+//                    NSLog(@"%@",userModel.nickname);
+//                    NSLog(@"name:%@ ",model.device);
+//                    
+//                    
+//                    
+//                    //self.calloutView.image = imageNameRenderStr(userModel.head_image);
+//                    
+//                    
+//                    NSLog(@"dfasf");
+//                    
+//                }
+//                
+//            }
+//            
+//        }];
+//        
+//
         self.canShowCallout = YES;
         [self addSubview:self.calloutView];
         
