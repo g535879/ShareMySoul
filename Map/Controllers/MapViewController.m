@@ -7,15 +7,10 @@
 //
 
 #import "MapViewController.h"
-#import "MessageModel.h"
-
 @interface MapViewController ()
 
-
 @property (nonatomic,copy) NSString *addressStr;
-
-
-@property (nonatomic,copy) AMapLocationManager *locationManager;
+@property (nonatomic,copy) CLLocationManager *locationManger;
 
 @end
 
@@ -25,17 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
-    
     //配置用户 Key
-    
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    
     
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
 
-    
 }
 
 #pragma mark -创建地图视图
@@ -53,16 +42,19 @@
     //是否可以旋转
     _mapView.rotateEnabled = NO;
     _mapView.touchPOIEnabled = NO;
+    _mapView.rotateCameraEnabled = NO;
     //天空模式
     _mapView.skyModelEnable = NO;
+    //缩放级别
+    [_mapView setZoomLevel:17.5 animated:YES];
     
 
     [self createMeButton];
-    //[self createTrafficButton];
     
     _search = [[AMapSearchAPI alloc] init];
     _search.delegate = self;
-
+    
+    
     return _mapView;
 }
 
@@ -86,44 +78,30 @@
     if (_mapView.userTrackingMode != MAUserTrackingModeFollow) {
 
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+        
+        
+        [BmobHelper messageWithCurrentLocation:_userLocation.coordinate maxDistance:1.0f withBlock:^(NSArray *responseArray, NSError *error) {
+            
+            
+            for (MessageModel *model in responseArray) {
+                
+                [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude) withUserModel:model];
+                NSLog(@"haha");
+            }
+
+        }];
     }
     
-    
 }
 
 
-#pragma mark -创建交通状况按钮
-- (void)createTrafficButton{
-    
-    _trafficButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _trafficButton.frame = CGRectMake(_mapView.compassOrigin.x, _mapView.compassOrigin.y + _mapView.compassSize.width + 10, _mapView.compassSize.width, _mapView.compassSize.height);
-    _trafficButton.backgroundColor = [UIColor colorWithRed:0.90f green:0.90f blue:0.90f alpha:1.00f];
-    _trafficButton.layer.cornerRadius = 5;
-    [_trafficButton setBackgroundImage:imageNameRenderStr(@"traffic") forState:UIControlStateNormal];
-    [_trafficButton setBackgroundImage:imageNameRenderStr(@"trafficselect") forState:UIControlStateSelected];
-    [_trafficButton addTarget:self action:@selector(trafficButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_mapView addSubview:_trafficButton];
-}
-
-//交通状况点击事件
-- (void)trafficButtonClicked:(UIButton *)button{
-    
-    button.selected = !button.selected;
-    _mapView.showTraffic = !_mapView.showTraffic;
-    
-}
 
 #pragma mark -创建地图大头针标注
-- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withTitle:(NSString *)title withSubTitle:(NSString *)subtitle{
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(UserInfoModel *)model{
     
     MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
     
     annotation.coordinate = coordinate2D;
-    
-    annotation.title = title;
-    
-    annotation.subtitle = subtitle;
     
     [_mapView addAnnotation:annotation];
     
@@ -131,8 +109,7 @@
 
 #pragma mark
 
-#pragma mark -mapview中结束定位之后的当前位置信息
--(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
@@ -152,47 +129,21 @@
         }];
 
     }
-
 }
 
 #pragma mark -mapview中点击触发的方法
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
     
-//    MessageModel * message = [[MessageModel alloc] init];
-//    message.author = [UserManage defaultUser].currentUser;
-//    message.device = [UserManage defaultUser].deviceModel;
-//    message.content = @"测试心情发送！～～～～～～～～～～～～～～";
-//    message.pics = [@[@"abc",@"def"] mutableCopy];
-//    [message setGeoPoint:coordinate];  //地理位置
-//    
-////    保存导数据
-//    [BmobHelper sendMessageWithMessageModel:message withBlock:^(BOOL isSuccess, NSError *error) {
-//        
-//        if (isSuccess) {
-//            
-//            NSLog(@"状态发送成功");
-//        }
-//        else{
-//            NSLog(@"%@",error);
-//        }
-//    }];
 
-    
-//    //获取数%@据
-    [BmobHelper messageWithCurrentLocation:coordinate maxDistance:1.0f withBlock:^(NSArray *responseArray, NSError *error) {
-        
-        if (error) {
-            NSLog(@"%@",error);
-        }
-        else{
-            //messageModel数据
-            NSLog(@"获取数据完成");
-//            NSLog(@"%@",responseArray);
-        }
-    }];
     
 }
 
+
+-(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
+
+    view.selected = NO;
+    
+}
 
 
 #pragma mark -点击annotationview触发的协议方法
@@ -209,41 +160,37 @@
         }
     }
     
+    if ([view.annotation isKindOfClass:[MAPointAnnotation class]]) {
+        
+        view.selected = YES;
+        
+    }
+    
+    
 }
-
 
 
 #pragma mark -大头针标注
 -(MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
 
     if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+        
         static NSString *userLocationID = @"locationID";
-        MAPinAnnotationView *annotationView = (MAPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:userLocationID];
+        MapAnnotationView *annotationView = (MapAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:userLocationID];
         
         if (!annotationView) {
             
-            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
+            annotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
         annotationView.image = imageNameRenderStr(@"mobile-phone22");
-        annotationView.canShowCallout = YES;
-        //annotationView.pinColor = MAPinAnnotationColorPurple;
-        annotationView.animatesDrop = YES;
+
         annotationView.centerOffset = CGPointMake(0, -18);
-        
+
         return  annotationView;
     }
-    
+
     return nil;
 }
-
-
-//取消选中annotation时将该annotation从视图中移除
-- (void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
-
-
-}
-
-
 
 
 #pragma mark
@@ -303,7 +250,6 @@
     }
     _mapView.userLocation.title = title;
     _mapView.userLocation.subtitle = subtitle;
-    
     
 }
 
