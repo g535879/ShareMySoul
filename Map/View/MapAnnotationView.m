@@ -41,7 +41,6 @@
             self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
             self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
         }
-        [MBProgressHUD showHUDAddedTo:self.calloutView animated:YES];
         
         CLLocationCoordinate2D location = self.annotation.coordinate;
                 
@@ -56,13 +55,14 @@
                     self.calloutView.imageurl = [NSURL URLWithString:userModel.head_image];
                     self.calloutView.title = userModel.nickname;
                     self.calloutView.subtitle = model.content;
-                    
+                    //self.layer.cornerRadius = 10;
+                    //self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:userModel.head_image]]];
                 }
                 
             }
             
         }];
-        
+        self.image = [UIImage imageNamed:@"mobile-phone22"];
         self.canShowCallout = YES;
         [self addSubview:self.calloutView];
         

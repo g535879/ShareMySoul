@@ -101,8 +101,9 @@
     
     annotation.coordinate = coordinate2D;
     
+    NSLog(@"annotation创建完成");
     [_mapView addAnnotation:annotation];
-    
+
 }
 
 #pragma mark
@@ -111,9 +112,7 @@
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
-//        NSLog(@"当前位置：纬度：%f  经度：%f",_userLocation.coordinate.latitude,_userLocation.coordinate.longitude);
-        
-        
+
         //获取反地理编码
         CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
         CLGeocoder * revGeo = [[CLGeocoder alloc] init];
@@ -128,7 +127,8 @@
             }
             else
             {
-                NSLog(@"ERROR: %@", error); }
+                NSLog(@"ERROR: %@", error);
+            }
         }];
     
         _mapView.userTrackingMode = MAUserTrackingModeNone;
@@ -138,12 +138,14 @@
 #pragma mark -mapview中点击触发的方法
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
     
+    
 }
 
 
 -(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
 
     view.selected = NO;
+    
     
 }
 
@@ -184,9 +186,9 @@
             
             annotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
-        annotationView.image = imageNameRenderStr(@"mobile-phone22");
-
-        annotationView.centerOffset = CGPointMake(0, -18);
+        
+        
+        annotationView.image = [UIImage imageNamed:@"mobile-phone22"];
 
         return  annotationView;
     }

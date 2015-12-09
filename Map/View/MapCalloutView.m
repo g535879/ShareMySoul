@@ -37,6 +37,12 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
         [self initSubViews];
+        
+        UIImageView *imageView = [[UIImageView alloc] init];
+        
+        
+        
+        
     }
 
     return self;
