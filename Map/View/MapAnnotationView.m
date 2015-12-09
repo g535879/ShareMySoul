@@ -44,7 +44,6 @@
             self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
             self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
         }
-        [MBProgressHUD showHUDAddedTo:self.calloutView animated:YES];
         
         if (self.msgModel) {
             
