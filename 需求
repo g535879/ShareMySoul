@@ -2,7 +2,6 @@
 2.抽屉视图 fix
 3.地图
 4.登陆
-5.注册
 
 //        //获取反地理编码
 //        CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
@@ -19,4 +18,4 @@
 //            else
 //            {
 //                NSLog(@"ERROR: %@", error); }
-//        }];
+//        }];5.注册
