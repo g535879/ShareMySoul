@@ -112,19 +112,32 @@
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
-        NSLog(@"当前位置：纬度：%f  经度：%f",_userLocation.coordinate.latitude,_userLocation.coordinate.longitude);
+//        NSLog(@"当前位置：纬度：%f  经度：%f",_userLocation.coordinate.latitude,_userLocation.coordinate.longitude);
         
-        UserManage * manager = [UserManage defaultUser];
-
         
+        //获取反地理编码
+        CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
+        CLGeocoder * revGeo = [[CLGeocoder alloc] init];
+        [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            
+            if (!error && [placemarks count] > 0)
+            {
+                NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
+                UserManage * manager = [UserManage defaultUser];
+                [manager setAddressWithDic:dict];
+                manager.coordinate = _userLocation.coordinate;
+            }
+            else
+            {
+                NSLog(@"ERROR: %@", error); }
+        }];
+    
         _mapView.userTrackingMode = MAUserTrackingModeNone;
     }
 }
 
 #pragma mark -mapview中点击触发的方法
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
-    
-
     
 }
 
@@ -219,7 +232,7 @@
         CLLocationDegrees latitude = code.location.latitude;
         
         
-        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
+//        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
     }
 
 }

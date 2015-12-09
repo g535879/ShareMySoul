@@ -26,7 +26,7 @@
 /**
  *  地理位置
  */
-@property (nonatomic, copy) NSString * address;
+@property (nonatomic, copy, readonly) NSString * currentAddress;
 /**
  *  地理编码
  */

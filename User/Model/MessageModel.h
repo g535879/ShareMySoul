@@ -27,7 +27,7 @@
 /**
  *  地址
  */
-@property (nonatomic,readonly) NSString * address;
+@property (nonatomic,copy) NSString * currentAddress;
 
 /**
  *  转化坐标点为bmob坐标

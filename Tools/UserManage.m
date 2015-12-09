@@ -55,6 +55,6 @@ static UserManage * _manage = nil;
     NSString * state = dic[@"State"];
     NSString * Street = dic[@"Street"];
     NSString * SubLocality = dic[@"SubLocality"];
-    _address = [NSString stringWithFormat:@"%@%@%@",state,SubLocality,Street];
+    _currentAddress = [NSString stringWithFormat:@"%@%@%@",state,SubLocality,Street];
 }
 @end
