@@ -22,4 +22,13 @@
  *  设备信息
  */
 @property (nonatomic, copy) NSString * deviceModel;
+
+/**
+ *  地理位置
+ */
+@property (nonatomic, copy) NSString * address;
+/**
+ *  地理编码
+ */
+@property (nonatomic,assign) CLLocationCoordinate2D coordinate;
 @end

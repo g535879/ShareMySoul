@@ -24,6 +24,10 @@
  *  坐标
  */
 @property (nonatomic, strong) BmobGeoPoint * location;
+/**
+ *  地址
+ */
+proArr(address);
 
 - (void)setGeoPoint:(CLLocationCoordinate2D)geoLocation;
 /**

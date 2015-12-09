@@ -44,7 +44,7 @@
     _mapView = [[MAMapView alloc] initWithFrame:frame];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    _mapView.userTrackingMode = MAUserTrackingModeNone;
     _mapView.showTraffic = NO;
     //是否显示楼块
     _mapView.showsBuildings = NO;
@@ -136,6 +136,20 @@
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
+        CLGeocoder * revGeo = [[CLGeocoder alloc] init];
+        CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
+        [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            if (!error && [placemarks count] > 0)
+            {
+                NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
+//                NSLog(@"street address: %@",[dict objectForKey :@"Street"]);
+                NSLog(@"%@",dict);
+            }
+            else
+            {
+                NSLog(@"ERROR: %@", error); }
+
+        }];
 
     }
 
@@ -272,7 +286,7 @@
         CLLocationDegrees longitude = code.location.longitude;
         CLLocationDegrees latitude = code.location.latitude;
         
-
+        
         [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
     }
 
