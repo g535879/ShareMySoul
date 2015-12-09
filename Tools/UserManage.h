@@ -31,4 +31,12 @@
  *  地理编码
  */
 @property (nonatomic,assign) CLLocationCoordinate2D coordinate;
+
+/**
+ *  地址转化
+ *
+ *  @param dic 地址字典
+ */
+- (void)setAddressWithDic:(NSDictionary *)dic;
+
 @end

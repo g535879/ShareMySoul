@@ -27,9 +27,16 @@
 /**
  *  地址
  */
-proArr(address);
+@property (nonatomic,readonly) NSString * address;
 
+/**
+ *  转化坐标点为bmob坐标
+ *
+ *  @param geoLocation 高德坐标
+ */
 - (void)setGeoPoint:(CLLocationCoordinate2D)geoLocation;
+
+
 /**
  *  消息内容
  */

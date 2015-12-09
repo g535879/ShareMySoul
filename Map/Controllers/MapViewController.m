@@ -33,8 +33,7 @@
     _mapView = [[MAMapView alloc] initWithFrame:frame];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeNone;
-    _mapView.showTraffic = NO;
+    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     //是否显示楼块
     _mapView.showsBuildings = NO;
     //是否显示室内地图
@@ -113,21 +112,12 @@
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
-        CLGeocoder * revGeo = [[CLGeocoder alloc] init];
-        CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
-        [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-            if (!error && [placemarks count] > 0)
-            {
-                NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
-//                NSLog(@"street address: %@",[dict objectForKey :@"Street"]);
-                NSLog(@"%@",dict);
-            }
-            else
-            {
-                NSLog(@"ERROR: %@", error); }
+        NSLog(@"当前位置：纬度：%f  经度：%f",_userLocation.coordinate.latitude,_userLocation.coordinate.longitude);
+        
+        UserManage * manager = [UserManage defaultUser];
 
-        }];
-
+        
+        _mapView.userTrackingMode = MAUserTrackingModeNone;
     }
 }
 
@@ -221,12 +211,7 @@
 #pragma mark -地理编码调用的协议方法
 - (void)onGeocodeSearchDone:(AMapGeocodeSearchRequest *)request response:(AMapGeocodeSearchResponse *)response{
     
-    if (response.geocodes.count == 0) {
-        
-#warning 添加弹窗
-        
-        return;
-    }
+
     
     for (AMapGeocode *code in response.geocodes) {
         
