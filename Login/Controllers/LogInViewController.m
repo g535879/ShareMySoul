@@ -14,7 +14,6 @@
 #import "HomePageMainViewController.h"
 #import "UserInfoViewController.h"
 #import "SlideViewController.h"
-#import <MBProgressHUD.h>
 
 @interface LogInViewController ()<TencentSessionDelegate>{
     
