@@ -40,16 +40,6 @@
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
-    //是否显示楼块
-    _mapView.showsBuildings = NO;
-    //是否显示室内地图
-    _mapView.showsIndoorMap = NO;
-    //是否可以旋转
-    _mapView.rotateEnabled = NO;
-    _mapView.touchPOIEnabled = NO;
-    _mapView.rotateCameraEnabled = NO;
-    //天空模式
-    _mapView.skyModelEnable = NO;
     //缩放级别
     [_mapView setZoomLevel:17.5 animated:YES];
     
