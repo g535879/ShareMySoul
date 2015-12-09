@@ -68,7 +68,6 @@
         //全局单例对象
         UserManage * manager = [UserManage defaultUser];
         manager.currentUser = model;
-        
         return YES;
     }
     
