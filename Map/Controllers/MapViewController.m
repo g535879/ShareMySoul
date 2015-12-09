@@ -99,7 +99,6 @@
     
     annotation.coordinate = coordinate2D;
     
-    NSLog(@"annotation创建完成");
     [_mapView addAnnotation:annotation];
 
 }
@@ -110,25 +109,6 @@
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
-
-        //获取反地理编码
-        CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
-        CLGeocoder * revGeo = [[CLGeocoder alloc] init];
-        [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-            
-            if (!error && [placemarks count] > 0)
-            {
-                NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
-                UserManage * manager = [UserManage defaultUser];
-                [manager setAddressWithDic:dict];
-                manager.coordinate = _userLocation.coordinate;
-            }
-            else
-            {
-                NSLog(@"ERROR: %@", error);
-            }
-        }];
-    
         _mapView.userTrackingMode = MAUserTrackingModeNone;
     }
 }
