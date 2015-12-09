@@ -9,7 +9,6 @@
 #import "BasicViewController.h"
 
 #import "MapAnnotationView.h"
-#import "UserInfoModel.h"
 
 
 @interface MapViewController : BasicViewController<MAMapViewDelegate,AMapSearchDelegate,CLLocationManagerDelegate>{
@@ -65,7 +64,7 @@
  *  @param coordinate2D coordinate2D description
  *  @param model        model description
  */
-- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(UserInfoModel *)model;
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(MessageModel *)model;
 
 
 

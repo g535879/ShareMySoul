@@ -44,6 +44,34 @@
         
         CLLocationCoordinate2D location = self.annotation.coordinate;
         
+        NSLog(@"annotationview:%f  %f",location.latitude,location.longitude);
+        
+        [BmobHelper messageWithCurrentLocation:location maxDistance:1 withBlock:^(NSArray *responseArray, NSError *error) {
+            
+            for (MessageModel *model in responseArray) {
+                
+                if (model.location.latitude == location.latitude && model.location.longitude == location.   longitude) {
+                    
+                    UserInfoModel *userModel = model.author;
+
+                    NSLog(@"%@",userModel.nickname);
+                    NSLog(@"name:%@ ",model.device);
+                    
+                    
+                    
+//                    //self.calloutView.image = imageNameRenderStr(userModel.head_image);
+//                    self.calloutView.title = userModel.nickname;
+//                    self.calloutView.subtitle = model.content;
+                    
+                    NSLog(@"dfasf");
+                    
+                }
+                
+            }
+            
+        }];
+        
+        
         self.calloutView.title = [NSString stringWithFormat:@"%f, %f",location.latitude,location.longitude];
         self.canShowCallout = YES;
         [self addSubview:self.calloutView];

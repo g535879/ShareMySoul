@@ -40,4 +40,5 @@ proMuArr(pics);
  *  设备
  */
 proStr(device);
+
 @end

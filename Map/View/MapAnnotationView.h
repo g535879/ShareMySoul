@@ -8,6 +8,7 @@
 
 #import <MAMapKit/MAMapKit.h>
 #import "MapCalloutView.h"
+#import "UserInfoModel.h"
 @interface MapAnnotationView : MAAnnotationView
 
 

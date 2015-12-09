@@ -91,7 +91,7 @@ static BmobHelper * _singleton;
             
         }else{
             
-            response([self objectsWithModelClass:modelClass fromBmobObjtArray:@[object]],nil);
+            response([[self objectsWithModelClass:modelClass fromBmobObjtArray:@[object]] firstObject],nil);
         }
         
     }];

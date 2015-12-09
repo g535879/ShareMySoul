@@ -78,10 +78,16 @@
 
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
         
+        
         [BmobHelper messageWithCurrentLocation:_userLocation.coordinate maxDistance:1.0f withBlock:^(NSArray *responseArray, NSError *error) {
             
-            NSLog(@"%@",responseArray);
             
+            for (MessageModel *model in responseArray) {
+                
+                [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude) withUserModel:model];
+                NSLog(@"haha");
+            }
+
         }];
     }
     
@@ -95,11 +101,6 @@
     MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
     
     annotation.coordinate = coordinate2D;
-    
-
-    //annotation.title = [NSString ];
-    
-    //annotation.subtitle = model.sex;
     
     [_mapView addAnnotation:annotation];
     
