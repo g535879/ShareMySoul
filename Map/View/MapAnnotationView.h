@@ -14,7 +14,9 @@
 
 @property (nonatomic,strong) MapCalloutView *calloutView;
 
-
-
+/**
+ *  数据模型
+ */
+@property (nonatomic,strong) MessageModel * msgModel;
 
 @end

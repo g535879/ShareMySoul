@@ -12,9 +12,11 @@
 
 @implementation MapAnnotationView
 
+
 //重写此方法，用来实现点击calloutview判断为点击该annotationview
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
     
+
     BOOL inside = [super pointInside:point withEvent:event];
     if (!inside && self.selected) {
         
@@ -35,6 +37,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
 
 
+    
     if (selected) {
         
         if (self.calloutView == nil) {

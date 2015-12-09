@@ -99,21 +99,49 @@ static BmobHelper * _singleton;
 
 #pragma mark - 获取指定范围内的心情数据
 + (void)messageWithCurrentLocation:(CLLocationCoordinate2D)location maxDistance:(double)distance withBlock:(ResultArray)resonseArray {
-    
     BmobGeoPoint * point = [[BmobGeoPoint alloc] initWithLongitude:location.longitude WithLatitude:location.latitude];
     BmobQuery * bquery = [BmobQuery queryWithClassName:MSG_DB];
     [bquery whereKey:@"location" nearGeoPoint:point withinKilometers:distance];
+    [self messagewithBmob:bquery withBlock:^(NSArray *responseArray, NSError *error) {
+        resonseArray(responseArray,error);
+    }];
+    
+}
+#pragma mark - 根据地理范围获取数据
++ (void)messageWithCurrentLocation:(MACoordinateRegion)region withBlock:(ResultArray)resonseArray {
+    
+    BmobQuery * bquery = [BmobQuery queryWithClassName:MSG_DB];
+    CLLocationCoordinate2D center = region.center;
+    MACoordinateSpan span = region.span;
+    
+    //经纬度范围。仅限。。仅限。。中国
+    BmobGeoPoint * swPoint = [[BmobGeoPoint alloc] initWithLongitude:center.longitude - span.longitudeDelta/2.0f WithLatitude:center.latitude - span.latitudeDelta/2.0f];
+    
+    BmobGeoPoint * nePoint = [[BmobGeoPoint alloc] initWithLongitude:center.longitude + span.longitudeDelta / 2.0f WithLatitude:center.latitude + span.latitudeDelta / 2.0f];
+    
+    
+    [bquery whereKey:@"location" withinGeoBoxFromSouthwest:swPoint toNortheast:nePoint];
+    
+    [self messagewithBmob:bquery withBlock:^(NSArray *responseArray, NSError *error) {
+        resonseArray(responseArray,error);
+    }];
+}
+
+#pragma mark - 根据地理范围获取数据
++ (void)messagewithBmob:(BmobQuery *)bquery withBlock:(ResultArray)resonse {
+    
+    
     
     //查询作者
-//    [bquery includeKey:@"author"];
-//    查询评论的人
-//    [bquery includeKey:@"comment"];
+    //    [bquery includeKey:@"author"];
+    //    查询评论的人
+    //    [bquery includeKey:@"comment"];
     
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         if (error) {
             
-            resonseArray(nil,error);
+            resonse(nil,error);
         }
         else{
             
@@ -155,7 +183,7 @@ static BmobHelper * _singleton;
                                     [resultArray addObject:model];
                                     
                                 }
-                                    dispatch_group_leave(group);
+                                dispatch_group_leave(group);
                                 
                             }];
 #warning 获取评论
@@ -170,16 +198,16 @@ static BmobHelper * _singleton;
             
             dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                 //回调
-                resonseArray(resultArray,nil);
+                resonse(resultArray,nil);
             });
-       
+            
             
         }
-    
+        
         
         
     }];
-    
+
 }
 
 #pragma mark - delete
@@ -280,6 +308,7 @@ static BmobHelper * _singleton;
         }
     }];
 }
+
 
 #pragma mark - 上传单个文件
 

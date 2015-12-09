@@ -7,7 +7,12 @@
 //
 
 #import "MapViewController.h"
-@interface MapViewController ()
+@interface MapViewController (){
+    
+    UIView * _bgView;
+    //大头针数组
+    NSMutableArray * _annotationArray;
+}
 
 @property (nonatomic,copy) NSString *addressStr;
 @property (nonatomic,copy) CLLocationManager *locationManger;
@@ -24,7 +29,8 @@
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
     
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
-
+    
+    _bgView = [[UIView alloc] init];
 }
 
 #pragma mark -创建地图视图
@@ -78,16 +84,8 @@
 
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
         
-        
-        [BmobHelper messageWithCurrentLocation:_userLocation.coordinate maxDistance:1.0f withBlock:^(NSArray *responseArray, NSError *error) {
-            
-            
-            for (MessageModel *model in responseArray) {
-                
-                [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude) withUserModel:model];
-            }
-
-        }];
+//        
+       
     }
     
 }
@@ -95,7 +93,7 @@
 
 
 #pragma mark -创建地图大头针标注
-- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(UserInfoModel *)model{
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D {
     
     MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
     
@@ -133,6 +131,25 @@
     
         _mapView.userTrackingMode = MAUserTrackingModeNone;
     }
+}
+
+#pragma mark - 地图区域加载完成
+- (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+
+
+    //获取当前区域消息列表
+    [BmobHelper messageWithCurrentLocation:_mapView.region withBlock:^(NSArray *responseArray, NSError *error) {
+        if (responseArray) {
+    
+            //更新当前区域消息列表
+            [self configAnnotationArray:responseArray];
+        }
+        else{
+            NSLog(@"%@",error);
+        }
+    }];
+
+    
 }
 
 #pragma mark -mapview中点击触发的方法
@@ -227,19 +244,20 @@
     
 
     
-    for (AMapGeocode *code in response.geocodes) {
-        
-        CLLocationDegrees longitude = code.location.longitude;
-        CLLocationDegrees latitude = code.location.latitude;
+//    for (AMapGeocode *code in response.geocodes) {
+    
+//        CLLocationDegrees longitude = code.location.longitude;
+//        CLLocationDegrees latitude = code.location.latitude;
         
         
 //        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
-    }
+//    }
 
 }
 
 #pragma mark -逆地理编码调用的协议方法
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response{
+
     
     NSString *title = response.regeocode.addressComponent.city;
     NSString *subtitle = [NSString stringWithFormat:@"%@%@%@",response.regeocode.addressComponent.province,response.regeocode.addressComponent.district,response.regeocode.addressComponent.township];
@@ -250,6 +268,57 @@
     _mapView.userLocation.title = title;
     _mapView.userLocation.subtitle = subtitle;
     
+}
+
+//根据当前地理区域更新数组
+- (void)configAnnotationArray:(NSArray<MessageModel *> *)array {
+    
+    if (!_annotationArray) {
+        _annotationArray = [@[] mutableCopy];
+    }
+    
+    NSMutableArray * updateArray = [@[] mutableCopy];
+    
+    //遍历当前已存在数组，加入新的点
+    for (MessageModel * m in array) {
+        
+        BOOL isFind = NO;
+        
+        for (MessageModel *mm in _annotationArray) {
+            //找到相同的元素
+            if (mm.location.latitude == m.location.latitude && mm.location.longitude == m.location.longitude) {
+                isFind = YES;
+                break;
+            }
+        }
+        //新的点。加入到数组，绘制到地图
+        if (!isFind) {
+            
+            [updateArray addObject:m];
+            [_annotationArray addObject:m];
+        }
+    }
+
+    
+    //创建大头针
+    for (MessageModel * model in updateArray) {
+        
+        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude)];
+
+    }
+    
+}
+
+
+//根据坐标获取message模型
+- (MessageModel *)modelBylocation:(CLLocationCoordinate2D )point {
+    
+    for (MessageModel * m in _annotationArray) {
+        if (m.location.latitude == point.latitude && m.location.longitude == point.longitude) {
+            return m;
+        }
+    }
+    return nil;
 }
 
 @end
