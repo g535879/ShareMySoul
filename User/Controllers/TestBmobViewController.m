@@ -27,7 +27,7 @@
     mModel = [[MessageModel alloc] init];
 
 //    [self insert];
-//    [self upload];
+    [self upload];
 }
 
 - (void)insert {
@@ -70,18 +70,21 @@
 
 - (void)upload {
     
-//    NSString * filePath = [[NSBundle mainBundle] pathForResource:default_head_image ofType:nil];
-//    
-//    [BmobHelper uploadDataWithPath:filePath block:^(id dataModel, NSError *error) {
-//        
-//        NSLog(@"%@",dataModel);
-//    }];
-    UIImage * image = [UIImage imageNamed:default_head_image];
-    [BmobHelper uploadFileWithFileData:image block:^(id dataModel, NSError *error) {
-        if (!error) {
-            NSLog(@"%@",dataModel);
-        }
+    
+    NSString * filePath = @"/Users/guyubin/Desktop/2h/5.jpg";
+    
+    [BmobHelper uploadDataWithPath:filePath block:^(id dataModel, NSError *error) {
+        
+        NSLog(@"%@",dataModel);
     }];
+    
+//    UIImage * image = [UIImage imageNamed:default_head_image];
+//    
+//    [BmobHelper uploadFileWithFileData:image block:^(id dataModel, NSError *error) {
+//        if (!error) {
+//            NSLog(@"%@",dataModel);
+//        }
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -273,6 +273,9 @@
     //创建大头针
     for (MessageModel * model in updateArray) {
         
+        if (model.pics.count > 2) {
+            NSLog(@"%@",model.pics);
+        }
         [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude)];
 
     }
