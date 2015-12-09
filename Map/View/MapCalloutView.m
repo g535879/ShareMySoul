@@ -46,20 +46,18 @@
 - (void)initSubViews{
     
     self.portraitView = [[UIImageView alloc] initWithFrame:CGRectMake(kPortraitMargin, kPortraitMargin, kPortraitWidth, kPortraitHeight)];
-    self.portraitView.backgroundColor = [UIColor blackColor];
     [self addSubview:self.portraitView];
     
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin*2 + kPortraitWidth, kPortraitMargin, kTitleWidth, kTitleHeight)];
     self.titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
     self.titleLabel.textColor = [UIColor whiteColor];
-    self.titleLabel.text = @"text";
+
     [self addSubview:self.titleLabel];
 
     self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
     self.subtitleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     self.subtitleLabel.textColor = [UIColor lightGrayColor];
-    self.subtitleLabel.text = @"subtitle";
     [self addSubview:self.subtitleLabel];
 }
 
@@ -74,11 +72,11 @@
     self.subtitleLabel.text = subtitle;
 }
 
-- (void)setImage:(UIImage *)image{
-    
-    self.portraitView.image = image;
-}
+- (void)setImageurl:(NSURL *)imageurl{
 
+    [self.portraitView sd_setImageWithURL:imageurl];
+
+}
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code

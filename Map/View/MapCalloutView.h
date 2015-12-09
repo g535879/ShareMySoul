@@ -10,7 +10,7 @@
 
 @interface MapCalloutView : UIView
 
-@property (nonatomic,strong) UIImage *image;
+@property (nonatomic,strong) NSURL *imageurl;
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSString *subtitle;
 

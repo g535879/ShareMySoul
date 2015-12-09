@@ -85,7 +85,6 @@
             for (MessageModel *model in responseArray) {
                 
                 [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude) withUserModel:model];
-                NSLog(@"haha");
             }
 
         }];

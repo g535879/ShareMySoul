@@ -16,6 +16,7 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapSearchKit/AMapSearchServices.h>
+#import <MBProgressHUD.h>
 
 
 #import "UIImageView+WebCache.h"
