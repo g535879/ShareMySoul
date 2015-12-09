@@ -7,8 +7,8 @@
 //
 
 #import "BasicViewController.h"
-
 #import "MapAnnotationView.h"
+
 
 
 @interface MapViewController : BasicViewController<MAMapViewDelegate,AMapSearchDelegate,CLLocationManagerDelegate>{
@@ -17,8 +17,7 @@
     //当前位置信息
     CLLocation *_userLocation;
     //地图搜素
-    AMapSearchAPI *_search;
-    
+    AMapSearchAPI *_search;    
 }
 
 @property (nonatomic,strong) UIButton *meButton;
@@ -55,16 +54,15 @@
  *
  *  @param coordinate coordinate description
  */
-- (void)ReGeocodeWithWithLatitude:(CLLocationCoordinate2D)coordinate;
+//- (void)ReGeocodeWithWithLatitude:(CLLocationCoordinate2D)coordinate;
 
 
 /**
  *  创建大头针标注
  *
  *  @param coordinate2D coordinate2D description
- *  @param model        model description
  */
-- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(MessageModel *)model;
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D;
 
 
 

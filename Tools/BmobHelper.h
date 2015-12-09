@@ -71,7 +71,7 @@ typedef void (^ResultImageUrl)(NSString * url, NSError * error );
 
 
 /**
- *  更根据用户当前坐标获取周围的状态信息
+ *  根据根据用户当前坐标获取周围的状态信息
  *
  *  @param location     用户location
  *  @param resonseArray 结果
@@ -81,8 +81,13 @@ typedef void (^ResultImageUrl)(NSString * url, NSError * error );
                        maxDistance:(double)distance
                          withBlock:(ResultArray)resonseArray;
 /**
+ *  根据根据用户当前坐标范围获取周围的状态信息
+ *  @param Region                  范围
+ *  @param resonArray              回调函数
+ */
++ (void)messageWithCurrentLocation:(MACoordinateRegion)region withBlock:(ResultArray)resonseArray;
+/**
  *  根据id删除一行数据
- *
  *  @param className 表名
  *  @param objectId  id
  *  @param callBackBlock  回调函数
@@ -154,4 +159,5 @@ typedef void (^ResultImageUrl)(NSString * url, NSError * error );
  *  @param response url结果
  */
 + (void)uploadFileWithFileData:(UIImage *)image block:(ResultImageUrl)response;
+
 @end

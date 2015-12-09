@@ -12,9 +12,11 @@
 
 @implementation MapAnnotationView
 
+
 //重写此方法，用来实现点击calloutview判断为点击该annotationview
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
     
+
     BOOL inside = [super pointInside:point withEvent:event];
     if (!inside && self.selected) {
         
@@ -35,6 +37,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
 
 
+    
     if (selected) {
         
         if (self.calloutView == nil) {
@@ -42,37 +45,42 @@
             self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
         }
         
-        CLLocationCoordinate2D location = self.annotation.coordinate;
-        
-        NSLog(@"annotationview:%f  %f",location.latitude,location.longitude);
-        
-        [BmobHelper messageWithCurrentLocation:location maxDistance:1 withBlock:^(NSArray *responseArray, NSError *error) {
+        if (self.msgModel) {
             
-            for (MessageModel *model in responseArray) {
-                
-                if (model.location.latitude == location.latitude && model.location.longitude == location.   longitude) {
-                    
-                    UserInfoModel *userModel = model.author;
-
-                    NSLog(@"%@",userModel.nickname);
-                    NSLog(@"name:%@ ",model.device);
-                    
-                    
-                    
+            self.calloutView.title = self.msgModel.author.nickname;
+            self.calloutView.subtitle = self.msgModel.content;
+        }
+        
+        
+//        CLLocationCoordinate2D location = self.annotation.coordinate;
+//        
+//        NSLog(@"annotationview:%f  %f",location.latitude,location.longitude);
+//        
+//        [BmobHelper messageWithCurrentLocation:location maxDistance:1 withBlock:^(NSArray *responseArray, NSError *error) {
+//            
+//            for (MessageModel *model in responseArray) {
+//                
+//                if (model.location.latitude == location.latitude && model.location.longitude == location.   longitude) {
+//                    
+//                    UserInfoModel *userModel = model.author;
+//
+//                    NSLog(@"%@",userModel.nickname);
+//                    NSLog(@"name:%@ ",model.device);
+//                    
+//                    
+//                    
 //                    //self.calloutView.image = imageNameRenderStr(userModel.head_image);
-//                    self.calloutView.title = userModel.nickname;
-//                    self.calloutView.subtitle = model.content;
-                    
-                    NSLog(@"dfasf");
-                    
-                }
-                
-            }
-            
-        }];
-        
-        
-        self.calloutView.title = [NSString stringWithFormat:@"%f, %f",location.latitude,location.longitude];
+//                    
+//                    
+//                    NSLog(@"dfasf");
+//                    
+//                }
+//                
+//            }
+//            
+//        }];
+//        
+//
         self.canShowCallout = YES;
         [self addSubview:self.calloutView];
         
