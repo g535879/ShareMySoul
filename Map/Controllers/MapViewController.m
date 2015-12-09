@@ -42,6 +42,10 @@
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
     //缩放级别
     [_mapView setZoomLevel:17.5 animated:YES];
+    _mapView.showsBuildings = NO;
+    _mapView.showsIndoorMap = NO;
+    _mapView.rotateEnabled = NO;
+    _mapView.skyModelEnable = NO;
     
 
     [self createMeButton];
