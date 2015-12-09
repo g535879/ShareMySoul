@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C8B1A77A8D1DC32CA8F1B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC34C5535C61C2AC23BB2A /* libPods.a */; };
+		509657F71C1687B400A4E644 /* MapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 509657F61C1687B400A4E644 /* MapAnnotationView.m */; };
+		509657FB1C17105700A4E644 /* MapCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 509657F31C16879300A4E644 /* MapCalloutView.m */; };
 		AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83490F1C15DBC400457D92 /* BasicViewController.m */; };
 		AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349111C15DBC400457D92 /* SlideViewController.m */; };
 		AD8349461C15DD1D00457D92 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349151C15DBD000457D92 /* BasicModel.m */; };
@@ -74,6 +76,10 @@
 
 /* Begin PBXFileReference section */
 		43DC34C5535C61C2AC23BB2A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		509657F21C16879300A4E644 /* MapCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCalloutView.h; sourceTree = "<group>"; };
+		509657F31C16879300A4E644 /* MapCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCalloutView.m; sourceTree = "<group>"; };
+		509657F51C1687B400A4E644 /* MapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationView.h; sourceTree = "<group>"; };
+		509657F61C1687B400A4E644 /* MapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationView.m; sourceTree = "<group>"; };
 		5179034477AFC428DE49E7B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		906F75A2B64228068A1DCB59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AD26063F1C0B3BF000492AE2 /* ShareMySoul.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareMySoul.pch; sourceTree = SOURCE_ROOT; };
@@ -316,6 +322,10 @@
 				AD8349721C15E32400457D92 /* CicleView.m */,
 				AD83492B1C15DC2400457D92 /* HomePageTitleView.h */,
 				AD83492C1C15DC2400457D92 /* HomePageTitleView.m */,
+				509657F21C16879300A4E644 /* MapCalloutView.h */,
+				509657F31C16879300A4E644 /* MapCalloutView.m */,
+				509657F51C1687B400A4E644 /* MapAnnotationView.h */,
+				509657F61C1687B400A4E644 /* MapAnnotationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -717,6 +727,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				509657FB1C17105700A4E644 /* MapCalloutView.m in Sources */,
 				ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */,
 				AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */,
 				AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */,
@@ -738,6 +749,7 @@
 				AD8349551C15DD1D00457D92 /* NSString+MD5.m in Sources */,
 				AD8349561C15DD1D00457D92 /* UserManage.m in Sources */,
 				AD8349571C15DD1D00457D92 /* MyCustomView.m in Sources */,
+				509657F71C1687B400A4E644 /* MapAnnotationView.m in Sources */,
 				AD8349581C15DD1D00457D92 /* NetManager.m in Sources */,
 				AD8349591C15DD1D00457D92 /* UIAlertView+Blocks.m in Sources */,
 				AD83495A1C15DD1D00457D92 /* UIColor+tools.m in Sources */,
@@ -840,7 +852,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "f546afcd-dd23-457b-b053-80225217ae7e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -879,7 +891,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "386d76dd-d0f2-43b7-a16c-ecef9f52f0cf";
+				PROVISIONING_PROFILE = "f546afcd-dd23-457b-b053-80225217ae7e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -946,7 +958,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
+				PROVISIONING_PROFILE = "f546afcd-dd23-457b-b053-80225217ae7e";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -1012,7 +1024,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gf.share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e43242a-4dec-479f-8566-6483a7510d49";
+				PROVISIONING_PROFILE = "f546afcd-dd23-457b-b053-80225217ae7e";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

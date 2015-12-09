@@ -8,21 +8,21 @@
 
 #import "BasicViewController.h"
 
+#import "MapAnnotationView.h"
 
 
-
-@interface MapViewController : BasicViewController<MAMapViewDelegate,AMapSearchDelegate,AMapLocationManagerDelegate>{
+@interface MapViewController : BasicViewController<MAMapViewDelegate,AMapSearchDelegate,CLLocationManagerDelegate>{
     //地图视图
     MAMapView *_mapView;
-    //位置信息
+    //当前位置信息
     CLLocation *_userLocation;
     //地图搜素
     AMapSearchAPI *_search;
+    
 }
 
 @property (nonatomic,strong) UIButton *meButton;
 
-@property (nonatomic,strong) UIButton *trafficButton;
 
 /**
  *  创建地图
@@ -33,16 +33,6 @@
  */
 - (MAMapView *)createMapViewWithFrame:(CGRect)frame;
 
-
-
-/**
- *  创建交通路况按钮
- *
- *  
- *
- *  @return
- */
-- (void)createTrafficButton;
 
 
 /**
@@ -63,20 +53,18 @@
 /**
  *  逆向地理编码
  *
- *  @param latitude  纬度
- *  @param longitude 经度
+ *  @param coordinate coordinate description
  */
-- (void)ReGeocodeWithWithLatitude:(CLLocationDegrees)latitude withLongitude:(CLLocationDegrees)longitude;
+- (void)ReGeocodeWithWithLatitude:(CLLocationCoordinate2D)coordinate;
 
 
 /**
  *  创建大头针标注
  *
  *  @param coordinate2D coordinate2D description
- *  @param title        title description
- *  @param subtitle     subtitle description
+ *  @param model        model description
  */
-- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withTitle:(NSString *)title withSubTitle:(NSString *)subtitle;
+- (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D withUserModel:(MessageModel *)model;
 
 
 
