@@ -136,13 +136,6 @@
     
 }
 
-#pragma mark -mapview中点击触发的方法
--(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
-    
-    NSLog(@"click");
-}
-
-
 -(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
 
 
