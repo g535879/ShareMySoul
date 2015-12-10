@@ -13,6 +13,10 @@
 
 @interface MapAnnotationView : MAAnnotationView
 
+@property (nonatomic,strong) UIImageView *imageView;
+
+@property (nonatomic,assign) BOOL isClicked;
+
 /**
  *  数据模型
  */
