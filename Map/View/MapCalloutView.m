@@ -41,7 +41,7 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         
         
-        
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(calloutViewClick:)]];
         
     }
 
@@ -128,6 +128,8 @@
     CGContextClosePath(context);
 }
 
-
+- (void)calloutViewClick:(UITapGestureRecognizer *)gesture {
+    NSLog(@"click");
+}
 
 @end

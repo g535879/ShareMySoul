@@ -24,7 +24,7 @@
         // 设置该控件的滚动方向
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         // 设置各分区上、下、左、右保留的空白区的大小
-        self.sectionInset = UIEdgeInsetsMake((screen_Height - self.itemSize.height * (1 + ZOOM_SCALE)) / 4.0, 50.0, (screen_Height - self.itemSize.height * (1 + ZOOM_SCALE)) / 4.0, 50);
+        self.sectionInset = UIEdgeInsetsMake((screen_Height - self.itemSize.height * (1 + ZOOM_SCALE)) / 4.0 - 64, 50.0, (screen_Height - self.itemSize.height * (1 + ZOOM_SCALE)) / 4.0 + 64, 50);
         // 设置两行最小的行间距
         self.minimumLineSpacing = 50;
         // 设置两个单元格之间的间距

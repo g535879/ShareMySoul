@@ -10,24 +10,25 @@
 #import "MapCalloutView.h"
 #import "UserInfoModel.h"
 
-@protocol MapAnnotationViewDelegate <NSObject>
 
-/**
- *  cllout点击事件
- *
- *  @param model 数据模型
- */
-- (void)calloutViewTap:(MessageModel *)model;
-
-@end
 @interface MapAnnotationView : MAAnnotationView
-
-@property (nonatomic,strong) MapCalloutView *calloutView;
 
 /**
  *  数据模型
  */
 @property (nonatomic,strong) MessageModel * msgModel;
+/**
+ *  气泡选中状态
+ */
+@property (nonatomic,assign,readonly) BOOL calloutViewSelected;
 
-@property (nonatomic,weak) id<MapAnnotationViewDelegate> delegate;
+/**
+ *  显示或者隐藏气泡
+ */
+- (void)toggleCallout;
+
+/**
+ *  关闭气泡
+ */
+- (void)hiddenCallout;
 @end

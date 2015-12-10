@@ -6,15 +6,16 @@
 //  Copyright © 2015年 gf. All rights reserved.
 //
 #import "ShowPicsViewController.h"
-
+#import "CustomAnnotation.h"
 #import "MapViewController.h"
-@interface MapViewController ()<MapAnnotationViewDelegate>{
+@interface MapViewController (){
     
-    UIView * _bgView;
     //大头针数组
     NSMutableArray * _annotationArray;
     //图片数据源
     NSMutableArray * _picsArray;
+    //图片展示类
+    ShowPicsViewController * _svc;
 }
 
 @property (nonatomic,copy) NSString *addressStr;
@@ -33,7 +34,11 @@
     
     [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
     
-    _bgView = [[UIView alloc] init];
+    
+    _svc = [ShowPicsViewController new];
+    [self.view addSubview:_svc.view];
+    _svc.view.hidden = YES;
+    [self addChildViewController:_svc];
 }
 
 #pragma mark -创建地图视图
@@ -92,7 +97,7 @@
 #pragma mark -创建地图大头针标注
 - (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D {
     
-    MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
+    CustomAnnotation * annotation = [[CustomAnnotation alloc] init];
     
     annotation.coordinate = coordinate2D;
     
@@ -138,14 +143,17 @@
 
 -(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
 
-    view.selected = NO;
-    
-    
-}
 
-#pragma mark - 点击CalloutView
-- (void)mapView:(MAMapView *)mapView didAnnotationViewCalloutTapped:(MAAnnotationView *)view {
-    NSLog(@"%@",view);
+    if ([view.annotation isKindOfClass:[CustomAnnotation class]]) {
+        
+        MapAnnotationView * anView = (MapAnnotationView *)view;
+        [anView toggleCallout];
+        
+        //弹出图片滚动视图
+        MessageModel * model = [anView msgModel];
+        [self calloutViewTap:model];
+    }
+    
 }
 
 #pragma mark -点击annotationview触发的协议方法
@@ -162,9 +170,25 @@
         }
     }
     
-    if ([view.annotation isKindOfClass:[MAPointAnnotation class]]) {
+    if ([view.annotation isKindOfClass:[CustomAnnotation class]]) {
         
-        view.selected = YES;
+        MapAnnotationView * anView = (MapAnnotationView *)view;
+        [anView toggleCallout];
+        
+        //关闭其他气泡
+        for (id ann in _mapView.annotations) {
+            
+            if ([ann isKindOfClass:[CustomAnnotation class]]) {
+                
+                MapAnnotationView * mav = (MapAnnotationView *)[(CustomAnnotation *)ann annotationView];
+                
+                if (mav.calloutViewSelected && mav != view) {
+                    //关闭气泡
+                    [mav hiddenCallout];
+                }
+            }
+            
+        }
         
     }
     
@@ -175,7 +199,7 @@
 #pragma mark -大头针标注
 -(MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
 
-    if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+    if ([annotation isKindOfClass:[CustomAnnotation class]]) {
         
         static NSString *userLocationID = @"locationID";
         MapAnnotationView *annotationView = (MapAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:userLocationID];
@@ -184,9 +208,11 @@
             
             annotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
+        CustomAnnotation * customAnnotation = (CustomAnnotation *)annotation;
+        customAnnotation.annotationView = annotationView;
+        
         annotationView.image = imageNameRenderStr(@"mobile-phone22");
         annotationView.msgModel = [self modelBylocation:annotation.coordinate];
-        annotationView.delegate = self;
         annotationView.centerOffset = CGPointMake(0, -18);
 
         return  annotationView;
@@ -239,15 +265,13 @@
 
 #pragma mark - 气泡点击事件
 - (void)calloutViewTap:(MessageModel *)model {
-//    NSLog(@"%@",model);
-#warning 测试数据待删除
-    ShowPicsViewController * svc = [ShowPicsViewController new];
-    svc.picsArray = _picsArray;
     
-    //截图
-    UIImage * image = [_mapView takeSnapshotInRect:self.view.frame];
-    svc.bgImage = image;
-    [self presentViewController:svc animated:YES completion:nil];
+#warning 测试数据待删除
+    //显示图片展示view
+    _svc.picsArray = _picsArray;
+    [self.view bringSubviewToFront:_svc.view];
+    [_svc reloadData];
+    _svc.view.hidden = NO;
 }
 
 #pragma mark -逆地理编码调用的协议方法

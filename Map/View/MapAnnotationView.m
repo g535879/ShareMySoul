@@ -10,64 +10,66 @@
 #define kCalloutWidth 200.0 
 #define kCalloutHeight 70.0
 
+@interface MapAnnotationView ()
+
+/**
+ *  气泡选中状态
+ */
+@property (nonatomic,assign) BOOL calloutViewSelected;
+
+/**
+ *  气泡
+ */
+@property (nonatomic,strong) MapCalloutView *calloutView;
+
+@end
 @implementation MapAnnotationView
 
 
-//重写此方法，用来实现点击calloutview判断为点击该annotationview
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
+- (instancetype)initWithAnnotation:(id<MAAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     
-
-    BOOL inside = [super pointInside:point withEvent:event];
-    if (!inside && self.selected) {
+    if (self) {
         
-        inside = [self.calloutView pointInside:[self convertPoint:point toView:self.calloutView] withEvent:event];
-        
-    }
-
-    return inside;
-}
-
-
-- (void)setSelected:(BOOL)selected
-{
-    [self setSelected:selected animated:NO];
-}
-
-//选中时将数据传递给calloutView
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated{
-
-    
-    if (selected) {
-       
-        
-        if (self.calloutView == nil) {
-            self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
-            self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
-        }
-        
-        if (self.msgModel) {
-            
-            self.calloutView.title = self.msgModel.author.nickname;
-            self.calloutView.subtitle = self.msgModel.content;
-        }
-        
-        
-           self.canShowCallout = YES;
+        self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
+        self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
         [self addSubview:self.calloutView];
+        self.calloutView.hidden = YES;
+    }
+    
+    return self;
+}
+
+
+- (void)toggleCallout {
+    
+
+
+    if (!self.calloutViewSelected) {
+        [self showCallout];
+    }
+    
+    self.calloutView.hidden = self.calloutViewSelected;
+    self.calloutViewSelected = !self.calloutViewSelected;
+    
+    
+    
+}
+
+- (void)showCallout {
+    
+    if (self.msgModel) {
         
-    }else{
-        
-        [self.calloutView removeFromSuperview];
-        
-        //代理回调
-        if ([self.delegate respondsToSelector:@selector(calloutViewTap:)]) {
-            
-            [self.delegate calloutViewTap:self.msgModel];
-        }
-        
+        self.calloutView.title = self.msgModel.author.nickname;
+        self.calloutView.subtitle = self.msgModel.content;
     }
 
 }
 
-
+//关闭气泡
+- (void)hiddenCallout {
+    
+    self.calloutView.hidden = YES;
+    self.calloutViewSelected = NO;
+}
 @end

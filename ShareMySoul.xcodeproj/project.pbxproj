@@ -50,12 +50,15 @@
 		AD86666E1C0DE078001249CF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666D1C0DE078001249CF /* CoreTelephony.framework */; };
 		AD8666701C0DE082001249CF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666F1C0DE082001249CF /* libstdc++.tbd */; };
 		AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666711C0DE08B001249CF /* libz.tbd */; };
+		ADAF648B1C1962D100913C8D /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF648A1C1962D100913C8D /* CustomAnnotation.m */; };
 		ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981B1C0B1FF00023499E /* Main.storyboard */; };
 		ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981E1C0B1FF00023499E /* Assets.xcassets */; };
 		ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA98201C0B1FF00023499E /* LaunchScreen.storyboard */; };
 		ADBA982D1C0B1FF00023499E /* ShareMySoulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA982C1C0B1FF00023499E /* ShareMySoulTests.m */; };
 		ADBA98381C0B1FF00023499E /* ShareMySoulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA98371C0B1FF00023499E /* ShareMySoulUITests.m */; };
 		ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */ = {isa = PBXBuildFile; fileRef = ADC9A3D61C0BE90B00CF720B /* 需求 */; };
+		ADF152361C191FA30010764F /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF152351C191FA30010764F /* CoreImage.framework */; };
+		ADF152381C192F7C0010764F /* ImageShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF152371C192F7C0010764F /* ImageShareCell.xib */; };
 		ADF2FC761C16835300A14749 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF2FC751C16835300A14749 /* CommentModel.m */; };
 		ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493C1C15DC5A00457D92 /* MessageModel.m */; };
 /* End PBXBuildFile section */
@@ -145,6 +148,8 @@
 		AD8666711C0DE08B001249CF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AD8666731C0DE165001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		AD9F86E71C1520A400E507A7 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
+		ADAF64891C1962D100913C8D /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		ADAF648A1C1962D100913C8D /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		ADBA980F1C0B1FEF0023499E /* ShareMySoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMySoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA98131C0B1FF00023499E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADBA98151C0B1FF00023499E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +175,8 @@
 		ADE7ADF21C14649400C796B6 /* UIColor+tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+tools.m"; sourceTree = "<group>"; };
 		ADE7ADF31C14649400C796B6 /* UIViewController+AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertView.h"; sourceTree = "<group>"; };
 		ADE7ADF41C14649400C796B6 /* UIViewController+AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertView.m"; sourceTree = "<group>"; };
+		ADF152351C191FA30010764F /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		ADF152371C192F7C0010764F /* ImageShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageShareCell.xib; sourceTree = "<group>"; };
 		ADF2FC741C16835300A14749 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		ADF2FC751C16835300A14749 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF152361C191FA30010764F /* CoreImage.framework in Frameworks */,
 				AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */,
 				AD8666701C0DE082001249CF /* libstdc++.tbd in Frameworks */,
 				AD86666E1C0DE078001249CF /* CoreTelephony.framework in Frameworks */,
@@ -333,6 +341,7 @@
 				AD3D29451C1860A000D495EF /* CollecctionViewFlowLayout.m */,
 				AD3D29461C1860A000D495EF /* CollectionViewCell.h */,
 				AD3D29471C1860A000D495EF /* CollectionViewCell.m */,
+				ADF152371C192F7C0010764F /* ImageShareCell.xib */,
 				AD8349711C15E32400457D92 /* CicleView.h */,
 				AD8349721C15E32400457D92 /* CicleView.m */,
 				AD83492B1C15DC2400457D92 /* HomePageTitleView.h */,
@@ -341,6 +350,8 @@
 				509657F31C16879300A4E644 /* MapCalloutView.m */,
 				509657F51C1687B400A4E644 /* MapAnnotationView.h */,
 				509657F61C1687B400A4E644 /* MapAnnotationView.m */,
+				ADAF64891C1962D100913C8D /* CustomAnnotation.h */,
+				ADAF648A1C1962D100913C8D /* CustomAnnotation.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -541,6 +552,7 @@
 		BFAE867869553D2BC5572004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADF152351C191FA30010764F /* CoreImage.framework */,
 				AD8666731C0DE165001249CF /* TencentOpenApi_IOS_Bundle.bundle */,
 				AD8666711C0DE08B001249CF /* libz.tbd */,
 				AD86666F1C0DE082001249CF /* libstdc++.tbd */,
@@ -668,6 +680,7 @@
 				AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */,
 				ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */,
+				ADF152381C192F7C0010764F /* ImageShareCell.xib in Resources */,
 				ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */,
 				ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */,
 			);
@@ -747,6 +760,7 @@
 				AD3D29431C18601100D495EF /* ShowPicsViewController.m in Sources */,
 				AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */,
 				AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */,
+				ADAF648B1C1962D100913C8D /* CustomAnnotation.m in Sources */,
 				AD8349461C15DD1D00457D92 /* BasicModel.m in Sources */,
 				AD8349471C15DD1D00457D92 /* RootModel.m in Sources */,
 				AD8349491C15DD1D00457D92 /* WelcomePageViewController.m in Sources */,

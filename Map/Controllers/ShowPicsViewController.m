@@ -10,10 +10,10 @@
 
 #import "CollecctionViewFlowLayout.h"
 #import "CollectionViewCell.h"
-
+#import <CoreImage/CoreImage.h>
 
 @interface ShowPicsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate> {
-    UICollectionView * collectionView;
+    UICollectionView * _collectionView;
 }
 
 @end
@@ -21,82 +21,67 @@
 @implementation ShowPicsViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-   
+    
+
     // 创建自定义FlowLayout布局管理器对象
     CollecctionViewFlowLayout* flowLayout = [[CollecctionViewFlowLayout alloc] init];
-    collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height) collectionViewLayout:flowLayout];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-//    [self.view addSubview:collectionView];
-    [collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-    //背景色
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-    UIVisualEffectView *visual = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    visual.frame = self.view.bounds;
-    [visual setBackgroundColor:[UIColor blueColor]];
-    [self.view addSubview:visual];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height) collectionViewLayout:flowLayout];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _collectionView.showsHorizontalScrollIndicator = NO;
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:self.bgImage]];
-    [visual addSubview:collectionView];
-    [collectionView setBackgroundColor:[UIColor clearColor]];
-}
-
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    [_collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewTouch:)]];
     
-     [self dismissViewControllerAnimated:YES completion:nil];
+//    [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [_collectionView registerNib:[UINib nibWithNibName:@"ImageShareCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
-}
-
-- (void)setBgImage:(UIImage *)bgImage {
-    _bgImage = bgImage;
-    if (bgImage) {
-        
-    }
-}
-
-- (void)blur{
+    [_collectionView setBackgroundColor:[UIColor clearColor]];
     
-//    CGImageRef
-//    CIContext *context = [CIContext contextWithOptions:nil];
-//    
-//    CIImage *imageToBlur = [[CIImage alloc]initWithImage:self.bgImage];
-//    
-//    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:kCIInputImageKey,imageToBlur ,nil];
-//    
-//    _outputCIImage = [filter outputImage];
-//    
-//    UIImage *img = [UIImage imageWithCGImage:[context createCGImage:_outputCIImage fromRect:_outputCIImage.extent]];
-//    
-//    return img;
+    [self.view addSubview:_collectionView];
     
-    
-    
+    [self.view setBackgroundColor:[UIColor clearColor]];
 }
 
 
-
+#pragma mark -  collectionview点击事件
+- (void)collectionViewTouch:(UITapGestureRecognizer *)getsture {
+    self.view.hidden = YES;
+    NSLog(@"tap");
+}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
 
-// 该方法直接返回20，表明该控件包含20个单元格
+
 - (NSInteger)collectionView:(UICollectionView *)view
      numberOfItemsInSection:(NSInteger)section;
 {
     return self.picsArray.count;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     // 从可重用单元格队列中获取单元格
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.urlStr = self.picsArray[indexPath.row];
-    
+
+//    cell.urlStr = self.picsArray[indexPath.row];
+    [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(subCellTapTouch:)]];
 //    cell.label.text = [NSString stringWithFormat:@"%ld", indexPath.item];
     return cell;
+}
+
+- (void)subCellTapTouch:(UITapGestureRecognizer *)gesture {
+    NSLog(@"cell touch ");
+}
+
+#pragma mark - 刷新数据
+- (void)reloadData {
+    
+    [_collectionView reloadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
