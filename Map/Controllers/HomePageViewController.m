@@ -27,8 +27,6 @@
     [self.view addSubview:[self createMapViewWithFrame:CGRectMake(0, 0, screen_Width, screen_Height-64)]];
     
 
-    
-    
 }
 
 

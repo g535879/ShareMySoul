@@ -13,7 +13,7 @@
 #define kPortraitMargin 5 
 #define kPortraitWidth 70 
 #define kPortraitHeight 50
-#define kTitleWidth 120 
+#define kTitleWidth 60
 #define kTitleHeight 20
 
 @interface MapCalloutView()
@@ -61,7 +61,7 @@
 
     [self addSubview:self.titleLabel];
 
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
+    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin*2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
     self.subtitleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     self.subtitleLabel.textColor = [UIColor lightGrayColor];
     [self addSubview:self.subtitleLabel];
@@ -89,6 +89,27 @@
     
     [self drawInContext:UIGraphicsGetCurrentContext()];
     
+//    //获得处理的上下文
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    //设置线条的样式
+//    CGContextSetLineCap(context, kCGLineCapSquare);
+//    //设置线条粗细程度
+//    CGContextSetLineWidth(context, 1.0f);
+//    //设置颜色
+//    CGContextSetRGBFillColor(context, 0.33, 0.33, 0.33, 1.0f);
+//    
+//    //起始路径
+//    CGContextBeginPath(context);
+//    //起始点，针对上下文对应区域中的相对坐标
+//    CGContextMoveToPoint(context, 0, 0);
+//    //设置下一个坐标点
+//    CGContextAddLineToPoint(context, 100, 0);
+//    CGContextAddLineToPoint(context, 100, 100);
+//    CGContextAddLineToPoint(context, 0, 100);
+//    //CGContextAddLineToPoint(context, 0, 0);
+//    CGContextStrokePath(context);
+    
+    
     self.layer.shadowColor = [UIColor blackColor].CGColor;
     self.layer.shadowOpacity = 1.0f;
     self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
@@ -101,7 +122,7 @@
     CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.8].CGColor);
     
     [self getDrawPath:context];
-    CGContextFillPath(context);
+    CGContextClosePath(context);
 }
 
 
@@ -117,6 +138,10 @@
     CGFloat miny = CGRectGetMinY(rrect);
     CGFloat maxy = CGRectGetMaxY(rrect) - kArrorHeight;
     
+    
+    NSLog(@"minx:%f  midx:%f  maxx:%f  miny:%f  maxy:%f",minx,midx,maxx,miny,maxy);
+    
+    
     CGContextMoveToPoint(context, midx + kArrorHeight, maxy);
     CGContextAddLineToPoint(context, midx, maxy + kArrorHeight);
     CGContextAddLineToPoint(context, midx - kArrorHeight, maxy);
@@ -125,7 +150,8 @@
     CGContextAddArcToPoint(context, minx, minx, maxx, miny, redius);
     CGContextAddArcToPoint(context, maxx, miny, maxx, maxx, redius);
     CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, redius);
-    CGContextClosePath(context);
+    CGContextAddLineToPoint(context, midx + kArrorHeight, maxy);
+    CGContextStrokePath(context);
 }
 
 - (void)calloutViewClick:(UITapGestureRecognizer *)gesture {
