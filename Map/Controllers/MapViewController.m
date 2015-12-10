@@ -16,6 +16,8 @@
     NSMutableArray * _picsArray;
     //图片展示类
     ShowPicsViewController * _svc;
+    //保存当前点击的view
+    MapAnnotationView * _currentClickView;
 }
 
 @property (nonatomic,copy) NSString *addressStr;
@@ -31,7 +33,8 @@
     
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
+//    [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
+
     
     
     _svc = [ShowPicsViewController new];
@@ -57,8 +60,8 @@
 
     [self createMeButton];
     
-    _search = [[AMapSearchAPI alloc] init];
-    _search.delegate = self;
+//    _search = [[AMapSearchAPI alloc] init];
+//    _search.delegate = self;
     
     
     return _mapView;
@@ -136,7 +139,7 @@
 #pragma mark -mapview中点击触发的方法
 -(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
     
-    
+    NSLog(@"click");
 }
 
 
@@ -172,6 +175,9 @@
     if ([view.annotation isKindOfClass:[CustomAnnotation class]]) {
         
         MapAnnotationView * anView = (MapAnnotationView *)view;
+        //保存状态
+        _currentClickView = anView;
+        
         [anView toggleCallout];
         
         //关闭其他气泡
@@ -272,6 +278,7 @@
     [_svc reloadData];
     _svc.view.hidden = NO;
 }
+
 
 #pragma mark -逆地理编码调用的协议方法
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response{

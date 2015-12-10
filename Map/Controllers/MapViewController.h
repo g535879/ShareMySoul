@@ -11,13 +11,14 @@
 
 
 
-@interface MapViewController : BasicViewController<MAMapViewDelegate,AMapSearchDelegate,CLLocationManagerDelegate>{
+@interface MapViewController : BasicViewController<MAMapViewDelegate,CLLocationManagerDelegate>{
     //地图视图
     MAMapView *_mapView;
     //当前位置信息
     CLLocation *_userLocation;
     //地图搜素
-    AMapSearchAPI *_search;    
+    AMapSearchAPI *_search;
+
 }
 
 @property (nonatomic,strong) UIButton *meButton;
