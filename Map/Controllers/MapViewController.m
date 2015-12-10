@@ -5,13 +5,16 @@
 //  Created by 伏董 on 15/12/3.
 //  Copyright © 2015年 gf. All rights reserved.
 //
+#import "ShowPicsViewController.h"
 
 #import "MapViewController.h"
-@interface MapViewController (){
+@interface MapViewController ()<MapAnnotationViewDelegate>{
     
     UIView * _bgView;
     //大头针数组
     NSMutableArray * _annotationArray;
+    //图片数据源
+    NSMutableArray * _picsArray;
 }
 
 @property (nonatomic,copy) NSString *addressStr;
@@ -140,6 +143,10 @@
     
 }
 
+#pragma mark - 点击CalloutView
+- (void)mapView:(MAMapView *)mapView didAnnotationViewCalloutTapped:(MAAnnotationView *)view {
+    NSLog(@"%@",view);
+}
 
 #pragma mark -点击annotationview触发的协议方法
 - (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
@@ -179,6 +186,7 @@
         }
         annotationView.image = imageNameRenderStr(@"mobile-phone22");
         annotationView.msgModel = [self modelBylocation:annotation.coordinate];
+        annotationView.delegate = self;
         annotationView.centerOffset = CGPointMake(0, -18);
 
         return  annotationView;
@@ -227,6 +235,19 @@
 //        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
 //    }
 
+}
+
+#pragma mark - 气泡点击事件
+- (void)calloutViewTap:(MessageModel *)model {
+//    NSLog(@"%@",model);
+#warning 测试数据待删除
+    ShowPicsViewController * svc = [ShowPicsViewController new];
+    svc.picsArray = _picsArray;
+    
+    //截图
+    UIImage * image = [_mapView takeSnapshotInRect:self.view.frame];
+    svc.bgImage = image;
+    [self presentViewController:svc animated:YES completion:nil];
 }
 
 #pragma mark -逆地理编码调用的协议方法
@@ -278,7 +299,8 @@
     for (MessageModel * model in updateArray) {
         
         if (model.pics.count > 2) {
-            NSLog(@"%@",model.pics);
+            //图片数组赋值
+            _picsArray = model.pics;
         }
         [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude)];
 

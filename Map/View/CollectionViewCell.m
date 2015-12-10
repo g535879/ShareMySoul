@@ -8,6 +8,12 @@
 
 #import "CollectionViewCell.h"
 
+@interface CollectionViewCell () {
+    
+    UIImageView *_imageView;
+}
+
+@end
 @implementation CollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -16,10 +22,11 @@
     if (self) {
         
         // 创建一个UIImageView控件
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.frame = CGRectMake(0, 0, 154, 200);
+        _imageView = [[UIImageView alloc] init];
+//        _imageView.frame = CGRectMake(0, 0, 154, 200);
+        _imageView.frame = self.bounds;
         // 将UIImageView控件添加到该单元格中
-        [self.contentView addSubview:imageView];
+        [self.contentView addSubview:_imageView];
         // 创建一个UILabel控件
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
         self.label.backgroundColor = [UIColor clearColor];
@@ -33,8 +40,6 @@
         // 将UILabel控件添加到该单元格中
         [self.contentView addSubview:self.label];
         // 设置边框
-        self.contentView.layer.borderWidth = 2.0f;
-        self.contentView.layer.borderColor = [UIColor redColor].CGColor;
         // 设置圆角
         self.layer.cornerRadius = 8.0;
         self.layer.masksToBounds = YES;
@@ -42,5 +47,11 @@
     return self;
 }
 
+- (void)setUrlStr:(NSString *)urlStr {
+    
+    _urlStr = urlStr;
+    
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:_urlStr]];
+}
 
 @end

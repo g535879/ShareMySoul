@@ -28,6 +28,7 @@
 
 //    [self insert];
     [self upload];
+//    [self screenImage];
 }
 
 - (void)insert {
@@ -71,7 +72,7 @@
 - (void)upload {
     
     
-    NSString * filePath = @"/Users/guyubin/Desktop/2h/5.jpg";
+    NSString * filePath = @"/Users/guyubin/Desktop/simpleLove.mp3";
     
     [BmobHelper uploadDataWithPath:filePath block:^(id dataModel, NSError *error) {
         
@@ -85,6 +86,33 @@
 //            NSLog(@"%@",dataModel);
 //        }
 //    }];
+}
+
+- (void)screenImage {
+    
+//    UIGraphicsBeginImageContext(self.view.frame.size); //currentView 当前的view
+//    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+    
+    
+        [BmobHelper uploadFileWithFileData:[self captureScreen] block:^(id dataModel, NSError *error) {
+            if (!error) {
+                NSLog(@"%@",dataModel);
+            }
+        }];
+}
+
+- (UIImage *) captureScreen {
+    
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    CGRect rect = [keyWindow bounds];
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [keyWindow.layer renderInContext:context];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
 }
 
 - (void)didReceiveMemoryWarning {

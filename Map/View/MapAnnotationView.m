@@ -36,9 +36,9 @@
 //选中时将数据传递给calloutView
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
 
-
     
     if (selected) {
+       
         
         if (self.calloutView == nil) {
             self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
@@ -58,6 +58,13 @@
     }else{
         
         [self.calloutView removeFromSuperview];
+        
+        //代理回调
+        if ([self.delegate respondsToSelector:@selector(calloutViewTap:)]) {
+            
+            [self.delegate calloutViewTap:self.msgModel];
+        }
+        
     }
 
 }

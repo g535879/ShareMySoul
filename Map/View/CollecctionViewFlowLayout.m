@@ -20,15 +20,15 @@
     if (self)
     {
         // 设置每个单元格的大小
-        self.itemSize = CGSizeMake(154,200);
+        self.itemSize = CGSizeMake(screen_Width * 3 / 7.0f,3 * (screen_Width * 3 / 7.0f) / 2.0F);
         // 设置该控件的滚动方向
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         // 设置各分区上、下、左、右保留的空白区的大小
-        self.sectionInset = UIEdgeInsetsMake(120, 50.0, 120, 0.0);
+        self.sectionInset = UIEdgeInsetsMake((screen_Height - self.itemSize.height * (1 + ZOOM_SCALE)) / 4.0, 50.0, (screen_Height - self.itemSize.height * (1 + ZOOM_SCALE)) / 4.0, 50);
         // 设置两行最小的行间距
         self.minimumLineSpacing = 50;
         // 设置两个单元格之间的间距
-        self.minimumInteritemSpacing = 50;
+        self.minimumInteritemSpacing = 500;
     }
     return self;
 }
@@ -41,7 +41,8 @@
 // 该方法的返回值控制指定CGRect区域内各单元格的大小、位置等布局属性
 -(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSArray* array = [super layoutAttributesForElementsInRect:rect];
+    NSArray* original = [super layoutAttributesForElementsInRect:rect];
+    NSArray * array = [[NSArray alloc] initWithArray:original copyItems:YES];
     // 定义一个CGRect，用于记录该UICollectionView的可视区域
     CGRect visibleRect;
     // 设置visibleRect的原点等于contentView的偏移

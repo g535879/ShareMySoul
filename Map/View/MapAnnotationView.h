@@ -9,8 +9,18 @@
 #import <MAMapKit/MAMapKit.h>
 #import "MapCalloutView.h"
 #import "UserInfoModel.h"
-@interface MapAnnotationView : MAAnnotationView
 
+@protocol MapAnnotationViewDelegate <NSObject>
+
+/**
+ *  cllout点击事件
+ *
+ *  @param model 数据模型
+ */
+- (void)calloutViewTap:(MessageModel *)model;
+
+@end
+@interface MapAnnotationView : MAAnnotationView
 
 @property (nonatomic,strong) MapCalloutView *calloutView;
 
@@ -19,4 +29,5 @@
  */
 @property (nonatomic,strong) MessageModel * msgModel;
 
+@property (nonatomic,weak) id<MapAnnotationViewDelegate> delegate;
 @end
