@@ -215,13 +215,13 @@
         annotationView.msgModel = [self modelBylocation:annotation.coordinate];
         annotationView.centerOffset = CGPointMake(0, -18);
 
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.head_image]]];
+        //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.head_image]]];
         
         
-        annotationView.image = image;
+        //annotationView.image = image;
         //annotationView.imageView.image = image;
         
-        annotationView.msgModel = message;
+        //annotationView.msgModel = message;
 
         
         return  annotationView;
