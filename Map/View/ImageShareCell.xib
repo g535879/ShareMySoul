@@ -3,15 +3,57 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H6O-hc-7Tj">
-            <rect key="frame" x="0.0" y="0.0" width="327" height="89"/>
+            <rect key="frame" x="0.0" y="0.0" width="234" height="305"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-            <point key="canvasLocation" x="242.5" y="-113.5"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAJ-w6-PL6">
+                    <rect key="frame" x="5" y="252" width="224" height="48"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="qq_btns" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-ba-f0z">
+                    <rect key="frame" x="5" y="8" width="224" height="242"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="LWc-ba-f0z" secondAttribute="height" multiplier="2:3" id="HqX-Vt-EPh"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="HqX-Vt-EPh"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iAJ-w6-PL6" secondAttribute="bottom" constant="5" id="2k7-qw-tvg"/>
+                <constraint firstItem="LWc-ba-f0z" firstAttribute="leading" secondItem="H6O-hc-7Tj" secondAttribute="leading" constant="5" id="Ehy-VF-bzl"/>
+                <constraint firstItem="iAJ-w6-PL6" firstAttribute="top" secondItem="LWc-ba-f0z" secondAttribute="bottom" constant="5" id="G9z-9A-DyF"/>
+                <constraint firstAttribute="trailing" secondItem="iAJ-w6-PL6" secondAttribute="trailing" constant="5" id="PW8-Yl-KWn"/>
+                <constraint firstItem="LWc-ba-f0z" firstAttribute="top" secondItem="H6O-hc-7Tj" secondAttribute="top" constant="5" id="Rxb-dC-DEc"/>
+                <constraint firstItem="iAJ-w6-PL6" firstAttribute="height" secondItem="LWc-ba-f0z" secondAttribute="height" multiplier="1:5" id="aK9-3v-Ldw"/>
+                <constraint firstAttribute="trailing" secondItem="LWc-ba-f0z" secondAttribute="trailing" constant="5" id="hlC-JN-QGn"/>
+                <constraint firstItem="iAJ-w6-PL6" firstAttribute="leading" secondItem="H6O-hc-7Tj" secondAttribute="leading" constant="5" id="rPA-uh-Fr1"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="446" y="0.5"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="qq_btns" width="60" height="60"/>
+    </resources>
 </document>

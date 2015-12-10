@@ -470,7 +470,7 @@
 			path = MD5;
 			sourceTree = "<group>";
 		};
-		AD9883A81C14121300B87FF3 /* Resources */ = {
+		ADAF64901C19765B00913C8D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				ADC9A3D61C0BE90B00CF720B /* 需求 */,
@@ -481,12 +481,12 @@
 		ADBA98061C0B1FEF0023499E = {
 			isa = PBXGroup;
 			children = (
+				ADAF64901C19765B00913C8D /* Resources */,
 				AD83490A1C15D9E600457D92 /* Root */,
 				AD8348FA1C15D8E900457D92 /* Login */,
 				AD8348FB1C15D8E900457D92 /* Map */,
 				AD8348FC1C15D8E900457D92 /* Nearby */,
 				AD8348FD1C15D8E900457D92 /* User */,
-				AD9883A81C14121300B87FF3 /* Resources */,
 				AD9883A21C13FC6700B87FF3 /* Lib */,
 				AD36E7B61C0F1BB9006A32E7 /* Tools */,
 				ADBA98111C0B1FEF0023499E /* ShareMySoul */,

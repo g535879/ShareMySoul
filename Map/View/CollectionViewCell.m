@@ -19,7 +19,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
+    if (!self) {
         
         // 创建一个UIImageView控件
         _imageView = [[UIImageView alloc] init];

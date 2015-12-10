@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "titlePage.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "cat_default_bg_doubilaowu.jpg",
       "scale" : "2x"
     },
     {

@@ -69,7 +69,7 @@
 #define imageStar(str) str.length ? [UIImage imageNamed:(str)] : nil
 
 //默认头像
-#define default_head_image @"default_head_image.jpg"
+#define default_head_image @"default_head_images.jpg"
 
 //字体
 #define sys_font(size) [UIFont systemFontOfSize:size]
