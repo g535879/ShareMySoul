@@ -31,13 +31,12 @@
 - (void)setSelected:(BOOL)selected
 {
     [self setSelected:selected animated:NO];
+    
 }
 
 //选中时将数据传递给calloutView
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{
 
-
-    
     if (selected) {
         
         if (self.calloutView == nil) {
@@ -52,7 +51,7 @@
         }
         
         
-           self.canShowCallout = YES;
+        self.canShowCallout = YES;
         [self addSubview:self.calloutView];
         
     }else{
@@ -60,6 +59,29 @@
         [self.calloutView removeFromSuperview];
     }
 
+}
+
+
+
+//- (void)setImage:(UIImage *)image{
+//
+//    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+//    _imageView.backgroundColor = [UIColor orangeColor];
+//    self.isClicked = NO;
+//    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSelected)];
+//    _imageView.userInteractionEnabled = YES;
+//    [_imageView addGestureRecognizer:tap];
+//    
+//    [self addSubview:self.imageView];
+//}
+
+
+- (void)tapSelected{
+    
+    self.isClicked = !self.isClicked;
+    [self setSelected:self.isClicked animated:YES];
+    
 }
 
 

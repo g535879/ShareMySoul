@@ -93,6 +93,7 @@
     
     annotation.coordinate = coordinate2D;
     
+    
     [_mapView addAnnotation:annotation];
 
 }
@@ -177,10 +178,21 @@
             
             annotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationID];
         }
-        annotationView.image = imageNameRenderStr(@"mobile-phone22");
-        annotationView.msgModel = [self modelBylocation:annotation.coordinate];
-        annotationView.centerOffset = CGPointMake(0, -18);
+        
+        MessageModel *message = [self modelBylocation:annotation.coordinate];
+        
+        UserInfoModel *user = message.author;
+        
 
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.head_image]]];
+        
+        
+        annotationView.image = image;
+        //annotationView.imageView.image = image;
+        
+        annotationView.msgModel = message;
+
+        
         return  annotationView;
     }
 
