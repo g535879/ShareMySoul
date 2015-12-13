@@ -8,7 +8,8 @@
 #import "ShowPicsViewController.h"
 #import "CustomAnnotation.h"
 #import "MapViewController.h"
-@interface MapViewController (){
+#import "CommentView.h"
+@interface MapViewController ()<commentDelegate>{
     
     //大头针数组
     NSMutableArray * _annotationArray;
@@ -16,6 +17,15 @@
     NSMutableArray * _picsArray;
     //图片展示类
     ShowPicsViewController * _svc;
+    //保存当前点击的view
+    MapAnnotationView * _currentClickView;
+    
+    //底部消息发送view
+    CommentView * _commentView;
+    
+    //键盘是否弹起
+    BOOL isKeyBoardUp;
+    
 }
 
 @property (nonatomic,copy) NSString *addressStr;
@@ -31,13 +41,25 @@
     
     //配置用户 Key
     [MAMapServices sharedServices].apiKey = GEO_API_KEY;
-    [AMapSearchServices sharedServices].apiKey = GEO_API_KEY;
     
-    
+    //图片展示view
     _svc = [ShowPicsViewController new];
     [self.view addSubview:_svc.view];
     _svc.view.hidden = YES;
     [self addChildViewController:_svc];
+    
+    //监听键盘变化
+    //监听键盘弹起事件
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyBoardUp:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    //监听键盘回收事件
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyBoardDown:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
 }
 
 #pragma mark -创建地图视图
@@ -53,14 +75,14 @@
     _mapView.showsIndoorMap = NO;
     _mapView.rotateEnabled = NO;
     _mapView.skyModelEnable = NO;
-    
-
+    _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
     [self createMeButton];
     
-    _search = [[AMapSearchAPI alloc] init];
-    _search.delegate = self;
     
-    
+    //消息发送按钮
+    _commentView = [[CommentView alloc] initWithFrame:CGRectMake(0, screen_Height - 49 - 64, screen_Width, 49)];
+    _commentView.delegate = self;
+    [_mapView addSubview:_commentView];
     return _mapView;
 }
 
@@ -68,8 +90,9 @@
 #pragma mark -创建定位到当前的位置按钮
 - (void)createMeButton{
     
+
     _meButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _meButton.frame = CGRectMake(_mapView.logoCenter.x - (_mapView.logoSize.width / 2), _mapView.logoCenter.y - _mapView.compassSize.height - (_mapView.logoSize.height / 2), _mapView.compassSize.width, _mapView.compassSize.height);
+    _meButton.frame = CGRectMake(_mapView.frame.size.width - 40 * scale_screen -20 , _mapView.logoCenter.y - _mapView.compassSize.height - (_mapView.logoSize.height / 2) - 49, _mapView.compassSize.width, _mapView.compassSize.height);
 
     _meButton.backgroundColor = [UIColor colorWithRed:0.90f green:0.90f blue:0.90f alpha:1.00f];
     _meButton.layer.cornerRadius = 5;
@@ -85,13 +108,27 @@
 
         [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
         
-//        
        
     }
     
 }
 
 
+#pragma mark - 自定义用户圈圈
+-(MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id<MAOverlay>)overlay {
+    
+    // 自定义定位精度对应的MACircleView
+    if (overlay == mapView.userLocationAccuracyCircle)
+    {
+        MACircleView *accuracyCircleView = [[MACircleView alloc] initWithCircle:(MACircle *)overlay];
+        
+        accuracyCircleView.lineWidth    = 2.f;
+        accuracyCircleView.strokeColor  = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.0];
+        accuracyCircleView.fillColor    = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.0];
+        return accuracyCircleView;
+    }
+    return nil;
+}
 
 #pragma mark -创建地图大头针标注
 - (void)createMapPointAnnotationWithCLLocationCoordinate2D:(CLLocationCoordinate2D)coordinate2D {
@@ -110,8 +147,17 @@
     
     if (updatingLocation) {
         _userLocation = [userLocation.location copy];
+        [UserManage defaultUser].coordinate = _userLocation.coordinate;
         _mapView.userTrackingMode = MAUserTrackingModeNone;
     }
+}
+
+#pragma mark - 点击地图
+- (void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    //回收键盘
+    [self.view endEditing:YES];
+//    [self sendMsg:@"哈哈哈测试"];
+//    [UserManage defaultUser].coordinate = coordinate;
 }
 
 #pragma mark - 地图区域加载完成
@@ -119,38 +165,21 @@
 
 
     //获取当前区域消息列表
-    [BmobHelper messageWithCurrentLocation:_mapView.region withBlock:^(NSArray *responseArray, NSError *error) {
-        if (responseArray) {
-    
-            //更新当前区域消息列表
-            [self configAnnotationArray:responseArray];
-        }
-        else{
-            NSLog(@"%@",error);
-        }
-    }];
+    [self newMesInfo];
 
     
 }
 
-#pragma mark -mapview中点击触发的方法
--(void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
-    
-    
-}
-
-
+#pragma mark - 标注取消点击
 -(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
 
 
     if ([view.annotation isKindOfClass:[CustomAnnotation class]]) {
         
         MapAnnotationView * anView = (MapAnnotationView *)view;
-        [anView toggleCallout];
+//        [anView toggleCallout];
         
-        //弹出图片滚动视图
-        MessageModel * model = [anView msgModel];
-        [self calloutViewTap:model];
+
     }
     
 }
@@ -172,22 +201,28 @@
     if ([view.annotation isKindOfClass:[CustomAnnotation class]]) {
         
         MapAnnotationView * anView = (MapAnnotationView *)view;
-        [anView toggleCallout];
+        //保存状态
+        _currentClickView = anView;
         
-        //关闭其他气泡
-        for (id ann in _mapView.annotations) {
-            
-            if ([ann isKindOfClass:[CustomAnnotation class]]) {
-                
-                MapAnnotationView * mav = (MapAnnotationView *)[(CustomAnnotation *)ann annotationView];
-                
-                if (mav.calloutViewSelected && mav != view) {
-                    //关闭气泡
-                    [mav hiddenCallout];
-                }
-            }
-            
-        }
+        //弹出图片滚动视图
+        [self calloutViewTap];
+        
+      //  [anView toggleCallout];
+        
+//        //关闭其他气泡
+//        for (id ann in _mapView.annotations) {
+//            
+//            if ([ann isKindOfClass:[CustomAnnotation class]]) {
+//                
+//                MapAnnotationView * mav = (MapAnnotationView *)[(CustomAnnotation *)ann annotationView];
+//                
+//                if (mav.calloutViewSelected && mav != view) {
+//                    //关闭气泡
+////                    [mav hiddenCallout];
+//                }
+//            }
+//            
+//        }
         
     }
     
@@ -259,29 +294,37 @@
 #pragma mark -地理编码调用的协议方法
 - (void)onGeocodeSearchDone:(AMapGeocodeSearchRequest *)request response:(AMapGeocodeSearchResponse *)response{
     
-
-    
-//    for (AMapGeocode *code in response.geocodes) {
-    
-//        CLLocationDegrees longitude = code.location.longitude;
-//        CLLocationDegrees latitude = code.location.latitude;
-        
-        
-//        [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(latitude, longitude) withTitle:_addressStr withSubTitle:nil];
-//    }
-
 }
 
 #pragma mark - 气泡点击事件
-- (void)calloutViewTap:(MessageModel *)model {
+- (void)calloutViewTap{
+
+    //加载数据
     
-#warning 测试数据待删除
-    //显示图片展示view
-    _svc.picsArray = _picsArray;
-    [self.view bringSubviewToFront:_svc.view];
-    [_svc reloadData];
-    _svc.view.hidden = NO;
+    [BmobHelper messageWithCurrentLocation:[UserManage defaultUser].coordinate maxDistance:10 withBlock:^(NSArray *responseArray, NSError *error) {
+        if (responseArray) {
+            [_svc.picsArray removeAllObjects];
+            for (MessageModel * model in responseArray) {
+                if ([model.pic isKindOfClass:[NSString class]]) {
+                    [_svc.picsArray addObject:model.pic];
+                }
+            }
+            
+            if (_svc.picsArray.count) {
+                //显示图片展示view
+                [self.view bringSubviewToFront:_svc.view];
+                [_svc reloadData];
+                _svc.view.hidden = NO;
+            }
+            
+        }
+        else{
+            NSLog(@"%@",error);
+        }
+    }];
+
 }
+
 
 #pragma mark -逆地理编码调用的协议方法
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response{
@@ -307,33 +350,37 @@
     
     NSMutableArray * updateArray = [@[] mutableCopy];
     
-    //遍历当前已存在数组，加入新的点
+    //删除其他点
+    [_mapView removeAnnotations:_mapView.annotations];
+
+    
+
     for (MessageModel * m in array) {
         
-        BOOL isFind = NO;
+        BOOL isExist = NO;
         
-        for (MessageModel *mm in _annotationArray) {
-            //找到相同的元素
-            if (mm.location.latitude == m.location.latitude && mm.location.longitude == m.location.longitude) {
-                isFind = YES;
+        for (MessageModel * mm in updateArray) {
+            //点存在
+            if ([self isExist:m m2:mm]) {
+                isExist = YES;
                 break;
             }
         }
-        //新的点。加入到数组，绘制到地图
-        if (!isFind) {
-            
+        if (!isExist) {
             [updateArray addObject:m];
-            [_annotationArray addObject:m];
         }
+        
     }
-
+    
+    //保存当前数据源
+    _annotationArray = updateArray;
     
     //创建大头针
     for (MessageModel * model in updateArray) {
         
-        if (model.pics.count > 2) {
+        if (model.pic) {
             //图片数组赋值
-            _picsArray = model.pics;
+            [_picsArray addObject:model.pic];
         }
         [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude)];
 
@@ -341,6 +388,117 @@
     
 }
 
+#pragma mark - 发送消息按钮点击代理事件
+- (void)commonClick:(NSString *)msgStr {
+    [self.view endEditing:YES];
+    [self sendMsg:msgStr];
+}
+
+#pragma mark -  发送消息
+- (void)sendMsg:(NSString *)msgStr {
+    
+    //当前用户
+    UserManage * manager = [UserManage defaultUser];
+    
+    //获取反地理编码
+    CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
+    CLGeocoder * revGeo = [[CLGeocoder alloc] init];
+    [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+
+        if (!error && [placemarks count] > 0)
+        {
+            NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
+            [manager setAddressWithDic:dict];
+            MessageModel * sendMsg = [[MessageModel alloc] init];
+            sendMsg.author = manager.currentUser;
+            sendMsg.device = manager.deviceModel;
+            sendMsg.currentAddress = manager.currentAddress;
+            [sendMsg setGeoPoint:manager.coordinate];
+            sendMsg.content = msgStr;
+            //加载框
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            //发送消息
+            [BmobHelper sendMessageWithMessageModel:sendMsg withBlock:^(BOOL isSuccess, NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                if (error) {
+                    NSLog(@"%@",error);
+                }
+                else{
+                    //获取当前区域消息列表
+                    [self newMesInfo];
+                }
+            }];
+        }
+        else
+        {
+            NSLog(@"ERROR: %@", error);
+        }
+    
+    }];
+}
+
+#pragma mark - 键盘事件
+
+
+//键盘弹起
+- (void)keyBoardUp:(NSNotification *)notification {
+
+    if (isKeyBoardUp) {
+        return;
+    }
+    isKeyBoardUp = YES;
+    CGFloat offsetY = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    CGRect commentViewFrame = _commentView.frame;
+    commentViewFrame.origin.y -= offsetY;
+    _commentView.frame = commentViewFrame;
+}
+
+//键盘回收
+- (void)keyBoardDown:(NSNotification *)notiificaiton {
+    
+    if (!isKeyBoardUp) {
+        return;
+    }
+    isKeyBoardUp = NO;
+    
+    CGFloat offsetY = [[notiificaiton.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    CGRect commentViewFrame = _commentView.frame;
+    commentViewFrame.origin.y += offsetY;
+    _commentView.frame = commentViewFrame;
+}
+
+
+#pragma mark -  获取当前消息列表
+- (void)newMesInfo {
+    
+    //获取当前区域消息列表
+    [BmobHelper messageWithCurrentLocation:_mapView.region withBlock:^(NSArray *responseArray, NSError *error) {
+        if (responseArray) {
+            
+            //更新当前区域消息列表
+            [self configAnnotationArray:responseArray];
+        }
+        else{
+            NSLog(@"%@",error);
+        }
+    }];
+}
+
+#pragma mark - 判断点是否重复
+- (BOOL)isExist:(MessageModel *)m1 m2:(MessageModel *)m2 {
+    
+    float ala = [[NSString stringWithFormat:@"%.3f",m1.location.latitude] floatValue];
+    float mla = [[NSString stringWithFormat:@"%.3f",m2.location.latitude] floatValue];
+    float along = [[NSString stringWithFormat:@"%.3f",m1.location.longitude] floatValue];
+    float mlong = [[NSString stringWithFormat:@"%.3f",m2.location.longitude] floatValue];
+    
+    //重复的点
+    if (ala == mla && along == mlong && m1 != m2) {
+        return YES;
+    }
+    return NO;
+
+}
 
 //根据坐标获取message模型
 - (MessageModel *)modelBylocation:(CLLocationCoordinate2D )point {

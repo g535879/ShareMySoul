@@ -7,7 +7,7 @@
 //
 
 #import "MyCustomView.h"
-
+#import <QuartzCore/QuartzCore.h>
 @implementation MyCustomView
 
 + (UILabel *)createLabelWithFrame:(CGRect)frame
@@ -82,5 +82,21 @@
     
     return btn;
     
+}
++ (UIImage*) circleImage:(UIImage*) image withParam:(CGFloat) inset {
+    UIGraphicsBeginImageContext(image.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, 2);
+    CGContextSetStrokeColorWithColor(context, [UIColor clearColor].CGColor);
+    CGRect rect = CGRectMake(inset, inset, image.size.width - inset * 2.0f, image.size.height - inset * 2.0f);
+    CGContextAddEllipseInRect(context, rect);
+    CGContextClip(context);
+    
+    [image drawInRect:rect];
+    CGContextAddEllipseInRect(context, rect);
+    CGContextStrokePath(context);
+    UIImage *newimg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newimg;
 }
 @end

@@ -10,7 +10,7 @@
 
 #import "CollecctionViewFlowLayout.h"
 #import "CollectionViewCell.h"
-#import <CoreImage/CoreImage.h>
+#import "MsgMoreInfoTableViewCell.h"
 
 @interface ShowPicsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate> {
     UICollectionView * _collectionView;
@@ -37,6 +37,7 @@
 //    [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [_collectionView registerNib:[UINib nibWithNibName:@"ImageShareCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
+    [_collectionView registerNib:[UINib nibWithNibName:@"MsgMoreInfoTableViewCell" bundle:nil] forCellWithReuseIdentifier:@"cellId"];
     [_collectionView setBackgroundColor:[UIColor clearColor]];
     
     [self.view addSubview:_collectionView];
@@ -56,6 +57,13 @@
     return 1;
 }
 
+#pragma mark - getter
+- (NSMutableArray *)picsArray {
+    if (!_picsArray) {
+        _picsArray = [@[] mutableCopy];
+    }
+    return _picsArray;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)view
      numberOfItemsInSection:(NSInteger)section;
@@ -66,11 +74,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     // 从可重用单元格队列中获取单元格
-    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
 
-//    cell.urlStr = self.picsArray[indexPath.row];
     [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(subCellTapTouch:)]];
-//    cell.label.text = [NSString stringWithFormat:@"%ld", indexPath.item];
     return cell;
 }
 

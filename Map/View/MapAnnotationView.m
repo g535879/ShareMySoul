@@ -7,8 +7,8 @@
 //
 
 #import "MapAnnotationView.h"
-#define kCalloutWidth 200.0 
-#define kCalloutHeight 70.0
+#define kCalloutWidth 60
+#define kCalloutHeight 60
 
 @interface MapAnnotationView ()
 
@@ -20,7 +20,7 @@
 /**
  *  气泡
  */
-@property (nonatomic,strong) MapCalloutView *calloutView;
+@property (nonatomic,strong) UIButton *calloutView;
 
 @end
 @implementation MapAnnotationView
@@ -31,10 +31,18 @@
     
     if (self) {
         
-        self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
-        self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
+//        self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
+//        self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
+//        [self addSubview:self.calloutView];
+//        self.calloutView.hidden = YES;
+        
+        self.calloutView = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.calloutView.frame = CGRectMake(40, -45, kCalloutWidth, kCalloutHeight);
+        [self.calloutView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.calloutView setBackgroundImage:[UIImage imageNamed:@"white_chatBuble"] forState:UIControlStateNormal];
+//        self.calloutView.hidden = YES;
+        
         [self addSubview:self.calloutView];
-        self.calloutView.hidden = YES;
     }
     
     return self;
@@ -56,12 +64,17 @@
     
 }
 
+- (void)setMsgModel:(MessageModel *)msgModel {
+    _msgModel = msgModel;
+    [self.calloutView setTitle:self.msgModel.content forState:UIControlStateNormal];
+}
 - (void)showCallout {
     
     if (self.msgModel) {
         
-        self.calloutView.title = self.msgModel.author.nickname;
-        self.calloutView.subtitle = self.msgModel.content;
+        //self.calloutView.title = self.msgModel.author.nickname;
+       // self.calloutView.subtitle = self.msgModel.content;
+        
     }
 
 }

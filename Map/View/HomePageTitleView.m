@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger,SWIPDIR){
     self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.leftButton.frame = CGRectMake(1, 1,BACKBTN_WIDTH, BACKBTN_HETGHT - 2);
     [self.leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.leftButton setTitle:@"我是主页" forState:UIControlStateNormal];
+    [self.leftButton setTitle:@"广场" forState:UIControlStateNormal];
     self.leftButton.backgroundColor = [UIColor clearColor];
     [self.leftButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.leftButton.tag = 10;
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger,SWIPDIR){
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.rightButton.frame = CGRectMake(BACKBTN_WIDTH - 1, 1,BACKBTN_WIDTH, BACKBTN_HETGHT - 2);
     [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.rightButton setTitle:@"我我的的" forState:UIControlStateNormal];
+    [self.rightButton setTitle:@"附近" forState:UIControlStateNormal];
     self.rightButton.backgroundColor = [UIColor clearColor];
     [self.rightButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.rightButton.tag = 20;

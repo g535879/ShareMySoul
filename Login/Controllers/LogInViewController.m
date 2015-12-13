@@ -182,11 +182,17 @@
     _regModel.sex = response.jsonResponse[@"gender"];
     _regModel.openid = _uId;
     
+    [self checkExist];
+}
+
+- (void)checkExist {
+    
+    NSLog(@"%@",[NSThread currentThread]);
+    
     //查询是否已经存在
     [BmobHelper SelectDataWithClassName:USER_DB andWithReturnModelClass:[RegisterModel class] withParam:@{@"openid":_uId} withReponseData:^(id dataModel, NSError *error) {
         if (!dataModel) {
-
-            //不存在。新建用户
+//            //不存在。新建用户
             [BmobHelper insertDataWithModel:_regModel withName:USER_DB withBlock:^(BOOL isSuccess, NSError *error) {
                 if (isSuccess) {
                     NSLog(@"添加用户成功");
@@ -206,6 +212,7 @@
             [self getNewUserData];
         }
     }];
+
 }
 
 //获取最新数据缓存到本地
@@ -234,6 +241,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"user"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    //全局单例对象
+    UserManage * manager = [UserManage defaultUser];
+    manager.currentUser = model;
     //发送通知更新用户界面
     [[NSNotificationCenter defaultCenter] postNotificationName:UPDATE_USERINFO object:nil];
     NSLog(@"数据缓存本地成功");

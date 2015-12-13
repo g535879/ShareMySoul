@@ -10,11 +10,7 @@
 
 @interface CollectionViewCell : UICollectionViewCell
 
-// 定义一个UILabel，该控件的文本允许动态改变
-@property (strong, nonatomic) UILabel * label;
+//赋值
+- (void)setModel:(MessageModel *)model;
 
-/**
- *  图片url
- */
-@property (nonatomic, copy) NSString * urlStr;
 @end
