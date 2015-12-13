@@ -45,7 +45,7 @@ proStr(content);
 /**
  *  消息图片
  */
-proMuArr(pics);
+proStr(pic);
 
 /**
  *  设备

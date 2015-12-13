@@ -13,7 +13,7 @@
 #define kPortraitMargin 5 
 #define kPortraitWidth 70 
 #define kPortraitHeight 50
-#define kTitleWidth 60
+#define kTitleWidth 120
 #define kTitleHeight 20
 
 @interface MapCalloutView()
@@ -35,13 +35,8 @@
 - (instancetype)initWithFrame:(CGRect)frame{
 
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor clearColor];
+//        self.backgroundColor = [UIColor clearColor];
         [self initSubViews];
-        
-        UIImageView *imageView = [[UIImageView alloc] init];
-        
-        
-        
         
     }
 
@@ -52,6 +47,7 @@
 - (void)initSubViews{
     
     self.portraitView = [[UIImageView alloc] initWithFrame:CGRectMake(kPortraitMargin, kPortraitMargin, kPortraitWidth, kPortraitHeight)];
+    self.portraitView.backgroundColor = [UIColor blackColor];
     [self addSubview:self.portraitView];
     
     
@@ -63,7 +59,7 @@
 
     self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin*2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
     self.subtitleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    self.subtitleLabel.textColor = [UIColor lightGrayColor];
+    self.subtitleLabel.textColor = [UIColor whiteColor];
     [self addSubview:self.subtitleLabel];
 }
 
@@ -89,6 +85,10 @@
     
     [self drawInContext:UIGraphicsGetCurrentContext()];
     
+    self.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.layer.shadowOpacity = 1.0;
+    self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
 //    //获得处理的上下文
 //    CGContextRef context = UIGraphicsGetCurrentContext();
 //    //设置线条的样式
@@ -110,9 +110,9 @@
 //    CGContextStrokePath(context);
     
     
-    self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOpacity = 1.0f;
-    self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+//    self.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.layer.shadowOpacity = 1.0f;
+//    self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     
 }
 
@@ -129,30 +129,39 @@
 - (void)getDrawPath:(CGContextRef)context{
 
     CGRect rrect = self.bounds;
-    CGFloat redius = 6.0f;
-    CGFloat minx = CGRectGetMinX(rrect);
-    
-    CGFloat midx = CGRectGetMidX(rrect);
-    CGFloat maxx = CGRectGetMaxX(rrect);
-    
-    CGFloat miny = CGRectGetMinY(rrect);
-    CGFloat maxy = CGRectGetMaxY(rrect) - kArrorHeight;
-    
-    
-    NSLog(@"minx:%f  midx:%f  maxx:%f  miny:%f  maxy:%f",minx,midx,maxx,miny,maxy);
-    
-    
-    CGContextMoveToPoint(context, midx + kArrorHeight, maxy);
-    CGContextAddLineToPoint(context, midx, maxy + kArrorHeight);
-    CGContextAddLineToPoint(context, midx - kArrorHeight, maxy);
-    
-    CGContextAddArcToPoint(context, minx, maxy, minx, miny, redius);
-    CGContextAddArcToPoint(context, minx, minx, maxx, miny, redius);
-    CGContextAddArcToPoint(context, maxx, miny, maxx, maxx, redius);
-    CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, redius);
-    CGContextAddLineToPoint(context, midx + kArrorHeight, maxy);
-    CGContextStrokePath(context);
+    CGFloat radius = 6.0;
+    CGFloat minx = CGRectGetMinX(rrect),
+    midx = CGRectGetMidX(rrect),
+    maxx = CGRectGetMaxX(rrect);
+    CGFloat miny = CGRectGetMinY(rrect),
+    maxy = CGRectGetMaxY(rrect)-kArrorHeight;
+    CGContextMoveToPoint(context, midx+kArrorHeight, maxy); CGContextAddLineToPoint(context,midx, maxy+kArrorHeight); CGContextAddLineToPoint(context,midx-kArrorHeight, maxy);
+    CGContextAddArcToPoint(context, minx, maxy, minx, miny, radius); CGContextAddArcToPoint(context, minx, minx, maxx, miny, radius); CGContextAddArcToPoint(context, maxx, miny, maxx, maxx, radius); CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, radius); CGContextClosePath(context);
 }
+//    CGFloat redius = 6.0f;
+//    CGFloat minx = CGRectGetMinX(rrect);
+//    
+//    CGFloat midx = CGRectGetMidX(rrect);
+//    CGFloat maxx = CGRectGetMaxX(rrect);
+//    
+//    CGFloat miny = CGRectGetMinY(rrect);
+//    CGFloat maxy = CGRectGetMaxY(rrect) - kArrorHeight;
+//    
+//    
+//    NSLog(@"minx:%f  midx:%f  maxx:%f  miny:%f  maxy:%f",minx,midx,maxx,miny,maxy);
+//    
+//    
+//    CGContextMoveToPoint(context, midx + kArrorHeight, maxy);
+//    CGContextAddLineToPoint(context, midx, maxy + kArrorHeight);
+//    CGContextAddLineToPoint(context, midx - kArrorHeight, maxy);
+//    
+//    CGContextAddArcToPoint(context, minx, maxy, minx, miny, redius);
+//    CGContextAddArcToPoint(context, minx, minx, maxx, miny, redius);
+//    CGContextAddArcToPoint(context, maxx, miny, maxx, maxx, redius);
+//    CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, redius);
+//    CGContextAddLineToPoint(context, midx + kArrorHeight, maxy);
+//    CGContextStrokePath(context);
+//}
 
 
 @end

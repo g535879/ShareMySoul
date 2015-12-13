@@ -51,14 +51,6 @@
 
 
 /**
- *  逆向地理编码
- *
- *  @param coordinate coordinate description
- */
-//- (void)ReGeocodeWithWithLatitude:(CLLocationCoordinate2D)coordinate;
-
-
-/**
  *  创建大头针标注
  *
  *  @param coordinate2D coordinate2D description

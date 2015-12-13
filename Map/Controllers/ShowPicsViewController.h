@@ -12,7 +12,7 @@
 /**
  *  图片url数据源
  */
-@property (nonatomic,copy) NSArray * picsArray;
+@property (nonatomic,copy) NSMutableArray * picsArray;
 
 /**
  *  背景图片

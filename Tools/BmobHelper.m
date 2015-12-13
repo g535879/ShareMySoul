@@ -55,7 +55,7 @@ static BmobHelper * _singleton;
 #pragma mark - 发送状态心情
 
 + (void)sendMessageWithMessageModel:(MessageModel *)msgModel withBlock:(ResultBlock )callBackBlock {
-    
+
     BmobObject * msg = [BmobObject objectWithClassName:MSG_DB];
     [msg saveAllWithDictionary:[self removeSystemInfo:[msgModel toDictionary]]];
     [msg setObject:msgModel.location forKey:@"location"];
@@ -137,6 +137,8 @@ static BmobHelper * _singleton;
     //    查询评论的人
     //    [bquery includeKey:@"comment"];
     
+    //默认按照更新时间降序排列
+    [bquery orderByDescending:@"updatedAt"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         if (error) {
@@ -282,10 +284,11 @@ static BmobHelper * _singleton;
             
             responseArray(resultArray,nil);
         }
-        if (responseArray) {
+        else{
             
             responseArray(resultArray,error);
         }
+
         
     }];
 }

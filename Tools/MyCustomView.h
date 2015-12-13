@@ -82,4 +82,13 @@
                                 tag:(NSInteger)tag
                              title:(NSString *)title
                    backgroundColor:(UIColor *)bgColor;
+/**
+ *  图片圆角
+ *
+ *  @param image <#image description#>
+ *  @param inset <#inset description#>
+ *
+ *  @return <#return value description#>
+ */
++ (UIImage*) circleImage:(UIImage*) image withParam:(CGFloat) inset;
 @end

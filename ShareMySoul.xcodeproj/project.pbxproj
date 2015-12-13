@@ -23,7 +23,6 @@
 		AD83494C1C15DD1D00457D92 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349251C15DC0A00457D92 /* MapViewController.m */; };
 		AD83494D1C15DD1D00457D92 /* HomePageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83492C1C15DC2400457D92 /* HomePageTitleView.m */; };
 		AD83494E1C15DD1D00457D92 /* MyFeelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349301C15DC4E00457D92 /* MyFeelViewController.m */; };
-		AD83494F1C15DD1D00457D92 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349321C15DC4E00457D92 /* NearbyViewController.m */; };
 		AD8349501C15DD1D00457D92 /* TestBmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349341C15DC4E00457D92 /* TestBmobViewController.m */; };
 		AD8349511C15DD1D00457D92 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349361C15DC4E00457D92 /* UserInfoViewController.m */; };
 		AD8349531C15DD1D00457D92 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83493E1C15DC5A00457D92 /* RegisterModel.m */; };
@@ -50,6 +49,13 @@
 		AD86666E1C0DE078001249CF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666D1C0DE078001249CF /* CoreTelephony.framework */; };
 		AD8666701C0DE082001249CF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD86666F1C0DE082001249CF /* libstdc++.tbd */; };
 		AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8666711C0DE08B001249CF /* libz.tbd */; };
+		AD9E17621C1AAFD0005A5DE2 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9E17611C1AAFD0005A5DE2 /* NearbyViewController.m */; };
+		AD9E17661C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9E17641C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.m */; };
+		AD9E17671C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD9E17651C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.xib */; };
+		AD9E176B1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9E17691C1AEA88005A5DE2 /* MsgNoPicTableViewCell.m */; };
+		AD9E176C1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD9E176A1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.xib */; };
+		AD9E176E1C1B003C005A5DE2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E176D1C1B003C005A5DE2 /* QuartzCore.framework */; };
+		ADA89D6D1C19CF1E000654E0 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA89D6C1C19CF1E000654E0 /* CommentView.m */; };
 		ADAF648B1C1962D100913C8D /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF648A1C1962D100913C8D /* CustomAnnotation.m */; };
 		ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981B1C0B1FF00023499E /* Main.storyboard */; };
 		ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBA981E1C0B1FF00023499E /* Assets.xcassets */; };
@@ -120,8 +126,6 @@
 		AD83492C1C15DC2400457D92 /* HomePageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageTitleView.m; sourceTree = "<group>"; };
 		AD83492F1C15DC4E00457D92 /* MyFeelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeelViewController.h; sourceTree = "<group>"; };
 		AD8349301C15DC4E00457D92 /* MyFeelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeelViewController.m; sourceTree = "<group>"; };
-		AD8349311C15DC4E00457D92 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
-		AD8349321C15DC4E00457D92 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 		AD8349331C15DC4E00457D92 /* TestBmobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBmobViewController.h; sourceTree = "<group>"; };
 		AD8349341C15DC4E00457D92 /* TestBmobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBmobViewController.m; sourceTree = "<group>"; };
 		AD8349351C15DC4E00457D92 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -147,7 +151,18 @@
 		AD86666F1C0DE082001249CF /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AD8666711C0DE08B001249CF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AD8666731C0DE165001249CF /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		AD9E17601C1AAFD0005A5DE2 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
+		AD9E17611C1AAFD0005A5DE2 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		AD9E17631C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMoreInfoTableViewCell.h; sourceTree = "<group>"; };
+		AD9E17641C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMoreInfoTableViewCell.m; sourceTree = "<group>"; };
+		AD9E17651C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgMoreInfoTableViewCell.xib; sourceTree = "<group>"; };
+		AD9E17681C1AEA88005A5DE2 /* MsgNoPicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgNoPicTableViewCell.h; sourceTree = "<group>"; };
+		AD9E17691C1AEA88005A5DE2 /* MsgNoPicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgNoPicTableViewCell.m; sourceTree = "<group>"; };
+		AD9E176A1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgNoPicTableViewCell.xib; sourceTree = "<group>"; };
+		AD9E176D1C1B003C005A5DE2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AD9F86E71C1520A400E507A7 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
+		ADA89D6B1C19CF1E000654E0 /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		ADA89D6C1C19CF1E000654E0 /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
 		ADAF64891C1962D100913C8D /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		ADAF648A1C1962D100913C8D /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		ADBA980F1C0B1FEF0023499E /* ShareMySoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMySoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD9E176E1C1B003C005A5DE2 /* QuartzCore.framework in Frameworks */,
 				ADF152361C191FA30010764F /* CoreImage.framework in Frameworks */,
 				AD8666721C0DE08B001249CF /* libz.tbd in Frameworks */,
 				AD8666701C0DE082001249CF /* libstdc++.tbd in Frameworks */,
@@ -337,6 +353,8 @@
 		AD8349031C15D92400457D92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADA89D6B1C19CF1E000654E0 /* CommentView.h */,
+				ADA89D6C1C19CF1E000654E0 /* CommentView.m */,
 				AD3D29441C1860A000D495EF /* CollecctionViewFlowLayout.h */,
 				AD3D29451C1860A000D495EF /* CollecctionViewFlowLayout.m */,
 				AD3D29461C1860A000D495EF /* CollectionViewCell.h */,
@@ -359,6 +377,8 @@
 		AD8349041C15D92C00457D92 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AD9E17601C1AAFD0005A5DE2 /* NearbyViewController.h */,
+				AD9E17611C1AAFD0005A5DE2 /* NearbyViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -373,6 +393,12 @@
 		AD8349061C15D92C00457D92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AD9E17631C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.h */,
+				AD9E17641C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.m */,
+				AD9E17651C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.xib */,
+				AD9E17681C1AEA88005A5DE2 /* MsgNoPicTableViewCell.h */,
+				AD9E17691C1AEA88005A5DE2 /* MsgNoPicTableViewCell.m */,
+				AD9E176A1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,8 +408,6 @@
 			children = (
 				AD83492F1C15DC4E00457D92 /* MyFeelViewController.h */,
 				AD8349301C15DC4E00457D92 /* MyFeelViewController.m */,
-				AD8349311C15DC4E00457D92 /* NearbyViewController.h */,
-				AD8349321C15DC4E00457D92 /* NearbyViewController.m */,
 				AD8349331C15DC4E00457D92 /* TestBmobViewController.h */,
 				AD8349341C15DC4E00457D92 /* TestBmobViewController.m */,
 				AD8349351C15DC4E00457D92 /* UserInfoViewController.h */,
@@ -552,6 +576,7 @@
 		BFAE867869553D2BC5572004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD9E176D1C1B003C005A5DE2 /* QuartzCore.framework */,
 				ADF152351C191FA30010764F /* CoreImage.framework */,
 				AD8666731C0DE165001249CF /* TencentOpenApi_IOS_Bundle.bundle */,
 				AD8666711C0DE08B001249CF /* libz.tbd */,
@@ -678,9 +703,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8666611C0DDEE7001249CF /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				AD9E17671C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.xib in Resources */,
 				ADC9A3D71C0BE90B00CF720B /* 需求 in Resources */,
 				ADBA98221C0B1FF00023499E /* LaunchScreen.storyboard in Resources */,
 				ADF152381C192F7C0010764F /* ImageShareCell.xib in Resources */,
+				AD9E176C1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.xib in Resources */,
 				ADBA981F1C0B1FF00023499E /* Assets.xcassets in Resources */,
 				ADBA981D1C0B1FF00023499E /* Main.storyboard in Resources */,
 			);
@@ -756,10 +783,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				509657FB1C17105700A4E644 /* MapCalloutView.m in Sources */,
+				AD9E176B1C1AEA88005A5DE2 /* MsgNoPicTableViewCell.m in Sources */,
 				ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */,
 				AD3D29431C18601100D495EF /* ShowPicsViewController.m in Sources */,
 				AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */,
 				AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */,
+				AD9E17661C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.m in Sources */,
 				ADAF648B1C1962D100913C8D /* CustomAnnotation.m in Sources */,
 				AD8349461C15DD1D00457D92 /* BasicModel.m in Sources */,
 				AD8349471C15DD1D00457D92 /* RootModel.m in Sources */,
@@ -770,13 +799,14 @@
 				AD83494D1C15DD1D00457D92 /* HomePageTitleView.m in Sources */,
 				AD83494E1C15DD1D00457D92 /* MyFeelViewController.m in Sources */,
 				AD8349701C15E26300457D92 /* LogInViewController.m in Sources */,
-				AD83494F1C15DD1D00457D92 /* NearbyViewController.m in Sources */,
 				AD8349501C15DD1D00457D92 /* TestBmobViewController.m in Sources */,
 				AD8349731C15E32400457D92 /* CicleView.m in Sources */,
 				AD8349511C15DD1D00457D92 /* UserInfoViewController.m in Sources */,
 				AD8349531C15DD1D00457D92 /* RegisterModel.m in Sources */,
 				AD8349541C15DD1D00457D92 /* UserInfoModel.m in Sources */,
 				AD8349551C15DD1D00457D92 /* NSString+MD5.m in Sources */,
+				AD9E17621C1AAFD0005A5DE2 /* NearbyViewController.m in Sources */,
+				ADA89D6D1C19CF1E000654E0 /* CommentView.m in Sources */,
 				AD3D29481C1860A000D495EF /* CollecctionViewFlowLayout.m in Sources */,
 				AD8349561C15DD1D00457D92 /* UserManage.m in Sources */,
 				AD8349571C15DD1D00457D92 /* MyCustomView.m in Sources */,

@@ -14,11 +14,59 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAJ-w6-PL6">
-                    <rect key="frame" x="5" y="252" width="224" height="48"/>
+                    <rect key="frame" x="5" y="242" width="224" height="58"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ko4-RQ-SLr">
+                            <rect key="frame" x="0.0" y="5" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="huA-vm-HG4"/>
+                                <constraint firstAttribute="height" constant="30" id="qwS-KB-Mz1"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxX-vA-tTa">
+                            <rect key="frame" x="35" y="5" width="189" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esQ-FS-QaG">
+                            <rect key="frame" x="35" y="43" width="189" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="Y0v-l1-h1F"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A28-R5-fj7">
+                            <rect key="frame" x="35" y="35" width="189" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="LxX-vA-tTa" secondAttribute="trailing" id="4id-ZS-v1G"/>
+                        <constraint firstAttribute="bottom" secondItem="esQ-FS-QaG" secondAttribute="bottom" id="71g-oM-YCO"/>
+                        <constraint firstItem="LxX-vA-tTa" firstAttribute="top" secondItem="iAJ-w6-PL6" secondAttribute="top" constant="5" id="CDU-RZ-qfJ"/>
+                        <constraint firstItem="esQ-FS-QaG" firstAttribute="width" secondItem="LxX-vA-tTa" secondAttribute="width" id="CSq-xk-DzE"/>
+                        <constraint firstItem="Ko4-RQ-SLr" firstAttribute="leading" secondItem="iAJ-w6-PL6" secondAttribute="leading" id="Ezg-9L-Daw"/>
+                        <constraint firstItem="Ko4-RQ-SLr" firstAttribute="top" secondItem="iAJ-w6-PL6" secondAttribute="top" constant="5" id="Ldz-i6-ytA"/>
+                        <constraint firstAttribute="trailing" secondItem="A28-R5-fj7" secondAttribute="trailing" id="Sc8-Nb-BoV"/>
+                        <constraint firstItem="LxX-vA-tTa" firstAttribute="leading" secondItem="Ko4-RQ-SLr" secondAttribute="trailing" constant="5" id="WsT-5G-rcl"/>
+                        <constraint firstAttribute="bottom" secondItem="A28-R5-fj7" secondAttribute="bottom" constant="2" id="cTu-8W-FCr"/>
+                        <constraint firstItem="A28-R5-fj7" firstAttribute="width" secondItem="LxX-vA-tTa" secondAttribute="width" id="fcL-ZT-N3d"/>
+                        <constraint firstAttribute="trailing" secondItem="esQ-FS-QaG" secondAttribute="trailing" id="pUz-ft-2dL"/>
+                    </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="qq_btns" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-ba-f0z">
-                    <rect key="frame" x="5" y="8" width="224" height="242"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-ba-f0z">
+                    <rect key="frame" x="5" y="5" width="224" height="232"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="LWc-ba-f0z" secondAttribute="height" multiplier="2:3" id="HqX-Vt-EPh"/>
                     </constraints>
@@ -41,7 +89,7 @@
                 <constraint firstItem="iAJ-w6-PL6" firstAttribute="top" secondItem="LWc-ba-f0z" secondAttribute="bottom" constant="5" id="G9z-9A-DyF"/>
                 <constraint firstAttribute="trailing" secondItem="iAJ-w6-PL6" secondAttribute="trailing" constant="5" id="PW8-Yl-KWn"/>
                 <constraint firstItem="LWc-ba-f0z" firstAttribute="top" secondItem="H6O-hc-7Tj" secondAttribute="top" constant="5" id="Rxb-dC-DEc"/>
-                <constraint firstItem="iAJ-w6-PL6" firstAttribute="height" secondItem="LWc-ba-f0z" secondAttribute="height" multiplier="1:5" id="aK9-3v-Ldw"/>
+                <constraint firstItem="iAJ-w6-PL6" firstAttribute="height" secondItem="LWc-ba-f0z" secondAttribute="height" multiplier="1:4" id="aK9-3v-Ldw"/>
                 <constraint firstAttribute="trailing" secondItem="LWc-ba-f0z" secondAttribute="trailing" constant="5" id="hlC-JN-QGn"/>
                 <constraint firstItem="iAJ-w6-PL6" firstAttribute="leading" secondItem="H6O-hc-7Tj" secondAttribute="leading" constant="5" id="rPA-uh-Fr1"/>
             </constraints>
@@ -53,7 +101,4 @@
             <point key="canvasLocation" x="446" y="0.5"/>
         </collectionReusableView>
     </objects>
-    <resources>
-        <image name="qq_btns" width="60" height="60"/>
-    </resources>
 </document>
