@@ -104,7 +104,8 @@
     static NSString * cellNoId = @"cellNoId";
     MsgMoreInfoTableViewCell * cell;
     MessageModel * msgModel= _dataArray[indexPath.row];
-    if ([msgModel.pic isKindOfClass:[NSNull class]]) {
+    if (!msgModel.pic.length) {
+        
         cell = [tableView dequeueReusableCellWithIdentifier:cellNoId];
     }
     else{
@@ -120,7 +121,7 @@
 
 - (void)loadData {
     
-    [BmobHelper messageWithCurrentLocation:[UserManage defaultUser].coordinate maxDistance:10 withBlock:^(NSArray *responseArray, NSError *error) {
+    [BmobHelper messageWithCurrentLocation:[UserManage defaultUser].coordinate maxDistance:100 withBlock:^(NSArray *responseArray, NSError *error) {
         if (responseArray) {
             _dataArray = [responseArray mutableCopy];
             

@@ -165,6 +165,9 @@ static BmobHelper * _singleton;
                         
                         for (NSString * key in modelPropertyTitleDic.allKeys) {
                             id value = [obj objectForKey:key];
+                            if ([value isKindOfClass:[NSNull class]]) {
+                                value = nil;
+                            }
                             [model setValue:value forKey:key];
                         }
                         //消息坐标

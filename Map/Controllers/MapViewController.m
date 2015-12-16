@@ -189,8 +189,6 @@ typedef void (^callBack)();
         
         MapAnnotationView * anView = (MapAnnotationView *)view;
         [anView toggleCallout];
-        
-
     }
     
 }
@@ -288,7 +286,7 @@ typedef void (^callBack)();
     //加载数据
     //加载框
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [BmobHelper messageWithCurrentLocation:[UserManage defaultUser].coordinate maxDistance:10 withBlock:^(NSArray *responseArray, NSError *error) {
+    [BmobHelper messageWithCurrentLocation:[UserManage defaultUser].coordinate maxDistance:100 withBlock:^(NSArray *responseArray, NSError *error) {
         
         if (responseArray) {
             
@@ -404,7 +402,7 @@ typedef void (^callBack)();
     UserManage * manager = [UserManage defaultUser];
     
     //获取反地理编码
-    CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
+    CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:manager.coordinate.latitude longitude:manager.coordinate.longitude];
     CLGeocoder * revGeo = [[CLGeocoder alloc] init];
     __weak typeof (self) weakSelf = self;
     [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {

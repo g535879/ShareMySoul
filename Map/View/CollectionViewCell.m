@@ -28,14 +28,11 @@
 
 - (void)setModel:(MessageModel *)model {
     
-    model.pic = @"http://file.bmob.cn/M02/E7/96/oYYBAFZoJRGAWo73AABHuiUubKA234.jpg";
-    
-    [self.headImageView setImage:nil];
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.author.head_image] placeholderImage:imageStar(default_head_image)];
     [self.shareImageView sd_setImageWithURL:[NSURL URLWithString:model.pic]];
     self.locationLabel.text = model.currentAddress;
-//    self.contentLabel.text = model.content;
-//    self.timeLabel.text = (NSString *)model.updatedAt;
+    self.contentLabel.text = model.content;
+    self.timeLabel.text = (NSString *)model.updatedAt;
 }
 
 @end
