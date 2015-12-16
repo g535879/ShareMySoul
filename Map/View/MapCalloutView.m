@@ -38,10 +38,6 @@
 //        self.backgroundColor = [UIColor clearColor];
         [self initSubViews];
         
-        
-        
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(calloutViewClick:)]];
-        
     }
 
     return self;
@@ -123,38 +119,24 @@
 - (void)drawInContext:(CGContextRef)context{
     
     CGContextSetLineWidth(context, 2.0);
-    
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.8].CGColor);
     
     [self getDrawPath:context];
-    CGContextFillPath(context);
+    CGContextClosePath(context);
 }
 
 
 - (void)getDrawPath:(CGContextRef)context{
 
     CGRect rrect = self.bounds;
-    CGFloat redius = 16.0f;
-    CGFloat minx = CGRectGetMinX(rrect);
-    
-    CGFloat midx = CGRectGetMidX(rrect);
-    CGFloat maxx = CGRectGetMaxX(rrect);
-    
-    CGFloat miny = CGRectGetMinY(rrect);
-    CGFloat maxy = CGRectGetMaxY(rrect) - kArrorHeight;
-    
-    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.8].CGColor);
-    NSLog(@"minx:%f  midx:%f  maxx:%f  miny:%f  maxy:%f",minx,midx,maxx,miny,maxy);
-    
-    
-    CGContextMoveToPoint(context, midx + kArrorHeight, maxy);
-    CGContextAddLineToPoint(context, midx, maxy + kArrorHeight);
-    CGContextAddLineToPoint(context, midx - kArrorHeight, maxy);
-    CGContextAddArcToPoint(context, minx, maxy, minx, miny, redius);
-    CGContextAddArcToPoint(context, minx, minx, maxx, miny, redius);
-    CGContextAddArcToPoint(context, maxx, miny, maxx, maxy, redius);
-    CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, redius);
-    //封闭当前线路
-    CGContextClosePath(context);
+    CGFloat radius = 6.0;
+    CGFloat minx = CGRectGetMinX(rrect),
+    midx = CGRectGetMidX(rrect),
+    maxx = CGRectGetMaxX(rrect);
+    CGFloat miny = CGRectGetMinY(rrect),
+    maxy = CGRectGetMaxY(rrect)-kArrorHeight;
+    CGContextMoveToPoint(context, midx+kArrorHeight, maxy); CGContextAddLineToPoint(context,midx, maxy+kArrorHeight); CGContextAddLineToPoint(context,midx-kArrorHeight, maxy);
+    CGContextAddArcToPoint(context, minx, maxy, minx, miny, radius); CGContextAddArcToPoint(context, minx, minx, maxx, miny, radius); CGContextAddArcToPoint(context, maxx, miny, maxx, maxx, radius); CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, radius); CGContextClosePath(context);
 }
 //    CGFloat redius = 6.0f;
 //    CGFloat minx = CGRectGetMinX(rrect);

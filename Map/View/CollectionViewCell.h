@@ -9,6 +9,27 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionViewCell : UICollectionViewCell
+/**
+ *  分享图片
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *shareImageView;
+/**
+ *  头像
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+/**
+ *  内容
+ */
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+/**
+ *  位置
+ */
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
+/**
+ *  时间
+ */
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 //赋值
 - (void)setModel:(MessageModel *)model;

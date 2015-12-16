@@ -17,9 +17,10 @@
 - (id)valueForKey:(NSString *)key {
     
     id value = [super valueForKey:key];
-    if (value == [NSNull null]) {
+    if ([value isKindOfClass:[NSNull class]] ) {
         return nil;
     }
     return value;
 }
+
 @end

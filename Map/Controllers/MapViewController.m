@@ -9,7 +9,9 @@
 #import "CustomAnnotation.h"
 #import "MapViewController.h"
 #import "CommentView.h"
-@interface MapViewController ()<commentDelegate>{
+#import "SendMsgViewController.h"
+
+@interface MapViewController ()<commentDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
     
     //大头针数组
     NSMutableArray * _annotationArray;
@@ -23,6 +25,7 @@
     //底部消息发送view
     CommentView * _commentView;
     
+    
     //键盘是否弹起
     BOOL isKeyBoardUp;
     
@@ -32,6 +35,8 @@
 @property (nonatomic,copy) CLLocationManager *locationManger;
 
 @end
+
+typedef void (^callBack)();
 
 @implementation MapViewController
 
@@ -48,6 +53,7 @@
     _svc.view.hidden = YES;
     [self addChildViewController:_svc];
     
+
     //监听键盘变化
     //监听键盘弹起事件
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -90,7 +96,7 @@
 #pragma mark -创建定位到当前的位置按钮
 - (void)createMeButton{
     
-
+    //我的位置
     _meButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _meButton.frame = CGRectMake(_mapView.frame.size.width - 40 * scale_screen -20 , _mapView.logoCenter.y - _mapView.compassSize.height - (_mapView.logoSize.height / 2) - 49, _mapView.compassSize.width, _mapView.compassSize.height);
 
@@ -99,8 +105,13 @@
     [_meButton setBackgroundImage:imageNameRenderStr(@"me") forState:UIControlStateNormal];
     [_meButton addTarget:self action:@selector(meButtonclicked) forControlEvents:UIControlEventTouchUpInside];
     [_mapView addSubview:_meButton];
-
+    
+    //相机按钮
+    UIButton * cameraBtn = [MyCustomView createButtonWithFrame:CGRectMake(_meButton.frame.origin.x, _meButton.frame.origin.y - _meButton.frame.size.height - 10, _meButton.frame.size.width, _meButton.frame.size.width) target:self SEL:@selector(CamearBtnClick) backgroundImage:imageNameRenderStr(@"camera") title:nil forwardImage:nil];
+    [cameraBtn setBackgroundColor:[UIColor colorWithRed:0.90f green:0.90f blue:0.90f alpha:1.00f]];
+    [_mapView addSubview:cameraBtn];
 }
+
 //定位到当前位置点击事件
 - (void)meButtonclicked{
     
@@ -177,7 +188,7 @@
     if ([view.annotation isKindOfClass:[CustomAnnotation class]]) {
         
         MapAnnotationView * anView = (MapAnnotationView *)view;
-//        [anView toggleCallout];
+        [anView toggleCallout];
         
 
     }
@@ -207,23 +218,6 @@
         //弹出图片滚动视图
         [self calloutViewTap];
         
-      //  [anView toggleCallout];
-        
-//        //关闭其他气泡
-//        for (id ann in _mapView.annotations) {
-//            
-//            if ([ann isKindOfClass:[CustomAnnotation class]]) {
-//                
-//                MapAnnotationView * mav = (MapAnnotationView *)[(CustomAnnotation *)ann annotationView];
-//                
-//                if (mav.calloutViewSelected && mav != view) {
-//                    //关闭气泡
-////                    [mav hiddenCallout];
-//                }
-//            }
-//            
-//        }
-        
     }
     
     
@@ -245,20 +239,12 @@
         CustomAnnotation * customAnnotation = (CustomAnnotation *)annotation;
         customAnnotation.annotationView = annotationView;
         
-        MessageModel *message = [self modelBylocation:annotation.coordinate];
-        
-        UserInfoModel *user = message.author;
-        
+        annotationView.msgModel = [self modelBylocation:annotation.coordinate];
 
-        //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.head_image]]];
-        
-        
-        //annotationView.image = image;
-        //annotationView.imageView.image = image;
-        
-        //annotationView.msgModel = message;
-
-        
+        [NetManager loadImageWithUrl:[NSURL URLWithString:annotationView.msgModel.author.head_image] clearCache:NO block:^(UIImage *image, NSError *error) {
+            annotationView.image = [MyCustomView circleImage:image withParam:20];
+        }];
+                
         return  annotationView;
     }
 
@@ -300,23 +286,37 @@
 - (void)calloutViewTap{
 
     //加载数据
-    
+    //加载框
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [BmobHelper messageWithCurrentLocation:[UserManage defaultUser].coordinate maxDistance:10 withBlock:^(NSArray *responseArray, NSError *error) {
+        
         if (responseArray) {
-            [_svc.picsArray removeAllObjects];
-            for (MessageModel * model in responseArray) {
-                if ([model.pic isKindOfClass:[NSString class]]) {
-                    [_svc.picsArray addObject:model.pic];
+            
+            //筛选出有图片的模型
+            for (MessageModel * m in responseArray) {
+                
+                if ([m.pic isKindOfClass:[NSString class]]) {
+                    if (m.pic.length > 0) {
+                        [_svc.msgModelArr addObject:m];
+                    }
+                }
+                
+                //取10张
+                if (_svc.msgModelArr.count > 9) {
+                    break;
                 }
             }
             
-            if (_svc.picsArray.count) {
+            if (_svc.msgModelArr.count) {
                 //显示图片展示view
                 [self.view bringSubviewToFront:_svc.view];
                 [_svc reloadData];
+                
+                //加载框
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                 _svc.view.hidden = NO;
             }
-            
+
         }
         else{
             NSLog(@"%@",error);
@@ -378,9 +378,12 @@
     //创建大头针
     for (MessageModel * model in updateArray) {
         
-        if (model.pic) {
-            //图片数组赋值
-            [_picsArray addObject:model.pic];
+        if ([model.pic isKindOfClass:[NSString class]]) {
+            if (model.pic.length) {
+                //图片数组赋值
+                [_picsArray addObject:model.pic];
+            }
+            
         }
         [self createMapPointAnnotationWithCLLocationCoordinate2D:CLLocationCoordinate2DMake(model.location.latitude, model.location.longitude)];
 
@@ -391,11 +394,11 @@
 #pragma mark - 发送消息按钮点击代理事件
 - (void)commonClick:(NSString *)msgStr {
     [self.view endEditing:YES];
-    [self sendMsg:msgStr];
+    [self sendMsg:msgStr image:nil];
 }
 
 #pragma mark -  发送消息
-- (void)sendMsg:(NSString *)msgStr {
+- (void)sendMsg:(NSString *)msgStr image:(UIImage *)image {
     
     //当前用户
     UserManage * manager = [UserManage defaultUser];
@@ -403,6 +406,7 @@
     //获取反地理编码
     CLLocation * clLocation = [[CLLocation alloc] initWithLatitude:_userLocation.coordinate.latitude longitude:_userLocation.coordinate.longitude];
     CLGeocoder * revGeo = [[CLGeocoder alloc] init];
+    __weak typeof (self) weakSelf = self;
     [revGeo reverseGeocodeLocation:clLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
 
         if (!error && [placemarks count] > 0)
@@ -415,20 +419,14 @@
             sendMsg.currentAddress = manager.currentAddress;
             [sendMsg setGeoPoint:manager.coordinate];
             sendMsg.content = msgStr;
-            //加载框
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            //发送消息
-            [BmobHelper sendMessageWithMessageModel:sendMsg withBlock:^(BOOL isSuccess, NSError *error) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                if (error) {
-                    NSLog(@"%@",error);
-                }
-                else{
-                    //获取当前区域消息列表
-                    [self newMesInfo];
-                }
+            
+            [self sendMsgWithModel:sendMsg withImage:image withBlock:^{
+                //获取当前区域消息列表
+                [weakSelf newMesInfo];
             }];
+            
         }
+        
         else
         {
             NSLog(@"ERROR: %@", error);
@@ -500,6 +498,99 @@
 
 }
 
+#pragma mark - 相机按钮点击
+- (void)CamearBtnClick {
+    
+    //alertView
+    UIAlertView * alertView = [UIAlertView showAlertViewWithTitle:@"提示" message:@"请选择图片来源" cancelButtonTitle:@"取消" otherButtonTitles:@[@"相机",@"相册"] onDismiss:^(long buttonIndex) {
+        
+        switch (buttonIndex) {
+            case 0:
+                //相机
+            {
+                //拍照方法
+                //调用相机
+                UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+                
+                if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                    //设置调用的类型
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    
+                    //设置代理
+                    picker.delegate = self;
+            
+                    if(isiOS8) {
+                        
+                        self.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+                        
+                    }
+                    [self presentViewController:picker animated:YES completion:^{
+                        
+                    }];
+                }
+                else{
+                    [[UIAlertView showAlertViewWithTitle:@"提示" message:@"没有摄像头" cancelButtonTitle:@"确定" otherButtonTitles:nil onDismiss:nil onCancel:nil] show];
+                }
+
+            }
+                break;
+            case 1:
+                //相册
+            {
+                //调起相册
+                [self useAlnum];
+            }
+                
+                break;
+            default:
+                break;
+        }
+    } onCancel:^{
+        
+    }];
+    [alertView show];
+}
+
+
+
+#pragma mark - 获取拍下的照片
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    NSData * imageData;
+    NSString * mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {  //图片文件
+        //获得图片信息
+        UIImage * image = info[UIImagePickerControllerOriginalImage];
+        
+        //压缩图片
+        imageData = UIImageJPEGRepresentation(image, 0);
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    //跳转至发送消息界面
+    SendMsgViewController * sgv = [[SendMsgViewController alloc] init];
+    sgv.image = [UIImage imageWithData:imageData];
+    [self presentViewController:sgv animated:YES completion:nil];
+}
+
+#pragma mark - 使用相册
+- (void)useAlnum {
+    
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    //设置图片是否被编辑
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+#pragma mark - 相机取消按钮
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 //根据坐标获取message模型
 - (MessageModel *)modelBylocation:(CLLocationCoordinate2D )point {
     
@@ -509,6 +600,61 @@
         }
     }
     return nil;
+}
+
+
+//发消息
+- (void)sendMsgWithModel:(MessageModel *)model withImage:(UIImage *)image withBlock:(callBack)cb{
+    
+    
+    //加载框
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
+    if (image) {
+        [BmobHelper uploadFileWithFileData:image block:^(NSString *url, NSError *error) {
+            
+            if (url) {
+                
+                model.pic = url;
+            }
+           
+            [self sendMsgWithModel:model withBlock:^{
+                
+                if (cb) {
+                    
+                    cb();
+                }
+            }];
+        }];
+        return;
+    }
+    
+    [self sendMsgWithModel:model withBlock:^{
+        
+        if (cb) {
+            
+            cb();
+        }
+    }];
+    
+}
+
+- (void)sendMsgWithModel:(MessageModel *)model withBlock:(callBack)cb {
+    
+    //发送消息
+    [BmobHelper sendMessageWithMessageModel:model withBlock:^(BOOL isSuccess, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (error) {
+            NSLog(@"%@",error);
+        }
+        else{
+            if (cb) {
+                
+                cb();
+            }
+        }
+    }];
 }
 
 @end

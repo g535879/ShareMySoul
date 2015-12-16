@@ -30,8 +30,8 @@
     [super viewDidLoad];
     
     
-    [self pushHomePage];
-    return;
+//    [self pushHomePage];
+//    return;
     //布局
     [self initLayout];
     //加载用户数据

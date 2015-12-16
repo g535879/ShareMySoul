@@ -17,15 +17,25 @@
 @implementation CollectionViewCell
 
 
+- (void)awakeFromNib {
+    
+    self.headImageView.layer.cornerRadius = 19 * scale_screen;
+    self.headImageView.layer.masksToBounds = YES;
+    
+    [self.locationLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.timeLabel setAdjustsFontSizeToFitWidth:YES];
+}
+
 - (void)setModel:(MessageModel *)model {
     
-//    [self.headImageView setImage:nil];
-//    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.author.head_image] placeholderImage:imageStar(default_head_image)];
-//    self.nickName.text = model.author.nickname;
-//    [self.shareImage sd_setImageWithURL:[NSURL URLWithString:model.pic]];
-//    self.locationLabel.text = model.currentAddress;
-//    self.content.text = model.content;
-//    self.updateTimeLabel.text = (NSString *)model.updatedAt;
+    model.pic = @"http://file.bmob.cn/M02/E7/96/oYYBAFZoJRGAWo73AABHuiUubKA234.jpg";
+    
+    [self.headImageView setImage:nil];
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:model.author.head_image] placeholderImage:imageStar(default_head_image)];
+    [self.shareImageView sd_setImageWithURL:[NSURL URLWithString:model.pic]];
+    self.locationLabel.text = model.currentAddress;
+//    self.contentLabel.text = model.content;
+//    self.timeLabel.text = (NSString *)model.updatedAt;
 }
 
 @end

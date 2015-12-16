@@ -11,7 +11,6 @@
 #import "WelcomePageViewController.h"
 #import "UserInfoModel.h"
 #import "LogInViewController.h"
-
 @interface AppDelegate ()
 
 @end

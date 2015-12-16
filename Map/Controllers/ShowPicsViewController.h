@@ -10,14 +10,10 @@
 
 @interface ShowPicsViewController : BasicViewController
 /**
- *  图片url数据源
+ *  数据源
  */
-@property (nonatomic,copy) NSMutableArray * picsArray;
+@property (nonatomic,copy) NSMutableArray * msgModelArr;
 
-/**
- *  背景图片
- */
-@property (nonatomic, strong) UIImage * bgImage;
 //刷新数据
 - (void)reloadData;
 @end

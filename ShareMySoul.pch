@@ -38,6 +38,7 @@
 #import "MyCustomView.h"
 #import "NetManager.h"
 #import "UserManage.h"
+#import "UIAlertView+Blocks.h"
 /**
  *  高德地图API
  */

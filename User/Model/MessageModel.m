@@ -31,6 +31,17 @@
     return NO;
 }
 
+//- (NSString *)currentAddress {
+//    
+//    if ([_currentAddress isKindOfClass:[NSNull class]]) {
+//        return nil;
+//    }
+//    return _currentAddress;
+//}
+
+- (id)valueForKey:(NSString *)key {
+    return [super valueForKey:key];
+}
 
 
 @end

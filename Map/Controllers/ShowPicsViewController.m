@@ -10,7 +10,6 @@
 
 #import "CollecctionViewFlowLayout.h"
 #import "CollectionViewCell.h"
-#import "MsgMoreInfoTableViewCell.h"
 
 @interface ShowPicsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate> {
     UICollectionView * _collectionView;
@@ -34,10 +33,9 @@
     
     [_collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewTouch:)]];
     
-//    [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-    [_collectionView registerNib:[UINib nibWithNibName:@"ImageShareCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    
-    [_collectionView registerNib:[UINib nibWithNibName:@"MsgMoreInfoTableViewCell" bundle:nil] forCellWithReuseIdentifier:@"cellId"];
+
+    [_collectionView registerNib:[UINib nibWithNibName:@"ImageShareCell" bundle:nil] forCellWithReuseIdentifier:@"cellId"];
+
     [_collectionView setBackgroundColor:[UIColor clearColor]];
     
     [self.view addSubview:_collectionView];
@@ -58,17 +56,12 @@
 }
 
 #pragma mark - getter
-- (NSMutableArray *)picsArray {
-    if (!_picsArray) {
-        _picsArray = [@[] mutableCopy];
-    }
-    return _picsArray;
-}
+
 
 - (NSInteger)collectionView:(UICollectionView *)view
      numberOfItemsInSection:(NSInteger)section;
 {
-    return self.picsArray.count;
+    return self.msgModelArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -77,6 +70,8 @@
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
 
     [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(subCellTapTouch:)]];
+    MessageModel * model = self.msgModelArr[indexPath.row];
+    [cell setModel:model];
     return cell;
 }
 
@@ -88,6 +83,15 @@
 - (void)reloadData {
     
     [_collectionView reloadData];
+}
+
+
+#pragma mark - getter
+- (NSMutableArray *)msgModelArr {
+    if (!_msgModelArr) {
+        _msgModelArr = [@[] mutableCopy];
+    }
+    return _msgModelArr;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

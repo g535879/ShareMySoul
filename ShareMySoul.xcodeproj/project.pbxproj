@@ -13,6 +13,7 @@
 		AD3D29431C18601100D495EF /* ShowPicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3D29421C18601100D495EF /* ShowPicsViewController.m */; };
 		AD3D29481C1860A000D495EF /* CollecctionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3D29451C1860A000D495EF /* CollecctionViewFlowLayout.m */; };
 		AD3D29491C1860A000D495EF /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3D29471C1860A000D495EF /* CollectionViewCell.m */; };
+		AD6C830D1C1ECC1200A15306 /* SendMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6C830C1C1ECC1200A15306 /* SendMsgViewController.m */; };
 		AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83490F1C15DBC400457D92 /* BasicViewController.m */; };
 		AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349111C15DBC400457D92 /* SlideViewController.m */; };
 		AD8349461C15DD1D00457D92 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8349151C15DBD000457D92 /* BasicModel.m */; };
@@ -106,6 +107,10 @@
 		AD5352F41C157861002F4444 /* NetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetManager.h; sourceTree = "<group>"; };
 		AD6489F01C149A1E008A26F0 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		AD6489F11C149A1E008A26F0 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		AD6C83091C1EBAFB00A15306 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		AD6C830A1C1EBAFB00A15306 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		AD6C830B1C1ECC1200A15306 /* SendMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMsgViewController.h; sourceTree = "<group>"; };
+		AD6C830C1C1ECC1200A15306 /* SendMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMsgViewController.m; sourceTree = "<group>"; };
 		AD83490E1C15DBC400457D92 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		AD83490F1C15DBC400457D92 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		AD8349101C15DBC400457D92 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
@@ -337,6 +342,8 @@
 				AD8349231C15DC0A00457D92 /* HomePageViewController.m */,
 				AD8349241C15DC0A00457D92 /* MapViewController.h */,
 				AD8349251C15DC0A00457D92 /* MapViewController.m */,
+				AD6C830B1C1ECC1200A15306 /* SendMsgViewController.h */,
+				AD6C830C1C1ECC1200A15306 /* SendMsgViewController.m */,
 				AD3D29411C18601100D495EF /* ShowPicsViewController.h */,
 				AD3D29421C18601100D495EF /* ShowPicsViewController.m */,
 			);
@@ -354,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				ADA89D6B1C19CF1E000654E0 /* CommentView.h */,
-				ADA89D6C1C19CF1E000654E0 /* CommentView.m */,
 				AD3D29441C1860A000D495EF /* CollecctionViewFlowLayout.h */,
 				AD3D29451C1860A000D495EF /* CollecctionViewFlowLayout.m */,
 				AD3D29461C1860A000D495EF /* CollectionViewCell.h */,
@@ -364,6 +370,7 @@
 				AD8349721C15E32400457D92 /* CicleView.m */,
 				AD83492B1C15DC2400457D92 /* HomePageTitleView.h */,
 				AD83492C1C15DC2400457D92 /* HomePageTitleView.m */,
+				ADA89D6C1C19CF1E000654E0 /* CommentView.m */,
 				509657F21C16879300A4E644 /* MapCalloutView.h */,
 				509657F31C16879300A4E644 /* MapCalloutView.m */,
 				509657F51C1687B400A4E644 /* MapAnnotationView.h */,
@@ -787,6 +794,7 @@
 				ADF2FC771C1688C100A14749 /* MessageModel.m in Sources */,
 				AD3D29431C18601100D495EF /* ShowPicsViewController.m in Sources */,
 				AD8349441C15DD1D00457D92 /* BasicViewController.m in Sources */,
+				AD6C830D1C1ECC1200A15306 /* SendMsgViewController.m in Sources */,
 				AD8349451C15DD1D00457D92 /* SlideViewController.m in Sources */,
 				AD9E17661C1AB840005A5DE2 /* MsgMoreInfoTableViewCell.m in Sources */,
 				ADAF648B1C1962D100913C8D /* CustomAnnotation.m in Sources */,
@@ -859,6 +867,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ADBA981C1C0B1FF00023499E /* Base */,
+				AD6C83091C1EBAFB00A15306 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -867,6 +876,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ADBA98211C0B1FF00023499E /* Base */,
+				AD6C830A1C1EBAFB00A15306 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

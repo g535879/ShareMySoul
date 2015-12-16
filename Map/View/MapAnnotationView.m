@@ -31,17 +31,12 @@
     
     if (self) {
         
-//        self.calloutView = [[MapCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
-//        self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0f + self.calloutOffset.x , -CGRectGetHeight(self.calloutView.bounds) / 2.0f +  self.calloutOffset.y);
-//        [self addSubview:self.calloutView];
-//        self.calloutView.hidden = YES;
         
         self.calloutView = [UIButton buttonWithType:UIButtonTypeCustom];
         self.calloutView.frame = CGRectMake(40, -45, kCalloutWidth, kCalloutHeight);
         [self.calloutView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.calloutView setBackgroundImage:[UIImage imageNamed:@"white_chatBuble"] forState:UIControlStateNormal];
-//        self.calloutView.hidden = YES;
-        
+        [self.calloutView.titleLabel setAdjustsFontSizeToFitWidth:YES];
         [self addSubview:self.calloutView];
     }
     

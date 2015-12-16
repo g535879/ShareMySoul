@@ -20,6 +20,8 @@
     UIButton * _loginBtn; //登陆按钮
     UIButton * _myFeelBtn; //我的心情按钮
     
+    UIButton * _settingBtn;//设置页面
+    
     
 }
 
@@ -68,18 +70,7 @@
     _myFeelBtn = [MyCustomView createButtonWithFrame:CGRectMake(_viewMinX, CGRectGetMaxY(_loginBtn.frame) + 30, _viewWidth, _loginBtn.frame.size.height) target:self SEL:@selector(btnClick:) tag:500 + 2 title:@"我的心情" backgroundColor:sys_color(orangeColor)];
     [self.view addSubview:_myFeelBtn];
     
-//    _myInfoMsg = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _myInfoMsg.frame = CGRectMake(_viewMinX, 100, _viewWidth, 40);
-//    _myInfoMsg.tag = 500 + 1;
-//    _myInfoMsg.backgroundColor = [UIColor orangeColor];
-//    [_myInfoMsg setTitle:@"我的心情" forState:UIControlStateNormal];
-//    [_myInfoMsg setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-//    [_myInfoMsg setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [_myInfoMsg addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:_myInfoMsg];
-//
-//    
-//    
+
     UIButton * bmobBtn = [UIButton buttonWithType: UIButtonTypeCustom];
     bmobBtn.frame = CGRectMake(_viewMinX, CGRectGetMaxY(_myFeelBtn.frame) + 30, _viewWidth, 40);
     [bmobBtn setTitle:@"bmob测试" forState:UIControlStateNormal];
@@ -87,6 +78,10 @@
     [bmobBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [bmobBtn setBackgroundColor:[UIColor orangeColor]];
     [self.view addSubview:bmobBtn];
+    
+    
+    //设置按钮
+//    _settingBtn = [MyCustomView createButtonWithFrame:<#(CGRect)#> target:<#(id)#> SEL:<#(SEL)#> backgroundImage:<#(UIImage *)#> title:<#(NSString *)#> forwardImage:<#(UIImage *)#>]
     
 }
 
